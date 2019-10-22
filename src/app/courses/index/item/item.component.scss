@@ -1,4 +1,4 @@
-@import '~src/scss/variables';
+@import "~src/scss/variables";
 .item-component {
   display: flex;
   width: 100%;
@@ -8,13 +8,16 @@
   background-color: $white;
   padding: 24px;
   margin-bottom: 24px;
+
   ul {
     max-width: 80%;
+
     li {
       list-style-type: none;
       display: inline-block;
     }
   }
+
   .title {
     font-family: SourceSansPro;
     font-size: 24px;
@@ -26,6 +29,7 @@
     color: $dark;
     margin-bottom: 8px;
   }
+
   .description {
     font-family: SourceSansPro;
     font-size: 14px;
@@ -36,6 +40,7 @@
     letter-spacing: normal;
     color: $slate-grey;
   }
+
   .duration {
     font-family: SourceSansPro;
     font-size: 12px;
@@ -48,6 +53,7 @@
     float: right;
     margin-right: 15px;
   }
+
   .creation {
     font-family: SourceSansPro;
     font-size: 12px;
@@ -59,12 +65,15 @@
     color: $cloudy-blue;
     float: right;
   }
+
   .btns {
     display: flex;
     align-self: flex-end;
+
     .dark-sky-blue {
       background-color: $dark-sky-blue;
     }
+
     button {
       font-family: SourceSansPro;
       font-size: 12px;
@@ -75,12 +84,14 @@
       letter-spacing: -0.09px;
       color: $white;
     }
+
     .edit {
       width: 75px;
       height: 24px;
       border-radius: 3px;
       margin-right: 12px;
     }
+
     .delete {
       width: 86px;
       height: 24px;

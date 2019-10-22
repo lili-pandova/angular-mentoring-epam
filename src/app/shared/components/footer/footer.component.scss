@@ -2,6 +2,13 @@
 .footer {
   position: fixed;
   bottom: 0;
+
+  &::before {
+    display: block;
+    clear: both;
+    content: "";
+  }
+
   p {
     font-family: SourceSansPro;
     font-size: 14px;

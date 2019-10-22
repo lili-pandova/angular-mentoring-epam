@@ -1,8 +1,9 @@
-@import '~src/scss/variables';
+@import "~src/scss/variables";
 .search {
   position: relative;
   padding-top: 24px;
   padding-bottom: 72px;
+
   .ic_search {
     position: absolute;
     top: 37px;
@@ -11,6 +12,7 @@
     height: 24px;
     object-fit: contain;
   }
+
   input {
     width: 360px;
     height: 48px;
@@ -19,17 +21,19 @@
     background-color: $white;
     padding-left: 42px;
     margin-right: 6px;
+
     &::placeholder {
-        font-family: SourceSansPro;
-        font-size: 14px;
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: 1.71;
-        letter-spacing: 0.22px;
-        color: $silver;
+      font-family: SourceSansPro;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.71;
+      letter-spacing: 0.22px;
+      color: $silver;
     }
   }
+
   button {
     font-family: SourceSansPro;
     font-size: 18px;
@@ -38,6 +42,7 @@
     letter-spacing: -0.13px;
     color: $white;
     vertical-align: top;
+
     &.sick-green {
       width: 100px;
       height: 48px;

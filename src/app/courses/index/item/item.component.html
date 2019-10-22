@@ -1,13 +1,16 @@
-
 <section class="item-component" *ngFor="let item of parentData">
-  <ul class="">
+  <ul>
     <li class="title">{{ item.title }}</li>
-    <li class="creation">{{ item.creationDate | date:'dd/MM/yyyy' }}</li>
+    <li class="creation">{{ item.creationDate | date: "dd/MM/yyyy" }}</li>
     <li class="duration">{{ item.duration }}</li>
     <li class="description">{{ item.description }}</li>
   </ul>
   <div class="btns">
-    <button type="button" class="btn btn-default edit dark-sky-blue edit">Edit</button>
-    <button type="button" class="btn btn-default dark-sky-blue delete">Delete</button>
+    <button type="button" class="btn btn-default edit dark-sky-blue edit">
+      Edit
+    </button>
+    <button type="button" class="btn btn-default dark-sky-blue delete">
+      Delete
+    </button>
   </div>
 </section>
