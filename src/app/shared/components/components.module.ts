@@ -13,7 +13,8 @@ import { UserComponent } from './user/user.component';
 
 
 @NgModule({
-  declarations: [HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent, AddCoursesComponent, LoadMoreComponent, FooterComponent, UserComponent],
+  declarations: [HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,
+    AddCoursesComponent, LoadMoreComponent, FooterComponent, UserComponent],
   imports: [
     CommonModule
   ]
