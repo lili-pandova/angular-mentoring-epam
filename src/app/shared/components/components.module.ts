@@ -7,11 +7,13 @@ import { SearchComponent } from './search/search.component';
 import { UserLogComponent } from './user-log/user-log.component';
 import { AddCoursesComponent } from './add-courses/add-courses.component';
 import { LoadMoreComponent } from './load-more/load-more.component';
+import { FooterComponent } from './footer/footer.component';
+import { UserComponent } from './user/user.component';
 
 
 
 @NgModule({
-  declarations: [HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent, AddCoursesComponent, LoadMoreComponent],
+  declarations: [HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent, AddCoursesComponent, LoadMoreComponent, FooterComponent, UserComponent],
   imports: [
     CommonModule
   ]

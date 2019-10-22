@@ -1,0 +1,90 @@
+@import '~src/scss/variables';
+.item-component {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: $white;
+  padding: 24px;
+  margin-bottom: 24px;
+  ul {
+    max-width: 80%;
+    li {
+      list-style-type: none;
+      display: inline-block;
+    }
+  }
+  .title {
+    font-family: SourceSansPro;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: $dark;
+    margin-bottom: 8px;
+  }
+  .description {
+    font-family: SourceSansPro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: $slate-grey;
+  }
+  .duration {
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    float: right;
+    margin-right: 15px;
+  }
+  .creation {
+    font-family: SourceSansPro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    float: right;
+  }
+  .btns {
+    display: flex;
+    align-self: flex-end;
+    .dark-sky-blue {
+      background-color: $dark-sky-blue;
+    }
+    button {
+      font-family: SourceSansPro;
+      font-size: 12px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 12px;
+      letter-spacing: -0.09px;
+      color: $white;
+    }
+    .edit {
+      width: 75px;
+      height: 24px;
+      border-radius: 3px;
+      margin-right: 12px;
+    }
+    .delete {
+      width: 86px;
+      height: 24px;
+      border-radius: 3px;
+    }
+  }
+}
