@@ -1,0 +1,24 @@
+@import "~src/scss/variables";
+.footer {
+  position: fixed;
+  bottom: 0;
+
+  &::before {
+    display: block;
+    clear: both;
+    content: "";
+  }
+
+  p {
+    font-family: $source-sans-pro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: $silver;
+    line-height: 64px;
+    margin-bottom: 0;
+  }
+}

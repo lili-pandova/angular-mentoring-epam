@@ -1,0 +1,16 @@
+<section class="item-component">
+  <ul>
+    <li class="title">{{ data.title }}</li>
+    <li class="creation">{{ data.creationDate | date: "dd/MM/yyyy" }}</li>
+    <li class="duration">{{ data.duration }} min</li>
+    <li class="description">{{ data.description }}</li>
+  </ul>
+  <div class="btns">
+    <button type="button" class="btn btn-default edit dark-sky-blue edit">
+      Edit
+    </button>
+    <button type="button" class="btn btn-default dark-sky-blue delete">
+      Delete
+    </button>
+  </div>
+</section>

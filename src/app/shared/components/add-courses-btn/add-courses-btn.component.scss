@@ -1,0 +1,45 @@
+@import "~src/scss/variables";
+
+.add-course {
+  float: right;
+  margin-top: 24px;
+
+  &:after {
+    display: block;
+    clear: both;
+  }
+
+  button {
+    width: 138px;
+    height: 36px;
+    border-radius: 3px;
+    color: $white;
+    font-family: $source-sans-pro;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: -0.1px;
+    position: relative;
+
+    &::before {
+      content: '\f067 ';
+      font-family: FontAwesome;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      color: $white;
+      left: 13px;
+    }
+
+    &.dark-sky-blue {
+      background-color: $dark-sky-blue;
+
+      img {
+        width: 18px;
+        height: 18px;
+        margin-right: 12px;
+      }
+    }
+  }
+}

@@ -1,0 +1,160 @@
+@import "~src/scss/variables";
+.item-component {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+  background-color: $white;
+  padding: 24px;
+  margin-bottom: 24px;
+
+  ul {
+    max-width: 80%;
+
+    li {
+      list-style-type: none;
+      display: inline-block;
+    }
+  }
+
+  .title {
+    font-family: $roboto-regular;
+    font-size: 24px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: normal;
+    color: $dark;
+    margin-bottom: 8px;
+  }
+
+  .description {
+    font-family: $source-sans-pro;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: $slate-grey;
+  }
+
+  .duration {
+    font-family: $source-sans-pro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    float: right;
+    margin-right: 15px;
+    position: relative;
+
+    &::before {
+      content: '\f017';
+      font-family: FontAwesome;
+      width: 14px;
+      height: 16px;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $cloudy-blue;
+      position: absolute;
+      right: 42px;
+    }
+  }
+
+  .creation {
+    font-family: $source-sans-pro;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: $cloudy-blue;
+    float: right;
+    position: relative;
+    margin-left: 30px;
+
+    &::before {
+      content: '\f073';
+      font-family: FontAwesome;
+      width: 15px;
+      height: 16px;
+      font-size: 16px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: $cloudy-blue;
+      position: absolute;
+      right: 64px;
+    }
+  }
+
+  .btns {
+    display: flex;
+    align-self: flex-end;
+
+    .dark-sky-blue {
+      background-color: $dark-sky-blue;
+    }
+
+    button {
+      font-family: $source-sans-pro;
+      font-size: 12px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 12px;
+      letter-spacing: -0.09px;
+      color: $white;
+    }
+
+    .edit {
+      width: 75px;
+      height: 24px;
+      border-radius: 3px;
+      margin-right: 12px;
+      position: relative;
+
+      &::before {
+        content: '\f040';
+        font-family: FontAwesome;
+        position: absolute;
+        width: 13.5px;
+        height: 13.5px;
+        color: $pale-grey;
+        left: 8px;
+        font-weight: 100;
+      }
+    }
+
+    .delete {
+      width: 86px;
+      height: 24px;
+      border-radius: 3px;
+      position: relative;
+
+      &::before {
+        content: '\f1f8';
+        font-family: FontAwesome;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        color: $pale-grey;
+        left: 8px;
+        font-weight: 100;
+      }
+    }
+  }
+}
