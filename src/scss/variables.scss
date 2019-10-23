@@ -1,5 +1,4 @@
 // Colors variables
-
 $soft-blue: #577ce6;
 $dark-sky-blue: #30b6dd;
 $pale-grey: #f2f3f7;
@@ -17,3 +16,24 @@ $dark: #2c2f3c;
 $silver: #c0c3ce;
 $charcoal-grey: #414452;
 $white: #ffffff;
+
+//fonts
+$source-sans-pro: 'Source Sans Pro', sans-serif;
+$roboto-regular: 'Roboto', sans-serif;
+
+//font size
+$font-small: 12px;
+$font-regular: 14px;
+$font-middle: 16px;
+$font-big: 18px;
+
+//font-weight
+$font-bold: bold;
+
+//border-radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}

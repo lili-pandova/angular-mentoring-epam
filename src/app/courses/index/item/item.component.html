@@ -1,9 +1,9 @@
-<section class="item-component" *ngFor="let item of parentData">
+<section class="item-component">
   <ul>
-    <li class="title">{{ item.title }}</li>
-    <li class="creation">{{ item.creationDate | date: "dd/MM/yyyy" }}</li>
-    <li class="duration">{{ item.duration }}</li>
-    <li class="description">{{ item.description }}</li>
+    <li class="title">{{ data.title }}</li>
+    <li class="creation">{{ data.creationDate | date: "dd/MM/yyyy" }}</li>
+    <li class="duration">{{ data.duration }} min</li>
+    <li class="description">{{ data.description }}</li>
   </ul>
   <div class="btns">
     <button type="button" class="btn btn-default edit dark-sky-blue edit">

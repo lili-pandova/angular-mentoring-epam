@@ -23,7 +23,7 @@
     margin-right: 6px;
 
     &::placeholder {
-      font-family: SourceSansPro;
+      font-family: $source-sans-pro;
       font-size: 14px;
       font-weight: normal;
       font-stretch: normal;
@@ -35,7 +35,7 @@
   }
 
   button {
-    font-family: SourceSansPro;
+    font-family: $source-sans-pro;
     font-size: 18px;
     font-weight: 600;
     font-style: normal;

@@ -1,4 +1,7 @@
 <div class="index-component">
-  <!--Item component-->
-  <app-item [parentData]="listCourses"></app-item>
+  <section class="item-component" *ngFor="let item of listCourses">
+    <ul>
+      <app-item [data]="item"></app-item>
+    </ul>
+  </section>
 </div>
