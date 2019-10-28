@@ -1,7 +1,7 @@
 <div class="index-component">
   <section class="item-component" *ngFor="let item of listCourses">
     <ul>
-      <app-item (childEvent)="deleteCourse($event)" [data]="item"></app-item>
+      <app-item (childEvent)='deleteCourse($event)' [data]='item'></app-item>
     </ul>
   </section>
 </div>

@@ -13,6 +13,7 @@ import { ItemComponent } from './courses/index/item/item.component';
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { UserComponent } from './shared/components/user/user.component';
+import {AppRoutingModule} from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { UserComponent } from './shared/components/user/user.component';
     FooterComponent,
     UserComponent
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule,
+            AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })
