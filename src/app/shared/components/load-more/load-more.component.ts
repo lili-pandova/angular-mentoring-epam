@@ -6,10 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./load-more.component.scss']
 })
 export class LoadMoreComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  loadMore(event) {
+    console.log('You clicked load more!');
   }
-
+  ngOnInit() {}
 }

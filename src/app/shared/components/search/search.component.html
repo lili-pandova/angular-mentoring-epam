@@ -1,9 +1,16 @@
 <div class="search">
-  <div>
-    <span class="img-search"><img src="assets/img/ic-search@2x.png" class="ic_search"></span>
-    <input type="search" placeholder="Text to search"/>
-    <button type="button" class="btn btn-default sick-green">Search</button>
-  </div>
-  <!--Btn Add course-->
-  <app-add-courses-btn></app-add-courses-btn>
+    <div>
+        <span class="img-search">
+            <img src="assets/img/ic-search@2x.png" class="ic_search" />
+        </span>
+        <input #searchInput type="search" placeholder="Text to search" />
+        <button
+            type="button"
+            class="btn btn-default sick-green"
+            (click)="find(searchInput.value)" >
+            Search
+        </button>
+    </div>
+    <!--Btn Add course-->
+    <app-add-courses-btn></app-add-courses-btn>
 </div>
