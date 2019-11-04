@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 import { ItemComponent } from './item.component';
 
@@ -18,6 +20,10 @@ const data = {
 describe('ItemComponent', () => {
     let component: ItemComponent;
     let fixture: ComponentFixture<ItemComponent>;
+    let debugElement: DebugElement;
+    let deleteClass;
+    let deleteEl;
+    let deleteCourse;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
@@ -31,9 +37,26 @@ describe('ItemComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ItemComponent);
         component = fixture.componentInstance;
-        component.data = data;
-        fixture.detectChanges();
+        /*deleteCourse = {deleteCourse: jasmine.createSpy('deleteCourse')};*/
     });
 
-
+    it('should have title "Lorem Ipsum"', () => {
+        component.data = data;
+        fixture.detectChanges();
+        expect(component.data.title).toEqual('Lorem Ipsum');
+    });
+    it('should trigger click event', () => {
+        component.data = data;
+        fixture.detectChanges();
+        deleteClass  = fixture.debugElement.query(By.css('.delete'));
+        deleteEl = deleteClass.nativeElement;
+        deleteClass.triggerEventHandler('click', null);
+        expect(component.data.id).toEqual(1); /* ???*/
+    });
+    // it('checks the call of the func',  () => {
+    //     const btn = fixture.debugElement.query(By.css('.delete'));
+    //     fixture.detectChanges();
+    //     btn.triggerEventHandler('click', null);
+    //     expect(deleteCourse.deleteCourse).toHaveBeenCalled();
+    // });
 });

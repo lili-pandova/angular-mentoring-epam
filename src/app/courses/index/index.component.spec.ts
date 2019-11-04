@@ -33,8 +33,4 @@ describe('IndexComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('should console the ID', () => {
-    component.deleteCourse(1);
-    expect(console.log).toHaveBeenCalled();
-  });
 });
