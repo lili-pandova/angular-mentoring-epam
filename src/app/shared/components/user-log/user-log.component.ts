@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-user-log',
-  templateUrl: './user-log.component.html',
-  styleUrls: ['./user-log.component.scss']
+    selector: 'app-user-log',
+    templateUrl: './user-log.component.html',
+    styleUrls: ['./user-log.component.scss']
 })
-export class UserLogComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class UserLogComponent {
+    constructor() {}
 }
