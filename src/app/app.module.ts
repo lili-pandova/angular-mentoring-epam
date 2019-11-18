@@ -14,6 +14,7 @@ import { LoadMoreComponent } from './shared/components/load-more/load-more.compo
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { UserComponent } from './shared/components/user/user.component';
 import {AppRoutingModule} from './app-routing.module';
+import { CourseBorderDirective } from './course-border.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {AppRoutingModule} from './app-routing.module';
     ItemComponent,
     LoadMoreComponent,
     FooterComponent,
-    UserComponent
+    UserComponent,
+    CourseBorderDirective
   ],
   imports: [BrowserModule,
             AppRoutingModule],

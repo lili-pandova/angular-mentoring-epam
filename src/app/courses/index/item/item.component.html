@@ -1,22 +1,23 @@
-<section class="item-component">
-  <ul>
-    <li class="title">{{ data.title }}</li>
-    <li class="creation">{{ data.creationDate | date: "dd/MM/yyyy" }}</li>
-    <li class="duration">{{ data.duration }} min</li>
-    <li class="description">{{ data.description }}</li>
-  </ul>
-  <div class="btns">
-    <button
-      type="button"
-      class="btn btn-default edit dark-sky-blue edit"
-      (click)="editCourse($event)" >
-      Edit
-    </button>
-    <button
-      type="button"
-      class="btn btn-default dark-sky-blue delete"
-      (click)="deleteCourse($event)" >
-      Delete
-    </button>
-  </div>
+
+<section [appCourseBorder] = "data.creationDate" class="item-component">
+    <ul>
+        <li class="title">{{ data.title }}</li>
+        <li class="creation">{{ data.creationDate | date: "dd/MM/yyyy" }}</li>
+        <li class="duration">{{ data.duration }} min</li>
+        <li class="description">{{ data.description }}</li>
+    </ul>
+    <div class="btns">
+        <button
+            type="button"
+            class="btn btn-default edit dark-sky-blue edit"
+            (click)="editCourse($event)" >
+            Edit
+        </button>
+        <button
+            type="button"
+            class="btn btn-default dark-sky-blue delete"
+            (click)="deleteCourse($event)" >
+            Delete
+        </button>
+    </div>
 </section>

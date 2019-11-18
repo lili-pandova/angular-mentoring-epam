@@ -3,8 +3,6 @@ import {
     Input,
     Output,
     EventEmitter,
-    OnChanges,
-    SimpleChanges
 } from '@angular/core';
 
 import { Course } from '../../../shared/models/course/course';
