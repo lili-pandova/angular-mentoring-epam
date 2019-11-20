@@ -15,6 +15,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { UserComponent } from './shared/components/user/user.component';
 import {AppRoutingModule} from './app-routing.module';
 import { CourseBorderDirective } from './course-border.directive';
+import { DurationPipe } from './duration.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { CourseBorderDirective } from './course-border.directive';
     LoadMoreComponent,
     FooterComponent,
     UserComponent,
-    CourseBorderDirective
+    CourseBorderDirective,
+    DurationPipe
   ],
   imports: [BrowserModule,
             AppRoutingModule],

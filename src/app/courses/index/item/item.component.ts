@@ -1,9 +1,4 @@
-import {
-    Component,
-    Input,
-    Output,
-    EventEmitter,
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Course } from '../../../shared/models/course/course';
 
@@ -14,6 +9,7 @@ import { Course } from '../../../shared/models/course/course';
 })
 export class ItemComponent {
     @Input() public data: Course;
+    @Input() public topRated: boolean;
     @Output() public delete = new EventEmitter();
 
     constructor() {}
