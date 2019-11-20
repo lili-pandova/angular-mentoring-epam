@@ -12,7 +12,7 @@ export class IndexComponent {
             id: 1,
             title: 'Lorem Ipsum',
             creationDate: new Date('February 4, 2016'),
-            duration: 0.5,
+            duration: 0.55,
             description:
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
                 "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +

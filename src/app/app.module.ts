@@ -16,6 +16,7 @@ import { UserComponent } from './shared/components/user/user.component';
 import {AppRoutingModule} from './app-routing.module';
 import { CourseBorderDirective } from './course-border.directive';
 import { DurationPipe } from './duration.pipe';
+import { OrderByPipe } from './order-by.pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DurationPipe } from './duration.pipe';
     FooterComponent,
     UserComponent,
     CourseBorderDirective,
-    DurationPipe
+    DurationPipe,
+    OrderByPipe
   ],
   imports: [BrowserModule,
             AppRoutingModule],
