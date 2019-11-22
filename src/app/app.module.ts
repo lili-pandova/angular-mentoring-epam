@@ -14,9 +14,10 @@ import { LoadMoreComponent } from './shared/components/load-more/load-more.compo
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { UserComponent } from './shared/components/user/user.component';
 import {AppRoutingModule} from './app-routing.module';
-import { CourseBorderDirective } from './course-border.directive';
-import { DurationPipe } from './duration.pipe';
-import { OrderByPipe } from './order-by.pipe';
+import { CourseBorderDirective } from './shared/directives/course-border.directive';
+import { DurationPipe } from './shared/pipes/duration.pipe';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
+import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { OrderByPipe } from './order-by.pipe';
     UserComponent,
     CourseBorderDirective,
     DurationPipe,
-    OrderByPipe
+    OrderByPipe,
+    FindByNamePipe
   ],
   imports: [BrowserModule,
             AppRoutingModule],

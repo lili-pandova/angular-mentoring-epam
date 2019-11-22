@@ -5,3 +5,6 @@ export interface Course {
   duration: number;
   description: string;
 }
+
+export type CourseDate = Pick<Course, 'creationDate'>;
+export type CourseTitle = Pick<Course, 'title'>;
