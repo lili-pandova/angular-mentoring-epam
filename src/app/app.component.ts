@@ -10,8 +10,6 @@ import {
   OnDestroy
 } from '@angular/core';
 
-import { Course } from './shared/models/course/course';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

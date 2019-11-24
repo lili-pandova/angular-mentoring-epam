@@ -1,6 +1,6 @@
-<section *ngFor="let item of data | findByName">
+<section *ngFor="let item of searchName ? findByNamePipeString : data | orderBy">
     <div
-        [appCourseBorder]="data.creationDate"
+        [appCourseBorder]="item.creationDate"
         [ngClass]="{ changeBackground: topRated == true }"
         class="item-component">
         <div *ngIf="topRated">

@@ -1,19 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
-import { By } from '@angular/platform-browser';
 
 import { IndexComponent } from './index.component';
 import { ItemComponent } from './item/item.component';
+import { SearchComponent } from '../../shared/components/search/search.component';
 
 describe('IndexComponent', () => {
     let component: IndexComponent;
     let fixture: ComponentFixture<IndexComponent>;
-    let debugElement: DebugElement;
-    let htmlElement: HTMLElement;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [IndexComponent, ItemComponent]
+            declarations: [IndexComponent, ItemComponent, SearchComponent]
         }).compileComponents();
     }));
 

@@ -1,12 +1,13 @@
 <div class="index-component" *ngIf="listCourses; else noData">
     <!--Search-->
-    <app-search [data]="listCourses"></app-search>
+    <app-search (searchName)="findName($event)"></app-search>
     <section class="item-component">
         <div>
             <app-item
                 (delete)="deleteCourse($event)"
                 [data]="listCourses"
-                [topRated]="topRated">
+                [topRated]="topRated"
+                [searchName]="searchName">
             </app-item>
         </div>
     </section>

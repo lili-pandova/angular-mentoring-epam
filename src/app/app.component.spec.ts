@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed, async } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AddCoursesBtnComponent } from './shared/components/add-courses-btn/add-courses-btn.component';
@@ -12,6 +13,8 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumb
 import { SearchComponent } from './shared/components/search/search.component';
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 import { UserComponent } from './shared/components/user/user.component';
+import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
+import { OrderByPipe } from './shared/pipes/order-by.pipe';
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -31,8 +34,11 @@ describe('AppComponent', () => {
                 BreadcrumbsComponent,
                 SearchComponent,
                 LoadMoreComponent,
-                UserComponent
-            ]
+                UserComponent,
+                FindByNamePipe,
+                OrderByPipe
+            ],
+            schemas: [ NO_ERRORS_SCHEMA ]
         }).compileComponents();
     }));
 
@@ -55,56 +61,56 @@ describe('AppComponent', () => {
         expect(app.title).toEqual('angular-mentoring');
     });
 
-    fit('should test ngOnChanges', () => {
+    it('should test ngOnChanges', () => {
         fixture.detectChanges();
 
         component.ngOnChanges();
         expect(console.log).toHaveBeenCalledWith('OnChange hook');
     });
 
-    fit('should test ngOnInit', () => {
+    it('should test ngOnInit', () => {
         fixture.detectChanges();
 
         component.ngOnInit();
         expect(console.log).toHaveBeenCalledWith('OnInit hook');
     });
 
-    fit('should test ngDoCheck', () => {
+    it('should test ngDoCheck', () => {
         fixture.detectChanges();
 
         component.ngDoCheck();
         expect(console.log).toHaveBeenCalledWith('DoCheck hook');
     });
 
-    fit('should test ngAfterContentInit', () => {
+    it('should test ngAfterContentInit', () => {
         fixture.detectChanges();
 
         component.ngAfterContentInit();
         expect(console.log).toHaveBeenCalledWith('AfterContentInit hook');
     });
 
-    fit('should test ngAfterContentChecked', () => {
+    it('should test ngAfterContentChecked', () => {
         fixture.detectChanges();
 
         component.ngAfterContentChecked();
         expect(console.log).toHaveBeenCalledWith('AfterContentChecked hook');
     });
 
-    fit('should test ngAfterViewInit', () => {
+    it('should test ngAfterViewInit', () => {
         fixture.detectChanges();
 
         component.ngAfterViewInit();
         expect(console.log).toHaveBeenCalledWith('AfterViewInit hook');
     });
 
-    fit('should test ngAfterViewChecked', () => {
+    it('should test ngAfterViewChecked', () => {
         fixture.detectChanges();
 
         component.ngAfterViewChecked();
         expect(console.log).toHaveBeenCalledWith('AfterViewChecked hook');
     });
 
-    fit('should test ngOnDestroy', () => {
+    it('should test ngOnDestroy', () => {
         fixture.detectChanges();
 
         component.ngOnDestroy();

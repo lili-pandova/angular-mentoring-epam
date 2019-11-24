@@ -1,24 +1,16 @@
-import { Component, Input } from '@angular/core';
-
-import { Course } from '../models/course/course'
-import { FindByNamePipe } from '../../pipes/find-by-name.pipe';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
     styleUrls: ['./search.component.scss'],
-    declarations: [ FindByNamePipe ]
 })
 export class SearchComponent {
- @Input() public data: Course;
-    constructor() {
-       // let findName = new FindByNamePipe();
-    }
+    @Output() public searchName = new EventEmitter();
 
-    findName (value: string) {
-    const arr = ['Lorem', 'Ipsum', 'Test'];
-        console.log(value, "value22");
-        let findName = new FindByNamePipe();
-        //console.log(findName.transform(arr, value))
+    constructor() {}
+
+    findName(value: string) {
+        this.searchName.emit(value);
     }
 }

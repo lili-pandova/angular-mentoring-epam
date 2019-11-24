@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { Course } from 'src/app/shared/models/course/course';
 
 @Component({
@@ -15,7 +16,7 @@ export class IndexComponent {
             duration: 55,
             description:
                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
+                'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
                 'when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
         },
         {
@@ -28,13 +29,28 @@ export class IndexComponent {
                 'remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing' +
                 ' Lorem Ipsum passages,' +
                 'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum'
-        }
+        },
+        {
+            id: 1,
+            title: 'Test course',
+            creationDate: new Date('February 7, 2016'),
+            duration: 195,
+            description:
+            'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
+            'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
+            'when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+        },
     ];
 
-    public topRated: boolean = true;
+    public topRated = true;
+    public searchName: string;
 
-    deleteCourse(id: number) {
+    deleteCourse(id) {
         console.log('Course ID: ', id);
+    }
+
+    findName(value: string) {
+        this.searchName = value;
     }
 
     constructor() {}

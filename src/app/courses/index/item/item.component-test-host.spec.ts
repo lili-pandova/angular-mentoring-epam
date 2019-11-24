@@ -1,38 +1,46 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DebugElement, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { By } from '@angular/platform-browser';
 
 import { ItemComponent } from './item.component';
 import { Course } from '../../../shared/models/course/course';
 
 @Component({
     template: `
-        <app-item-component>
-            <ul>
-                <li class="title">{{ data.title }}</li>
-                <li class="creation">
-                    {{ data.creationDate | date: 'dd/MM/yyyy' }}
-                </li>
-                <li class="duration">{{ data.duration }} min</li>
-                <li class="description">{{ data.description }}</li>
-            </ul>
-            <div class="btns">
-                <button
-                    type="button"
-                    class="btn btn-default edit dark-sky-blue edit"
-                    (click)="editCourse($event)">
-                    Edit
-                </button>
-                <button
-                    type="button"
-                    class="btn btn-default dark-sky-blue delete"
-                    (click)="deleteCourse($event)">
-                    Delete
-                </button>
+        <section *ngFor="let item of searchName ? findByNamePipeString : data | orderBy">
+            <div
+                [appCourseBorder]="item.creationDate"
+                [ngClass]="{ changeBackground: topRated == true }"
+                class="item-component">
+                <div *ngIf="topRated">
+                    <span class="star"></span>
+                </div>
+                <ul>
+                    <li class="title">{{ item.title | uppercase }}</li>
+                    <li class="creation">
+                        {{ item.creationDate | date: 'MMM d, y' }}
+                    </li>
+                    <li class="duration">
+                        {{ item.duration | duration: item.duration }}
+                    </li>
+                    <li class="description">{{ item.description }}</li>
+                </ul>
+                <div class="btns">
+                    <button
+                        type="button"
+                        class="btn btn-default edit dark-sky-blue edit"
+                        (click)="editCourse($event)">
+                        Edit
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-default dark-sky-blue delete"
+                        (click)="deleteCourse($event)">
+                        Delete
+                    </button>
+                </div>
             </div>
-        </app-item-component>
-    `
-})
+        </section>
+`})
 class TestHostComponent {
     public data: Course = {
         id: 1,
@@ -59,7 +67,6 @@ class TestHostComponent {
 describe('ItemComponent', () => {
     let component: TestHostComponent;
     let fixture: ComponentFixture<TestHostComponent>;
-    let debugElement: DebugElement;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
@@ -73,7 +80,7 @@ describe('ItemComponent', () => {
         console.log = jasmine.createSpy('log');
     });
 
-    fit('should edit course mock', () => {
+    it('should edit course mock', () => {
         const testHost = new TestHostComponent();
         component.data = testHost.data;
         fixture.detectChanges();
@@ -81,4 +88,5 @@ describe('ItemComponent', () => {
         testHost.editCourse();
         expect(console.log).toHaveBeenCalledWith('You clicked the edit-button');
     });
+
 });

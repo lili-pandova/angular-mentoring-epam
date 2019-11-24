@@ -14,6 +14,18 @@
         background: $pale-grey;
     }
 
+    &.greenBorder {
+        border: 1px solid #9bc837;
+    }
+
+    &.blueBorder {
+        border: 1px solid #30b6dd;
+    }
+
+    &.noneBorder {
+        border: none;
+    }
+
     .star {
         &:after {
             content: '\f005';

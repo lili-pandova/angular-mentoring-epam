@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CourseDate } from './shared/models/course/course';
+
+import { CourseDate } from '../models/course/course';
 
 @Pipe({
     name: 'orderBy'
@@ -10,7 +11,7 @@ export class OrderByPipe implements PipeTransform {
             return;
         }
         value.sort((a: CourseDate, b: CourseDate) => {
-        let result = a.creationDate.getTime() - b.creationDate.getTime();
+            const result = a.creationDate.getTime() - b.creationDate.getTime();
             if (result < 0) {
                 return -1;
             } else if (result > 0) {

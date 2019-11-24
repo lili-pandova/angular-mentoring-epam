@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
 
 import { ItemComponent } from './item.component';
 
@@ -29,13 +28,13 @@ describe('ItemComponent', () => {
         console.log = jasmine.createSpy('log');
     });
 
-    fit('should have title "Lorem Ipsum"', () => {
+    it('should have title "Lorem Ipsum"', () => {
         component.data = data;
         fixture.detectChanges();
         expect(component.data.title).toEqual(data.title);
     });
 
-    fit('should trigger click event', () => {
+    it('should trigger click event', () => {
         component.data = data;
         fixture.detectChanges();
 
@@ -48,7 +47,7 @@ describe('ItemComponent', () => {
         expect(targetId).toEqual(data.id);
     });
 
-    fit('should edit course', () => {
+    it('should edit course', () => {
         component.data = data;
         fixture.detectChanges();
 
