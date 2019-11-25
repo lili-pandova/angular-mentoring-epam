@@ -11,7 +11,7 @@ export class OrderByPipe implements PipeTransform {
             return;
         }
         value.sort((a: CourseDate, b: CourseDate) => {
-            const result = a.creationDate.getTime() - b.creationDate.getTime();
+            const result = b.creationDate.getTime() - a.creationDate.getTime();
             if (result < 0) {
                 return -1;
             } else if (result > 0) {

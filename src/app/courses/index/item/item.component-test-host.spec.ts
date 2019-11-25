@@ -3,44 +3,47 @@ import { DebugElement, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ItemComponent } from './item.component';
 import { Course } from '../../../shared/models/course/course';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
+import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
+import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
+import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
 
 @Component({
     template: `
-        <section *ngFor="let item of searchName ? findByNamePipeString : data | orderBy">
-            <div
-                [appCourseBorder]="item.creationDate"
-                [ngClass]="{ changeBackground: topRated == true }"
-                class="item-component">
-                <div *ngIf="topRated">
-                    <span class="star"></span>
-                </div>
-                <ul>
-                    <li class="title">{{ item.title | uppercase }}</li>
-                    <li class="creation">
-                        {{ item.creationDate | date: 'MMM d, y' }}
-                    </li>
-                    <li class="duration">
-                        {{ item.duration | duration: item.duration }}
-                    </li>
-                    <li class="description">{{ item.description }}</li>
-                </ul>
-                <div class="btns">
-                    <button
-                        type="button"
-                        class="btn btn-default edit dark-sky-blue edit"
-                        (click)="editCourse($event)">
-                        Edit
-                    </button>
-                    <button
-                        type="button"
-                        class="btn btn-default dark-sky-blue delete"
-                        (click)="deleteCourse($event)">
-                        Delete
-                    </button>
-                </div>
+        <div
+            [appCourseBorder]="data.creationDate"
+            [ngClass]="{ changeBackground: topRated == true }"
+            class="item-component">
+            <div *ngIf="data.topRated">
+                <span class="star"></span>
             </div>
-        </section>
-`})
+            <ul>
+                <li class="title">{{ data.title | uppercase }}</li>
+                <li class="creation">
+                    {{ data.creationDate | date: 'MMM d, y' }}
+                </li>
+                <li class="duration">
+                    {{ data.duration | duration: data.duration }}
+                </li>
+                <li class="description">{{ data.description }}</li>
+            </ul>
+            <div class="btns">
+                <button
+                    type="button"
+                    class="btn btn-default edit dark-sky-blue edit"
+                    (click)="editCourse($event)">
+                    Edit
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-default dark-sky-blue delete"
+                    (click)="deleteCourse($event)">
+                    Delete
+                </button>
+            </div>
+        </div>
+    `
+})
 class TestHostComponent {
     public data: Course = {
         id: 1,
@@ -49,8 +52,9 @@ class TestHostComponent {
         duration: 50,
         description:
             'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-            'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
-            'when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+            "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
+            'when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+        topRated: true
     };
 
     selectedData: Course;
@@ -70,7 +74,14 @@ describe('ItemComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [ItemComponent, TestHostComponent],
+            declarations: [
+                ItemComponent,
+                TestHostComponent,
+                OrderByPipe,
+                CourseBorderDirective,
+                DurationPipe
+            ],
+            providers: [FindByNamePipe],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
 
@@ -88,5 +99,4 @@ describe('ItemComponent', () => {
         testHost.editCourse();
         expect(console.log).toHaveBeenCalledWith('You clicked the edit-button');
     });
-
 });

@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ItemComponent } from './item.component';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
+import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
+import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
+import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
 
 const data = {
     id: 1,
@@ -9,8 +13,9 @@ const data = {
     duration: 50,
     description:
         'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-        'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,' +
-        'when an unknown printer took a galley of type and scrambled it to make a type specimen book.'
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
+        'when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+    topRated: true
 };
 
 describe('ItemComponent', () => {
@@ -19,7 +24,13 @@ describe('ItemComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [ItemComponent]
+            declarations: [
+                ItemComponent,
+                OrderByPipe,
+                CourseBorderDirective,
+                DurationPipe
+            ],
+            providers: [FindByNamePipe]
         }).compileComponents();
 
         fixture = TestBed.createComponent(ItemComponent);

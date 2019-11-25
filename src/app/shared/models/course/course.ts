@@ -1,9 +1,10 @@
 export interface Course {
-  id: number;
-  title: string;
-  creationDate: Date;
-  duration: number;
-  description: string;
+    id: number;
+    title: string;
+    creationDate: Date;
+    duration: number;
+    description: string;
+    topRated: boolean;
 }
 
 export type CourseDate = Pick<Course, 'creationDate'>;

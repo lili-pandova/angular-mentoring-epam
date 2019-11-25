@@ -1,6 +1,6 @@
-import { Component, Input, Output, EventEmitter, DoCheck } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import {Course, CourseTitle} from '../../../shared/models/course/course';
+import { Course, CourseTitle } from '../../../shared/models/course/course';
 import { FindByNamePipe } from '../../../shared/pipes/find-by-name.pipe';
 
 @Component({
@@ -8,9 +8,8 @@ import { FindByNamePipe } from '../../../shared/pipes/find-by-name.pipe';
     templateUrl: './item.component.html',
     styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements DoCheck {
+export class ItemComponent {
     @Input() public data: Course;
-    @Input() public topRated;
     @Input() public searchName: string;
     @Output() public delete = new EventEmitter();
 
@@ -23,10 +22,5 @@ export class ItemComponent implements DoCheck {
 
     deleteCourse() {
         this.delete.emit(this.data.id);
-    }
-
-    ngDoCheck() {
-       const findName = new FindByNamePipe();
-       this.findByNamePipeString = findName.transform(this.data, this.searchName);
     }
 }

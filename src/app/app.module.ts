@@ -20,27 +20,26 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    HeaderComponent,
-    LogoComponent,
-    UserLogComponent,
-    BreadcrumbsComponent,
-    SearchComponent,
-    AddCoursesBtnComponent,
-    ItemComponent,
-    LoadMoreComponent,
-    FooterComponent,
-    UserComponent,
-    CourseBorderDirective,
-    DurationPipe,
-    OrderByPipe,
-    FindByNamePipe
-  ],
-  imports: [BrowserModule,
-            AppRoutingModule],
-  providers: [FindByNamePipe],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        IndexComponent,
+        HeaderComponent,
+        LogoComponent,
+        UserLogComponent,
+        BreadcrumbsComponent,
+        SearchComponent,
+        AddCoursesBtnComponent,
+        ItemComponent,
+        LoadMoreComponent,
+        FooterComponent,
+        UserComponent,
+        CourseBorderDirective,
+        DurationPipe,
+        OrderByPipe,
+        FindByNamePipe
+    ],
+    imports: [BrowserModule, AppRoutingModule],
+    providers: [FindByNamePipe],
+    bootstrap: [AppComponent]
 })
 export class AppModule {}

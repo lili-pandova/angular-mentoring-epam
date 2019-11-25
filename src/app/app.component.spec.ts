@@ -15,6 +15,7 @@ import { LoadMoreComponent } from './shared/components/load-more/load-more.compo
 import { UserComponent } from './shared/components/user/user.component';
 import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
+import { DurationPipe } from './shared/pipes/duration.pipe';
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -36,9 +37,11 @@ describe('AppComponent', () => {
                 LoadMoreComponent,
                 UserComponent,
                 FindByNamePipe,
-                OrderByPipe
+                OrderByPipe,
+                DurationPipe
             ],
-            schemas: [ NO_ERRORS_SCHEMA ]
+            providers: [FindByNamePipe],
+            schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));
 

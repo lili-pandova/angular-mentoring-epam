@@ -13,13 +13,15 @@ export class CourseBorderDirective implements OnInit {
         const creationDate = Number(this.creationDate);
         const currentDate = Number(today);
 
-        if (creationDate < currentDate &&
-            creationDate >= today.setDate(today.getDate() - 14)) {
-            this.elementRef.nativeElement.style.border = `1px solid #9bc837`;
+        if (
+            creationDate < currentDate &&
+            creationDate >= today.setDate(today.getDate() - 14)
+        ) {
+            this.elementRef.nativeElement.style.border = '1px solid #9bc837';
         } else if (creationDate > currentDate) {
-            this.elementRef.nativeElement.style.border = `1px solid #30b6dd`;
+            this.elementRef.nativeElement.style.border = '1px solid #30b6dd';
         } else {
-            this.elementRef.nativeElement.style.border = `none`;
+            this.elementRef.nativeElement.style.border = 'none';
         }
     }
 }
