@@ -1,13 +1,6 @@
-import {
-    Component,
-    Input,
-    Output,
-    EventEmitter,
-    OnChanges,
-    SimpleChanges
-} from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
-import { Course } from '../../../shared/models/course/course';
+import { Course, CourseTitle } from '../../../shared/models/course/course';
 
 @Component({
     selector: 'app-item',

@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
     selector: 'app-search',
     templateUrl: './search.component.html',
-    styleUrls: ['./search.component.scss']
+    styleUrls: ['./search.component.scss'],
 })
 export class SearchComponent {
+    @Output() public searchName = new EventEmitter();
+
     constructor() {}
 
-    find(value: string) {
-        console.log(value);
+    findName(value: string) {
+        this.searchName.emit(value);
     }
 }

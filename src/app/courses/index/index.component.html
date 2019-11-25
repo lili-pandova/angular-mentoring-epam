@@ -1,7 +1,13 @@
-<div class="index-component">
-  <section class="item-component" *ngFor="let item of listCourses">
-    <ul>
-      <app-item (delete)="deleteCourse($event)" [data]="item"></app-item>
-    </ul>
-  </section>
+<div class="index-component" *ngIf="items; else noData">
+    <!--Search-->
+    <app-search (searchName)="findName($event)"></app-search>
+    <section *ngFor="let item of items | orderBy" class="item-component">
+        <div>
+            <app-item (delete)="deleteCourse($event)" [data]="item"></app-item>
+        </div>
+    </section>
 </div>
+
+<ng-template #noData>
+    <div class="no-data">No data. Feel free to add new course</div>
+</ng-template>

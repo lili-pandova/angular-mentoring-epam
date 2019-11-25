@@ -1,22 +1,32 @@
-<section class="item-component">
-  <ul>
-    <li class="title">{{ data.title }}</li>
-    <li class="creation">{{ data.creationDate | date: "dd/MM/yyyy" }}</li>
-    <li class="duration">{{ data.duration }} min</li>
-    <li class="description">{{ data.description }}</li>
-  </ul>
-  <div class="btns">
-    <button
-      type="button"
-      class="btn btn-default edit dark-sky-blue edit"
-      (click)="editCourse($event)" >
-      Edit
-    </button>
-    <button
-      type="button"
-      class="btn btn-default dark-sky-blue delete"
-      (click)="deleteCourse($event)" >
-      Delete
-    </button>
-  </div>
-</section>
+<div
+    [appCourseBorder]="data.creationDate"
+    [ngClass]="{ changeBackground: topRated == true }"
+    class="item-component">
+    <div *ngIf="data.topRated">
+        <span class="star"></span>
+    </div>
+    <ul>
+        <li class="title">{{ data.title | uppercase }}</li>
+        <li class="creation">
+            {{ data.creationDate | date: 'MMM d, y' }}
+        </li>
+        <li class="duration">
+            {{ data.duration | duration: data.duration }}
+        </li>
+        <li class="description">{{ data.description }}</li>
+    </ul>
+    <div class="btns">
+        <button
+            type="button"
+            class="btn btn-default edit dark-sky-blue edit"
+            (click)="editCourse($event)">
+            Edit
+        </button>
+        <button
+            type="button"
+            class="btn btn-default dark-sky-blue delete"
+            (click)="deleteCourse($event)">
+            Delete
+        </button>
+    </div>
+</div>
