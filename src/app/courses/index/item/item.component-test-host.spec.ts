@@ -6,14 +6,15 @@ import { Course } from '../../../shared/models/course/course';
 import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
 import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
-import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
+import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 
 @Component({
     template: `
         <div
             [appCourseBorder]="data.creationDate"
             [ngClass]="{ changeBackground: topRated == true }"
-            class="item-component">
+            class="item-component"
+        >
             <div *ngIf="data.topRated">
                 <span class="star"></span>
             </div>
@@ -31,13 +32,15 @@ import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
                 <button
                     type="button"
                     class="btn btn-default edit dark-sky-blue edit"
-                    (click)="editCourse($event)">
+                    (click)="editCourse($event)"
+                >
                     Edit
                 </button>
                 <button
                     type="button"
                     class="btn btn-default dark-sky-blue delete"
-                    (click)="deleteCourse($event)">
+                    (click)="deleteCourse($event)"
+                >
                     Delete
                 </button>
             </div>
@@ -81,7 +84,7 @@ describe('ItemComponent', () => {
                 CourseBorderDirective,
                 DurationPipe
             ],
-            providers: [FindByNamePipe],
+            providers: [FindByPipe],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
 

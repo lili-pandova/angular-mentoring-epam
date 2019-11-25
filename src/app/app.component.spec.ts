@@ -13,7 +13,7 @@ import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumb
 import { SearchComponent } from './shared/components/search/search.component';
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
 import { UserComponent } from './shared/components/user/user.component';
-import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
+import { FindByPipe } from './shared/pipes/find-by.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { DurationPipe } from './shared/pipes/duration.pipe';
 
@@ -36,11 +36,11 @@ describe('AppComponent', () => {
                 SearchComponent,
                 LoadMoreComponent,
                 UserComponent,
-                FindByNamePipe,
+                FindByPipe,
                 OrderByPipe,
                 DurationPipe
             ],
-            providers: [FindByNamePipe],
+            providers: [FindByPipe],
             schemas: [NO_ERRORS_SCHEMA]
         }).compileComponents();
     }));

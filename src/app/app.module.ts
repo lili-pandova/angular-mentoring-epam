@@ -17,7 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CourseBorderDirective } from './shared/directives/course-border.directive';
 import { DurationPipe } from './shared/pipes/duration.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
-import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
+import { FindByPipe } from './shared/pipes/find-by.pipe';
 
 @NgModule({
     declarations: [
@@ -36,10 +36,10 @@ import { FindByNamePipe } from './shared/pipes/find-by-name.pipe';
         CourseBorderDirective,
         DurationPipe,
         OrderByPipe,
-        FindByNamePipe
+        FindByPipe
     ],
     imports: [BrowserModule, AppRoutingModule],
-    providers: [FindByNamePipe],
+    providers: [FindByPipe],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

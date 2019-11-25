@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Course } from 'src/app/shared/models/course/course';
-import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
+import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 
 @Component({
     selector: 'app-index',
@@ -46,7 +46,6 @@ export class IndexComponent implements OnInit {
         }
     ];
     public items: Course[] = [];
-
     public searchName: string;
 
     ngOnInit() {
@@ -58,7 +57,7 @@ export class IndexComponent implements OnInit {
     }
 
     findName(value: string) {
-        const findNamePipe = new FindByNamePipe();
+        const findNamePipe = new FindByPipe();
         this.items = findNamePipe.transform(this.listCourses, value);
     }
 

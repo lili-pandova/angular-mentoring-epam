@@ -4,7 +4,7 @@ import { ItemComponent } from './item.component';
 import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
 import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
-import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
+import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 
 const data = {
     id: 1,
@@ -30,7 +30,7 @@ describe('ItemComponent', () => {
                 CourseBorderDirective,
                 DurationPipe
             ],
-            providers: [FindByNamePipe]
+            providers: [FindByPipe]
         }).compileComponents();
 
         fixture = TestBed.createComponent(ItemComponent);

@@ -4,7 +4,7 @@ import { By } from 'protractor';
 
 import { ItemComponent } from 'src/app/courses/index/item/item.component';
 import { DurationPipe } from '../pipes/duration.pipe';
-import { FindByNamePipe } from '../pipes/find-by-name.pipe';
+import { FindByPipe } from '../pipes/find-by.pipe';
 
 const data = {
     id: 1,
@@ -53,7 +53,7 @@ describe('CourseBorderDirective', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [ItemComponent, CourseBorderDirective, DurationPipe],
-            providers: [FindByNamePipe]
+            providers: [FindByPipe]
         }).compileComponents();
 
         fixture = TestBed.createComponent(ItemComponent);

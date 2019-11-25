@@ -7,7 +7,7 @@ import { SearchComponent } from '../../shared/components/search/search.component
 import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
 import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
-import { FindByNamePipe } from 'src/app/shared/pipes/find-by-name.pipe';
+import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 
 describe('IndexComponent', () => {
     let component: IndexComponent;
@@ -22,9 +22,9 @@ describe('IndexComponent', () => {
                 OrderByPipe,
                 CourseBorderDirective,
                 DurationPipe,
-                FindByNamePipe
+                FindByPipe
             ],
-            providers: [FindByNamePipe],
+            providers: [FindByPipe],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
     }));
