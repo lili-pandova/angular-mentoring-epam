@@ -18,6 +18,8 @@ import { CourseBorderDirective } from './shared/directives/course-border.directi
 import { DurationPipe } from './shared/pipes/duration.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
+import { CoursesService } from './courses.service';
+import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
 
 @NgModule({
     declarations: [
@@ -36,10 +38,11 @@ import { FindByPipe } from './shared/pipes/find-by.pipe';
         CourseBorderDirective,
         DurationPipe,
         OrderByPipe,
-        FindByPipe
+        FindByPipe,
+        ConfirmationModalComponent
     ],
     imports: [BrowserModule, AppRoutingModule],
-    providers: [FindByPipe],
+    providers: [FindByPipe, CoursesService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,7 +1,8 @@
 <div
     [appCourseBorder]="data.creationDate"
     [ngClass]="{ changeBackground: topRated == true }"
-    class="item-component">
+    class="item-component"
+>
     <div *ngIf="data.topRated">
         <span class="star"></span>
     </div>
@@ -19,13 +20,15 @@
         <button
             type="button"
             class="btn btn-default edit dark-sky-blue edit"
-            (click)="editCourse($event)">
+            (click)="editCourse($event)"
+        >
             Edit
         </button>
         <button
             type="button"
             class="btn btn-default dark-sky-blue delete"
-            (click)="deleteCourse($event)">
+            (click)="deleteCourse($event)"
+        >
             Delete
         </button>
     </div>

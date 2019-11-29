@@ -3,7 +3,13 @@
     <app-search (searchName)="findName($event)"></app-search>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
-            <app-item (delete)="deleteCourse($event)" [data]="item"></app-item>
+            <app-item (takeID)="getItemID($event)" [data]="item"></app-item>
+        </div>
+        <div>
+            <app-confirmation-modal
+                [data]="item"
+                (removedID)="removedItem($event)"
+            ></app-confirmation-modal>
         </div>
     </section>
 </div>
