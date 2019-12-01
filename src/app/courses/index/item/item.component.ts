@@ -10,7 +10,6 @@ import { CoursesService } from '../../../courses.service';
 })
 export class ItemComponent {
     @Input() public data: Course;
-    @Output() public takeID = new EventEmitter();
 
     public listCourses: Course[] = [];
 
@@ -21,7 +20,7 @@ export class ItemComponent {
     }
 
     deleteCourse() {
-        this.takeID.emit(this.data.id);
+        this._coursesService.getItemById(this.data.id);
         this._coursesService.openModal(this.data.id);
     }
 }

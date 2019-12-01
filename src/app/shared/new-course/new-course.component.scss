@@ -1,0 +1,119 @@
+@import "~src/scss/variables";
+
+#new-course {
+
+    .silver {
+        background: $silver;
+    }
+
+    .sick-green {
+        background: $sick-green;
+    }
+
+    .modal-content {    
+        width: 731px;
+        height: 690px;
+        border-radius: 8px;
+        box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+        background-color: #ffffff;
+
+        .modal-header {
+            margin-top: 120px;
+
+            h5 {
+                font-family: $source-sans-pro;
+                font-size: 24px;
+                font-weight: 600;
+                line-height: 1.25;
+                letter-spacing: normal;
+                color: $dark;
+    
+            }
+
+        }
+
+        .modal-body {
+            padding: 24px;
+            label, input {
+                width: 100%;
+            }
+
+            .field {
+                padding-top: 12px;
+
+                label {
+                    font-family: $source-sans-pro;
+                    font-size: $font-regular;
+                    font-weight: 600;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: normal;
+                    letter-spacing: 0.22px;
+                    color: $slate-grey;
+    
+                    span {
+                        float: right;
+                        font-family: $source-sans-pro;
+                        font-size: $font-small;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.5;
+                        letter-spacing: 0.19px;
+                        text-align: right;
+                        color: $charcoal-grey;
+    
+                        &::after {
+                            content: '';
+                            display: block;
+                            clear: both;
+                        }
+                    }
+                }
+    
+                input {
+                    height: 36px;
+                    border-radius: 3px;
+                    border: solid 1px $pale-grey;
+                    background-color: #ffffff;
+                    padding: 0 24px;
+                    &::placeholder {
+                        width: 352px;
+                        height: 24px;
+                        font-family: $source-sans-pro;
+                        font-size: $font-regular;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: 1.71;
+                        letter-spacing: 0.22px;
+                        color:$silver;
+                    }
+                }
+
+            }
+
+        }
+       
+        .modal-footer {
+            button {
+                width: auto;
+                height: 36px;
+                border-radius: 3px;
+                font-family: $source-sans-pro;
+                font-size: $font-regular;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 18px;
+                letter-spacing: -0.1px;
+                outline: none;
+                &.sick-green {
+                    color: $white;
+                }
+            }
+        }
+
+    }
+
+}

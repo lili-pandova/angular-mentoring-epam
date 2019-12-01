@@ -19,7 +19,9 @@ import { DurationPipe } from './shared/pipes/duration.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
 import { CoursesService } from './courses.service';
+import { AuthorizationService } from './authorization.service';
 import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
+import { NewCourseComponent } from './shared/new-course/new-course.component';
 
 @NgModule({
     declarations: [
@@ -39,10 +41,11 @@ import { ConfirmationModalComponent } from './shared/confirmation-modal/confirma
         DurationPipe,
         OrderByPipe,
         FindByPipe,
-        ConfirmationModalComponent
+        ConfirmationModalComponent,
+        NewCourseComponent,
     ],
     imports: [BrowserModule, AppRoutingModule],
-    providers: [FindByPipe, CoursesService],
+    providers: [FindByPipe, CoursesService, AuthorizationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

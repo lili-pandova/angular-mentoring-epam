@@ -42,18 +42,18 @@ export class CoursesService {
         }
     ];
 
+    public itemID;
+
     constructor() {}
 
     getList() {
         return this.listCourses;
     }
 
-    removeItem(id: number) {
-        this.listCourses = this.listCourses.filter(x => x.id !== id);
-        this.closeModal(id);
+    removeItem() {
+        this.listCourses = this.listCourses.filter(x => x !== this.itemID);
+        this.closeModal(this.itemID);
         return true;
-        console.log(this.listCourses, 'listCourses from Service');
-        //renew this.listCourses!!! from idex!!!
     }
 
     openModal(id: number) {
@@ -67,11 +67,8 @@ export class CoursesService {
     createCourse() {}
 
     getItemById(id: number) {
-        return id;
+        this.itemID = this.listCourses.find(e => e.id === id);
     }
 
-    updateListCourses() {
-        this.listCourses;
-        console.log(this.listCourses, 'listCourses from Service, Update');
-    }
+    updateItem(id: number) {}
 }

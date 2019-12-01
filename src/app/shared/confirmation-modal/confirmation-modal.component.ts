@@ -9,9 +9,6 @@ import { Course, CourseTitle } from '../models/course/course';
     styleUrls: ['./confirmation-modal.component.scss']
 })
 export class ConfirmationModalComponent implements OnInit {
-    @Input() public data: Course;
-    @Output() public removedID = new EventEmitter();
-
     constructor(private _coursesService: CoursesService) {}
 
     ngOnInit() {}
@@ -21,8 +18,8 @@ export class ConfirmationModalComponent implements OnInit {
     }
 
     deleteCourse() {
-        this.removedID.emit(this.data.id);
-        this._coursesService.removeItem(this.data.id);
-        // this._coursesService.updateListCourses();
+        console.log("Delete courses on click")
+        this._coursesService.getList();
+        this._coursesService.removeItem();
     }
 }
