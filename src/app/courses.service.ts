@@ -42,33 +42,29 @@ export class CoursesService {
         }
     ];
 
-    public itemID;
+    public item;
 
     constructor() {}
 
-    getList() {
+    index() {
         return this.listCourses;
     }
 
-    removeItem() {
-        this.listCourses = this.listCourses.filter(x => x !== this.itemID);
-        this.closeModal(this.itemID);
+    destroy(id: number) {
+        this.listCourses = this.listCourses.filter(x => x.id !== id);
         return true;
     }
 
-    openModal(id: number) {
-        document.querySelector('.confirmation-modal').classList.add('block');
+    store(data: any) {
+        this.listCourses.push(data);
     }
 
-    closeModal(id: number) {
-        document.querySelector('.confirmation-modal').classList.remove('block');
+    view(id: number) {
+        this.item = this.listCourses.find(e => e.id === id);
     }
 
-    createCourse() {}
-
-    getItemById(id: number) {
-        this.itemID = this.listCourses.find(e => e.id === id);
+    update(id: number, data: any) {
+        // Find item with id and update data
+        // this.item = this.listCourses.find(e => e.id === id);
     }
-
-    updateItem(id: number) {}
 }

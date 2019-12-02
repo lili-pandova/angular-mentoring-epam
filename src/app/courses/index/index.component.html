@@ -2,7 +2,7 @@
     <app-search (searchName)="findName($event)"></app-search>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
-            <app-item (takeID)="getItemID($event)" [data]="item"></app-item>
+            <app-item [data]="item"></app-item>
         </div>
     </section>
 </div>

@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './courses/index/index.component';
@@ -44,7 +45,10 @@ import { NewCourseComponent } from './shared/new-course/new-course.component';
         ConfirmationModalComponent,
         NewCourseComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule],
+    imports: [BrowserModule,
+             AppRoutingModule,
+             FormsModule,
+             ReactiveFormsModule],
     providers: [FindByPipe, CoursesService, AuthorizationService],
     bootstrap: [AppComponent]
 })

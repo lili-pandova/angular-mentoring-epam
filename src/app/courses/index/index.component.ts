@@ -17,16 +17,12 @@ export class IndexComponent implements OnInit, DoCheck {
     constructor(private _coursesService: CoursesService) {}
 
     ngOnInit() {
-        this.items = this._coursesService.getList();
-        this.listCourses = this._coursesService.getList();
+        this.items = this._coursesService.index();
+        this.listCourses = this._coursesService.index();
     }
 
     ngDoCheck() {
-        this.items = this._coursesService.getList();
-    }
-
-    getItemID(id: number) {
-        this._coursesService.getItemById(id);
+        this.items = this._coursesService.index();
     }
   
     findName(value: string) {

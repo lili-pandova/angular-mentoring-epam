@@ -1,25 +1,26 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
-import { CoursesService } from '../../courses.service';
-import { Course, CourseTitle } from '../models/course/course';
-
 @Component({
     selector: 'app-confirmation-modal',
     templateUrl: './confirmation-modal.component.html',
     styleUrls: ['./confirmation-modal.component.scss']
 })
 export class ConfirmationModalComponent implements OnInit {
-    constructor(private _coursesService: CoursesService) {}
+    @Output() public cancel = new EventEmitter();
+    @Output() public delete = new EventEmitter();
+
+    constructor() {}
 
     ngOnInit() {}
 
-    cancel() {
-        document.querySelector('.confirmation-modal').classList.remove('block');
+    onCancel() {
+        // document.querySelector('.confirmation-modal').classList.remove('block');
+        this.cancel.emit(true);
     }
 
-    deleteCourse() {
+    onDelete() {
+        // document.querySelector('.confirmation-modal').classList.remove('block');
         console.log("Delete courses on click")
-        this._coursesService.getList();
-        this._coursesService.removeItem();
+        this.delete.emit(true);
     }
 }
