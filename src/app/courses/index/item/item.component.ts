@@ -21,7 +21,7 @@ export class ItemComponent {
     constructor(private _coursesService: CoursesService) {}
 
     editCourse() {
-        console.log('You clicked the edit-button');
+        console.log(this.data.id, 'You clicked the edit-button');
         this._coursesService.update(this.data.id, this.data)
     }
 

@@ -91,6 +91,14 @@
                     }
                 }
 
+                textarea {
+                    width: 100%;
+                    border-radius: 3px;
+                    border: solid 1px $pale-grey;
+                    background-color: #ffffff;
+                    padding: 12px 24px;
+                }
+
             }
 
         }
