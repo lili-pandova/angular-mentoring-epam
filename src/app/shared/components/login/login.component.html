@@ -8,15 +8,15 @@
               </button>
             </div>
             <div class="modal-body">
-              <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm.value)">
+              <form #editForm="ngForm" (ngSubmit)="login(editForm.value)">
                   <div class="field">
                       <label for="email">Email<span>*required</span></label>
-                      <input type="text" name="email" id="email" placeholder="Enter email" required />
+                      <input type="text" name="email" id="email" placeholder="Enter email" (ngModel)="email" required />
                   </div>
           
                   <div class="field">
                       <label for="password">Password<span>*required</span></label>
-                      <input name="password" id="password" placeholder="Enter password" " required />
+                      <input name="password" id="password" placeholder="Enter password" (ngModel)="password" required />
                   </div>
           
                   <div class="field">

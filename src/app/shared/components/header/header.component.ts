@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { AuthorizationService } from '../../services/auth-service/auth-service';
 
@@ -8,7 +8,11 @@ import { AuthorizationService } from '../../services/auth-service/auth-service';
     styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+
     constructor(private _authService: AuthorizationService) {}
 
+    loginData(data: any) {
+        this._authService.login(data)
+    }
     
 }

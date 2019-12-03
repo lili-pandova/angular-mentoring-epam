@@ -37,8 +37,8 @@ export class ItemComponent {
     deleteCourse() {
         this.openModal(this.data.id)
         this.confirmModall.delete.subscribe(() => {
-        this._coursesService.destroy(this.data.id);
-        this.closeModal(this.data.id);
+            this._coursesService.destroy(this.data.id);
+            this.closeModal(this.data.id);
         })
     }
 
@@ -46,6 +46,7 @@ export class ItemComponent {
         document.querySelector('.confirmation-modal').classList.add('block');
     }
 
+    //cancel delete is not working!!! Method is not added
     closeModal(id: number) {
         document.querySelector('.confirmation-modal').classList.remove('block');
     }

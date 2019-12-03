@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-
-import { AuthorizationService } from '../../services/auth-service/auth-service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -9,18 +7,12 @@ import { AuthorizationService } from '../../services/auth-service/auth-service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-  initialUserData: any = {
-    'email': "test@abv.bf",
-    'password': "aaaa"
-  }
   editForm;
 
-  constructor(private _authService: AuthorizationService) {}
+  @Output() public loginData = new EventEmitter();
 
-  userLogin = this._authService.login(this.initialUserData);
-
-  onSubmit(userData: any) {
-    console.log(userData, "userData")
+  login(userData: any) {
+    this.loginData.emit(userData);
   }
 
 }

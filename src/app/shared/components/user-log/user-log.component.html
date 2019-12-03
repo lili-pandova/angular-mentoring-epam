@@ -1,11 +1,14 @@
 <div class='logs'>
-  <button type="button" class='user-login' data-toggle="modal" data-target="#login"
-  (click)="login($event)">
-    <span class='log-in'>
-      <img class='ic_user' src='assets/img/ic-user@2x.png' />
-    </span> User login</button>
-  <a class='log-off' href="#">
-    <span class='log-in'>
-      <img class='ic_exit' src='assets/img/ic-exit@2x.png' />
-    </span>Log off</a>
+  <div *ngIf="!isAuthenticated; else logoff">
+    <button type="button" class='user-login' data-toggle="modal" data-target="#login">
+        <span class='log-in'>
+          <img class='ic_user' src='assets/img/ic-user@2x.png' />
+        </span> User login</button>
+  </div>
+  <ng-template #logoff>
+    <button class='log-off' (click)="logOff()">
+      <span class='log-in'>
+        <img class='ic_exit' src='assets/img/ic-exit@2x.png' />
+      </span>Log off</button>
+  </ng-template>
 </div>

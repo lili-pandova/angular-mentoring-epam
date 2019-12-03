@@ -4,24 +4,23 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthorizationService {
-  private isAuthenticated: boolean;
+  public isAuthenticated: boolean;
   user: string = "user";
 
   constructor() { }
-  login(obj: any){
-    const asd = {
-      name: 'Ivan',
-      email: 'ivan@gmail.com',
-      token: 'asd1dd'
-    };
 
-    localStorage.setItem(this.user, JSON.stringify(obj));
+  login(userData: any){
+    localStorage.setItem(this.user, JSON.stringify(userData));
+    this.isAuthenticated = true;
+    console.log(this.isAuthenticated, "AUTH")
   }
 
   logout(){
     localStorage.removeItem(this.user);
+    this.isAuthenticated = false;
   }
+
   getUserInfo() {
-    localStorage.getItem(this.user);
+    return localStorage.getItem(this.user);
   }
 }

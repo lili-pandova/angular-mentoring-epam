@@ -23,4 +23,8 @@ export class ConfirmationModalComponent implements OnInit {
         console.log("Delete courses on click")
         this.delete.emit(true);
     }
+
+    close() {
+        document.querySelector('.confirmation-modal').classList.remove('block');
+    }
 }
