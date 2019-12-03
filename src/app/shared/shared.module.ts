@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NewCourseComponent } from './new-course/new-course.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
-  declarations: [NewCourseComponent],
+  declarations: [NewCourseComponent, LoginComponent],
   imports: [CommonModule]
 })
 export class SharedModule {}

@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class UserLogComponent {
     constructor() {}
+    
+    log($event) {
+        console.log($event, "login event")
+    }
 }

@@ -8,25 +8,25 @@
         </button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+        <form #editForm="ngForm" (ngSubmit)="onSubmit(editForm.value)">
             <div class="field">
                 <label for="title">Title<span>*required</span></label>
-                <input type="text" formControlName="title" name="title" id="title" value={{data.title}} placeholder="Text input" required/>
+                <input type="text" name="title" id="title" placeholder="Text input" required [(ngModel)]="newCourseModel.title"/>
             </div>
     
             <div class="field">
-                <label for="discription">Description<span>*required</span></label>
-                <textarea name="discription" formControlName="discription" id="discription" value={{data.description}} placeholder="Add description" required></textarea>
+                <label for="description">Description<span>*required</span></label>
+                <textarea name="description" id="description" placeholder="Add description" required [(ngModel)]="newCourseModel.description"></textarea>
             </div>
     
             <div class="field">
                 <label for="duration">Duration<span>*required</span></label>
-                <input type="number" formControlName="duration" name="duration" id="duration" value={{data.duration}} placeholder="minutes" required/>
+                <input type="number" name="duration" id="duration" placeholder="minutes" required [(ngModel)]="newCourseModel.duration"/>
             </div>
             
             <div class="field">
                 <label for="date">Date<span>*required</span></label>
-                <input type="date" formControlName="creationDate" name="creationDate" id="date" value={{data.creationDate}}  placeholder="mm-dd-yyyy" required/>
+                <input type="date" name="creationDate" id="date" placeholder="mm-dd-yyyy" required [(ngModel)]="newCourseModel.creationDate"/>
             </div>
     
           <div class="modal-footer">

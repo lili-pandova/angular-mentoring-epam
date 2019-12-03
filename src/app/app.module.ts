@@ -19,10 +19,11 @@ import { CourseBorderDirective } from './shared/directives/course-border.directi
 import { DurationPipe } from './shared/pipes/duration.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
-import { CoursesService } from './courses.service';
-import { AuthorizationService } from './authorization.service';
-import { ConfirmationModalComponent } from './shared/confirmation-modal/confirmation-modal.component';
+import { CoursesService } from './shared/services/course-service/courses.service';
+import { AuthorizationService } from './shared/services/auth-service/auth-service';
+import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
 import { NewCourseComponent } from './shared/new-course/new-course.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 @NgModule({
     declarations: [
@@ -44,6 +45,7 @@ import { NewCourseComponent } from './shared/new-course/new-course.component';
         FindByPipe,
         ConfirmationModalComponent,
         NewCourseComponent,
+        LoginComponent
     ],
     imports: [BrowserModule,
              AppRoutingModule,

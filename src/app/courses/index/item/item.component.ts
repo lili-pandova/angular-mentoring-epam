@@ -1,8 +1,9 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { Course, CourseTitle } from '../../../shared/models/course/course';
-import { CoursesService } from '../../../courses.service';
-import { ConfirmationModalComponent } from 'src/app/shared/confirmation-modal/confirmation-modal.component';
+import { CoursesService } from '../../../shared/services/course-service/courses.service';
+import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
+import { NewCourseComponent } from '../../../shared/new-course/new-course.component';
 
 @Component({
     selector: 'app-item',
@@ -15,21 +16,29 @@ export class ItemComponent {
     @ViewChild('confirmModal', {static: false}) 
     public confirmModall: ConfirmationModalComponent;
 
-
     public listCourses: Course[] = [];
+    public updatedData: any;
+    public itemId: any;
 
     constructor(private _coursesService: CoursesService) {}
 
-    editCourse() {
-        console.log(this.data.id, 'You clicked the edit-button');
-        this._coursesService.update(this.data.id, this.data)
+    editCourse($event) {
+        this.itemId = $event;
+        console.log(this.itemId, 'You clicked the edit-button');
+    }
+
+    receiveData($event) {
+        this.updatedData = $event;
+        console.log(this.updatedData, "message");
+        console.log(this.itemId, "message this.data.id undefined????");
+        this._coursesService.update(this.itemId, this.updatedData);
     }
 
     deleteCourse() {
         this.openModal(this.data.id)
         this.confirmModall.delete.subscribe(() => {
-            this._coursesService.destroy(this.data.id);
-            this.closeModal(this.data.id);
+        this._coursesService.destroy(this.data.id);
+        this.closeModal(this.data.id);
         })
     }
 

@@ -33,7 +33,7 @@
     <div>
         <app-confirmation-modal #confirmModal></app-confirmation-modal>
     </div>
-    <!-- <div>
-        <app-new-course [data]="item"></app-new-course>
-    </div> -->
+    <div>
+        <app-new-course (updateData)="receiveData($event)"></app-new-course>
+    </div>
 </div>

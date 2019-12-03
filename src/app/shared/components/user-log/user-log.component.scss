@@ -1,4 +1,5 @@
 @import "~src/scss/variables";
+
 .logs {
   display: inline-block;
   float: right;
@@ -9,8 +10,14 @@
     clear: both;
   }
 
-  a.user-login {
-    width: 59px;
+  button {
+    background: none;
+    border: none;
+    outline: none;
+  }
+
+  .user-login {
+    width: 120px;
     height: 18px;
     font-family: $source-sans-pro;
     font-size: 14px;

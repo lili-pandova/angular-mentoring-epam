@@ -1,0 +1,82 @@
+    @import "~src/scss/variables";
+
+
+    #login {
+        .sick-green {
+            background: $sick-green;
+        }
+        .field {
+            padding-top: 12px;
+            label, input {
+                width: 100%;
+            }
+            label {
+                font-family: $source-sans-pro;
+                font-size: $font-regular;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: 0.22px;
+                color: $slate-grey;
+
+                span {
+                    float: right;
+                    font-family: $source-sans-pro;
+                    font-size: $font-small;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: 0.19px;
+                    text-align: right;
+                    color: $charcoal-grey;
+
+                    &::after {
+                        content: '';
+                        display: block;
+                        clear: both;
+                    }
+                }
+            }
+
+            input {
+                height: 36px;
+                border-radius: 3px;
+                border: solid 1px $pale-grey;
+                background-color: $white;
+                padding: 0 24px;
+
+                &::placeholder {
+                    width: 352px;
+                    height: 24px;
+                    font-family: $source-sans-pro;
+                    font-size: $font-regular;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.71;
+                    letter-spacing: 0.22px;
+                    color:$silver;
+                }
+            }
+
+        }
+        .modal-footer {
+
+            button {
+                width: 68px;
+                height: 36px;
+                border-radius: 3px;
+                font-family: $source-sans-pro;
+                font-size: $font-regular;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 18px;
+                letter-spacing: -0.1px;
+                color: $white;
+                outline: none;
+            }
+        }
+    }

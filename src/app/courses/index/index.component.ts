@@ -2,7 +2,7 @@ import { Component, OnInit, DoCheck } from '@angular/core';
 
 import { Course } from 'src/app/shared/models/course/course';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
-import { CoursesService } from 'src/app/courses.service';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 
 @Component({
     selector: 'app-index',

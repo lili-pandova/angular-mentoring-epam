@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Course } from './shared/models/course/course';
+import { Course } from '../../models/course/course';
 
 @Injectable({
     providedIn: 'root'
@@ -64,21 +64,11 @@ export class CoursesService {
     }
 
     update(id: number, data: any) {
+        console.log(id, "id from service")
+        console.log(data, "data from service")
         // Find item with id and update data
-        this.item = this.listCourses.find(e => {
-            //e.id === id
-            if(e.id === id) {
-                // return this.listCourses = [
-                //     {
-                //         id: e.id,
-                //         title: e.title,
-                //         creationDate: e.creationDate,
-                //         duration: e.duration,
-                //         description: e.description,
-                //         topRated: true
-                //     }
-                // ]
-            }
-        });
-    }
+        this.item = this.listCourses.find(e => e.id === id);
+        this.item.push(data);
+        console.log(this.item, "this.item")
+    };
 }
