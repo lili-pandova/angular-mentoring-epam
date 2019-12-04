@@ -22,7 +22,6 @@ import { FindByPipe } from './shared/pipes/find-by.pipe';
 import { CoursesService } from './shared/services/course-service/courses.service';
 import { AuthorizationService } from './shared/services/auth-service/auth-service';
 import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
-import { NewCourseComponent } from './shared/new-course/new-course.component';
 import { LoginComponent } from './shared/components/login/login.component';
 
 @NgModule({
@@ -44,7 +43,6 @@ import { LoginComponent } from './shared/components/login/login.component';
         OrderByPipe,
         FindByPipe,
         ConfirmationModalComponent,
-        NewCourseComponent,
         LoginComponent
     ],
     imports: [BrowserModule,

@@ -12,7 +12,6 @@ export class AuthorizationService {
   login(userData: any){
     localStorage.setItem(this.user, JSON.stringify(userData));
     this.isAuthenticated = true;
-    console.log(this.isAuthenticated, "AUTH")
   }
 
   logout(){

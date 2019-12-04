@@ -64,11 +64,8 @@ export class CoursesService {
     }
 
     update(id: number, data: any) {
-        console.log(id, "id from service")
-        console.log(data, "data from service")
-        // Find item with id and update data
         this.item = this.listCourses.find(e => e.id === id);
-        this.item.push(data);
-        console.log(this.item, "this.item")
+        const updatedData = Object.assign(this.item, data)
+        console.log(updatedData);
     };
 }

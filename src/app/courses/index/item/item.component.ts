@@ -13,41 +13,27 @@ import { NewCourseComponent } from '../../../shared/new-course/new-course.compon
 export class ItemComponent {
     @Input() public data: Course;
 
-    @ViewChild('confirmModal', {static: false}) 
-    public confirmModall: ConfirmationModalComponent;
-
     public listCourses: Course[] = [];
     public updatedData: any;
-    public itemId: any;
+    public itemId: number;
 
-    constructor(private _coursesService: CoursesService) {}
+    constructor(
+        private _coursesService: CoursesService) {}
 
     editCourse($event) {
-        this.itemId = $event;
-        console.log(this.itemId, 'You clicked the edit-button');
-    }
-
-    receiveData($event) {
-        this.updatedData = $event;
-        console.log(this.updatedData, "message");
-        console.log(this.itemId, "message this.data.id undefined????");
-        this._coursesService.update(this.itemId, this.updatedData);
+        this.itemId = this.data.id;
+        this._coursesService.update(this.itemId, {});
     }
 
     deleteCourse() {
-        this.openModal(this.data.id)
-        this.confirmModall.delete.subscribe(() => {
-            this._coursesService.destroy(this.data.id);
-            this.closeModal(this.data.id);
-        })
+        this._coursesService.destroy(this.data.id);
     }
 
-    openModal(id: number) {
+    openModal() {
         document.querySelector('.confirmation-modal').classList.add('block');
     }
 
-    //cancel delete is not working!!! Method is not added
-    closeModal(id: number) {
+    closeModal() {
         document.querySelector('.confirmation-modal').classList.remove('block');
     }
 }

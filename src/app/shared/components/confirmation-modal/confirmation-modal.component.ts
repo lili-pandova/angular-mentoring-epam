@@ -6,7 +6,6 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
     styleUrls: ['./confirmation-modal.component.scss']
 })
 export class ConfirmationModalComponent implements OnInit {
-    @Output() public cancel = new EventEmitter();
     @Output() public delete = new EventEmitter();
 
     constructor() {}
@@ -14,17 +13,11 @@ export class ConfirmationModalComponent implements OnInit {
     ngOnInit() {}
 
     onCancel() {
-        // document.querySelector('.confirmation-modal').classList.remove('block');
-        this.cancel.emit(true);
+        document.querySelector('.confirmation-modal').classList.remove('block');
     }
 
     onDelete() {
-        // document.querySelector('.confirmation-modal').classList.remove('block');
         console.log("Delete courses on click")
         this.delete.emit(true);
-    }
-
-    close() {
-        document.querySelector('.confirmation-modal').classList.remove('block');
     }
 }

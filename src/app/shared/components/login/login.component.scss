@@ -5,11 +5,13 @@
         .sick-green {
             background: $sick-green;
         }
+
         .field {
             padding-top: 12px;
             label, input {
                 width: 100%;
             }
+            
             label {
                 font-family: $source-sans-pro;
                 font-size: $font-regular;

@@ -26,14 +26,8 @@
         <button
             type="button"
             class="btn btn-default dark-sky-blue delete"
-            (click)="deleteCourse($event)">
+            (click)="openModal($event)">
             Delete
         </button>
-    </div>
-    <div>
-        <app-confirmation-modal #confirmModal></app-confirmation-modal>
-    </div>
-    <div>
-        <app-new-course (updateData)="receiveData($event)"></app-new-course>
     </div>
 </div>

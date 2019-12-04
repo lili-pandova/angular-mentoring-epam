@@ -11,8 +11,10 @@ export class LoginComponent {
 
   @Output() public loginData = new EventEmitter();
 
-  login(userData: any) {
+  login(userData: any): any{
     this.loginData.emit(userData);
+    document.querySelector('#login .close').click();
+    console.log("Login successfully");
   }
 
 }
