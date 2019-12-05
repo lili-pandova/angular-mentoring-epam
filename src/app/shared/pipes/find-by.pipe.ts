@@ -9,6 +9,6 @@ export class FindByPipe implements PipeTransform {
             return;
         }
         
-        findBy.filter(a => a.title.toLowerCase().includes(searchTitle));
+        return findBy.filter(a => a.title.toLowerCase().includes(searchTitle));
     }
 }
