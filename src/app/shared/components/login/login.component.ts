@@ -13,8 +13,8 @@ export class LoginComponent {
 
   login(userData: any): any{
     this.loginData.emit(userData);
-    document.querySelector('#login .close').click();
-    console.log("Login successfully");
+    let element: HTMLElement = document.getElementsByClassName('close')[0] as HTMLElement;
+    element.click();
   }
 
 }

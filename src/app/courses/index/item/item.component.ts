@@ -3,7 +3,6 @@ import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core
 import { Course, CourseTitle } from '../../../shared/models/course/course';
 import { CoursesService } from '../../../shared/services/course-service/courses.service';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
-import { NewCourseComponent } from '../../../shared/new-course/new-course.component';
 
 @Component({
     selector: 'app-item',

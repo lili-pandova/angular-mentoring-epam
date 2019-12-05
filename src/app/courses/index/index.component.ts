@@ -30,11 +30,15 @@ export class IndexComponent implements OnInit, DoCheck, AfterViewInit {
 
     ngDoCheck() {
         this.items = this._coursesService.index();
+        //this.listCourses = this._coursesService.index();
+        console.log(this.items, "Items")
     }
   
     findName(value: string) {
         const findNamePipe = new FindByPipe();
-        this.items = findNamePipe.transform(this.listCourses, value);
+        console.log(value, "Value")
+        console.log(this.items, "this.items")
+        console.log(findNamePipe.transform(this.listCourses, value));
     }
 
     ngAfterViewInit(){

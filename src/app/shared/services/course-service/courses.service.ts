@@ -47,6 +47,7 @@ export class CoursesService {
     constructor() {}
 
     index() {
+        console.log(this.listCourses, "List from service")
         return this.listCourses;
     }
 
