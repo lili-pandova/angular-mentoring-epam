@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './courses/index/index.component';
@@ -18,6 +19,10 @@ import { CourseBorderDirective } from './shared/directives/course-border.directi
 import { DurationPipe } from './shared/pipes/duration.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
+import { CoursesService } from './shared/services/course-service/courses.service';
+import { AuthorizationService } from './shared/services/auth-service/auth-service';
+import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
+import { LoginComponent } from './shared/components/login/login.component';
 
 @NgModule({
     declarations: [
@@ -36,10 +41,15 @@ import { FindByPipe } from './shared/pipes/find-by.pipe';
         CourseBorderDirective,
         DurationPipe,
         OrderByPipe,
-        FindByPipe
+        FindByPipe,
+        ConfirmationModalComponent,
+        LoginComponent
     ],
-    imports: [BrowserModule, AppRoutingModule],
-    providers: [FindByPipe],
+    imports: [BrowserModule,
+             AppRoutingModule,
+             FormsModule,
+             ReactiveFormsModule],
+    providers: [FindByPipe, CoursesService, AuthorizationService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}

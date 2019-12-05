@@ -1,6 +1,8 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 
 import { Course, CourseTitle } from '../../../shared/models/course/course';
+import { CoursesService } from '../../../shared/services/course-service/courses.service';
+import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 
 @Component({
     selector: 'app-item',
@@ -9,15 +11,28 @@ import { Course, CourseTitle } from '../../../shared/models/course/course';
 })
 export class ItemComponent {
     @Input() public data: Course;
-    @Output() public delete = new EventEmitter();
 
-    constructor() {}
+    public listCourses: Course[] = [];
+    public updatedData: any;
+    public itemId: number;
 
-    editCourse() {
-        console.log('You clicked the edit-button');
+    constructor(
+        private _coursesService: CoursesService) {}
+
+    editCourse($event) {
+        this.itemId = this.data.id;
+        this._coursesService.update(this.itemId, {});
     }
 
     deleteCourse() {
-        this.delete.emit(this.data.id);
+        this._coursesService.destroy(this.data.id);
+    }
+
+    openModal() {
+        document.querySelector('.confirmation-modal').classList.add('block');
+    }
+
+    closeModal() {
+        document.querySelector('.confirmation-modal').classList.remove('block');
     }
 }

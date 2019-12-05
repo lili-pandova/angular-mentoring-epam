@@ -10,10 +10,11 @@ import { AddCoursesBtnComponent } from './add-courses-btn/add-courses-btn.compon
 import { LoadMoreComponent } from './load-more/load-more.component';
 import { FooterComponent } from './footer/footer.component';
 import { UserComponent } from './user/user.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,
-    AddCoursesBtnComponent, LoadMoreComponent, FooterComponent, UserComponent],
+    AddCoursesBtnComponent, LoadMoreComponent, FooterComponent, UserComponent, LoginComponent],
   imports: [
     CommonModule
   ]

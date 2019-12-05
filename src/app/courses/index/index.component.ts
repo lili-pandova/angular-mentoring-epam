@@ -1,65 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 
 import { Course } from 'src/app/shared/models/course/course';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import { ItemComponent } from './item/item.component';
+import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 
 @Component({
     selector: 'app-index',
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit {
-    public listCourses: Course[] = [
-        {
-            id: 1,
-            title: 'Lorem Ipsum',
-            creationDate: new Date('February 29, 2016'),
-            duration: 55,
-            description:
-                'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
-                'when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-            topRated: true
-        },
-        {
-            id: 2,
-            title: 'Lorem Ipsum-1',
-            creationDate: new Date('February 25, 2016'),
-            duration: 87,
-            description:
-                ' It has survived not only five centuries, but also the leap into electronic typesetting, ' +
-                'remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing' +
-                ' Lorem Ipsum passages,' +
-                'and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum',
-            topRated: true
-        },
-        {
-            id: 1,
-            title: 'Test course',
-            creationDate: new Date('February 7, 2016'),
-            duration: 195,
-            description:
-                'Lorem Ipsum is simply dummy text of the printing and typesetting industry.' +
-                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s," +
-                'when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-            topRated: true
-        }
-    ];
+export class IndexComponent implements OnInit, AfterViewInit {
+    @ViewChild('appItem', {static: false}) 
+    public appItemm: ItemComponent;
+    @ViewChild('confirmModal', {static: false}) 
+    public confirmModall: ConfirmationModalComponent;
+
+    public listCourses: Course[] = [];
     public items: Course[] = [];
     public searchName: string;
 
+    constructor(private _coursesService: CoursesService) {}
+
     ngOnInit() {
-        this.items = this.listCourses;
+        this.items = this._coursesService.index();
+        this.listCourses = this._coursesService.index();
     }
-
-    deleteCourse(id) {
-        console.log('Course ID: ', id);
-    }
-
+  
     findName(value: string) {
         const findNamePipe = new FindByPipe();
         this.items = findNamePipe.transform(this.listCourses, value);
     }
 
-    constructor() {}
+    ngAfterViewInit(){
+        this.confirmModall.delete.subscribe(() => {
+            this.appItemm.deleteCourse();
+            this.appItemm.closeModal();
+            this.items = this._coursesService.index();
+        });
+    }
 }
