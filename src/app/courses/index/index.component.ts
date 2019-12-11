@@ -20,6 +20,8 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public listCourses: Course[] = [];
     public items: Course[] = [];
     public searchName: string;
+    public show: boolean = false;
+
 
     constructor(private _coursesService: CoursesService) {}
 
@@ -39,5 +41,13 @@ export class IndexComponent implements OnInit, AfterViewInit {
             this.appItemm.closeModal();
             this.items = this._coursesService.index();
         });
+    }
+
+    showModal() {
+        this.show = true;
+    }
+
+    hideModal() {
+        this.show = false;
     }
 }

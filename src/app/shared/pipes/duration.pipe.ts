@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'duration'
 })
 export class DurationPipe implements PipeTransform {
-    transform(value: any, ...args): any {
+    transform(value: any, ...args: any): any {
         const timeDuration = value;
         const hours = Math.floor((timeDuration / (60)));
         const min = timeDuration - (hours * 60);

@@ -1,0 +1,30 @@
+<div class="add-course">
+    <div class="content">
+      <div class="header">
+        <h5 class="title">{{ title }}</h5>
+      </div>
+      <div class="body">
+        <form #addForm="ngForm" (ngSubmit)="onSubmit()">
+
+          {{ addForm.value | json }}
+            <div class="field form-group">
+                <label for="title">Title<span>*required</span></label>
+                <input type="text" name="title" id="title" placeholder="Text input" (ngModel)="name"/>
+            </div>
+            <div class="field form-group">
+                <label for="description">Description<span>*required</span></label>
+                <textarea name="description" id="description" placeholder="Add description" (ngModel)="description"></textarea>
+            </div>
+            <app-duration></app-duration>
+            <div class="field form-group">
+                <label for="date">Date</label>
+                <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" (ngModel)="date"/>
+            </div>
+        </form>
+      </div>
+      <div class="footer">
+          <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
+          <button type="button" class="btn sick-green" (click)="addCourse()">Save</button>
+      </div>
+    </div>
+</div>

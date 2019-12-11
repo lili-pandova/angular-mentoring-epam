@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 
 import { Course, CourseTitle } from '../../../shared/models/course/course';
 import { CoursesService } from '../../../shared/services/course-service/courses.service';
@@ -7,7 +7,8 @@ import { ConfirmationModalComponent } from 'src/app/shared/components/confirmati
 @Component({
     selector: 'app-item',
     templateUrl: './item.component.html',
-    styleUrls: ['./item.component.scss']
+    styleUrls: ['./item.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ItemComponent {
     @Input() public data: Course;
@@ -19,7 +20,7 @@ export class ItemComponent {
     constructor(
         private _coursesService: CoursesService) {}
 
-    editCourse($event) {
+    editCourse($event: any) {
         this.itemId = this.data.id;
         this._coursesService.update(this.itemId, {});
     }

@@ -1,0 +1,145 @@
+@import "~src/scss/variables";
+
+.add-course {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 32, 42, 0.62);
+    z-index: 99999;
+
+    .content {
+        width: 731px;
+        height: 590px;
+        border-radius: 8px;
+        box-shadow: 0 1px 24px 0 rgba(18, 21, 35, 0.08);
+        background-color: $white;
+        padding: 24px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    
+        .sick-green {
+            background-color: $sick-green;
+        }
+    
+        .pale-grey {
+            background-color: $pale-grey;
+        }
+    
+        .header {
+            .title {
+                font-family: $source-sans-pro;
+                font-size: 24px;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 1.25;
+                letter-spacing: normal;
+                color: $dark;
+                padding-bottom: 22px;
+            }
+        }
+    
+        .body {
+            form {
+                .field {
+                    padding-bottom: 12px;
+    
+                    label {
+                        width: 100%;
+                        font-family: $source-sans-pro;
+                        font-size: $font-regular;
+                        font-weight: 600;
+                        font-stretch: normal;
+                        font-style: normal;
+                        line-height: normal;
+                        letter-spacing: 0.22px;
+                        color: $slate-grey;
+        
+                        span {
+        
+                            &::after {
+                                content: '';
+                                display: block;
+                                clear: both;
+                            }
+        
+                            float: right;
+                            font-family: $source-sans-pro;
+                            font-size: $font-small;
+                            font-weight: normal;
+                            font-stretch: normal;
+                            font-style: normal;
+                            line-height: 1.5;
+                            letter-spacing: 0.19px;
+                            text-align: right;
+                            color: $steel;
+                              
+                        }
+                    }
+        
+                      input, textarea {
+                          width: 100%;
+                          border-radius: 3px;
+                          border: solid 1px $pale-grey;
+                          background-color: $white;
+                          padding: 6px 12px;
+                          &::-webkit-input-placeholder { 
+                            color: $silver;
+                            font-size: $font-regular;
+                            line-height: 1.71;
+                            letter-spacing: 0.22px;
+                            padding: 6px 12px;
+                          }
+                      }
+        
+                      input {
+                        height: 36px;
+                        #date {
+                            width: 150px;
+                        }
+                      }
+                
+                      textarea {
+                          min-height: 108px;
+                      }
+                }
+    
+            }
+        }
+    
+        .footer {
+            width: 100%;
+            text-align: right;
+    
+            button {
+                width: 76px;
+                height: 36px;
+                font-family: $source-sans-pro;
+                font-size: $font-regular;
+                font-weight: 600;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: 18px;
+                letter-spacing: -0.1px;
+                color: $slate-grey;
+                margin-top: 24px;
+                  
+                &:last-of-type {
+                    display: inline-block;
+                    padding-left: 12px; 
+                    color: $white;
+                    margin-left: 12px;
+                }
+                  
+            }
+        }
+          
+    }
+
+}

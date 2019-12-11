@@ -23,6 +23,8 @@ import { CoursesService } from './shared/services/course-service/courses.service
 import { AuthorizationService } from './shared/services/auth-service/auth-service';
 import { ConfirmationModalComponent } from './shared/components/confirmation-modal/confirmation-modal.component';
 import { LoginComponent } from './shared/components/login/login.component';
+import { AddCourseComponent } from './shared/components/add-course/add-course.component';
+import { DurationComponent } from './shared/components/duration/duration.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +45,9 @@ import { LoginComponent } from './shared/components/login/login.component';
         OrderByPipe,
         FindByPipe,
         ConfirmationModalComponent,
-        LoginComponent
+        LoginComponent,
+        AddCourseComponent,
+        DurationComponent
     ],
     imports: [BrowserModule,
              AppRoutingModule,
