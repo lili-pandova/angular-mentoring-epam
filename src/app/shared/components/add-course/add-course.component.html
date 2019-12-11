@@ -4,7 +4,7 @@
         <h5 class="title">{{ title }}</h5>
       </div>
       <div class="body">
-        <form #addForm="ngForm" (ngSubmit)="onSubmit()">
+        <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm.value)">
 
           {{ addForm.value | json }}
             <div class="field form-group">
@@ -20,11 +20,12 @@
                 <label for="date">Date</label>
                 <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" (ngModel)="date"/>
             </div>
+        
+          <div class="footer">
+            <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
+            <button type="submit" class="btn sick-green">Save</button>
+          </div>
         </form>
-      </div>
-      <div class="footer">
-          <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
-          <button type="button" class="btn sick-green" (click)="addCourse()">Save</button>
       </div>
     </div>
 </div>

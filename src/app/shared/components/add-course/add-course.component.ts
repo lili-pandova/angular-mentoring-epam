@@ -23,9 +23,9 @@ export class AddCourseComponent {
     console.log('Cancel!');
   }
 
-  onSubmit(arg: any) {
-    console.log(arg, "arguments")
-    console.log("Submit func")
+  onSubmit(arg) {
+    //console.log(arg, "arguments")
+    console.log(arg, "Submit func")
   }
 
 }
