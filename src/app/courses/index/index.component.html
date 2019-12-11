@@ -3,11 +3,11 @@
     <app-add-courses-btn (showModal)="showModal()"></app-add-courses-btn>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
-            <app-item #appItem [data]="item"></app-item>
+            <app-item #appItem [data]="item" (showModal)="showModal()"></app-item>
         </div>
     </section>
     <div *ngIf="show">
-        <app-add-course (hideModal)="hideModal()"></app-add-course>
+        <app-add-course (hideModal)="hideModal()" (transferData)="transferData($event)"></app-add-course>
     </div>
 </div>
 

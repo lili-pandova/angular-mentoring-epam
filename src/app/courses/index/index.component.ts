@@ -21,6 +21,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public items: Course[] = [];
     public searchName: string;
     public show: boolean = false;
+    public data: any;
 
 
     constructor(private _coursesService: CoursesService) {}
@@ -49,5 +50,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
     hideModal() {
         this.show = false;
+    }
+
+    transferData($event) {
+        this.data = $event;
+        this._coursesService.store($event);
     }
 }

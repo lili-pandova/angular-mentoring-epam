@@ -2,11 +2,13 @@
     <div class="content">
       <div class="header">
         <h5 class="title">{{ title }}</h5>
+        {{randomId}}
       </div>
       <div class="body">
         <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm.value)">
-
-          {{ addForm.value | json }}
+            <div class="field form-group">
+                <input type="hidden" name="id" [(ngModel)]="id" value="randomId"/>
+            </div>
             <div class="field form-group">
                 <label for="title">Title<span>*required</span></label>
                 <input type="text" name="title" id="title" placeholder="Text input" (ngModel)="name"/>

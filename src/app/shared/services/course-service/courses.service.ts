@@ -56,7 +56,9 @@ export class CoursesService {
     }
 
     store(data: any) {
+        console.log(data, "DATA from service")
         this.listCourses.push(data);
+        console.log(this.listCourses, "listcourses from services")
     }
 
     view(id: number) {
