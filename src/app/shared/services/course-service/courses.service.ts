@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../models/course/course';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
@@ -56,9 +57,14 @@ export class CoursesService {
     }
 
     store(data: any) {
-        console.log(data, "DATA from service")
-        this.listCourses.push(data);
-        console.log(this.listCourses, "listcourses from services")
+        return new Observable((obs) => {
+            console.log(data, "DATA from service")
+            const newData = this.listCourses.push(data);
+            console.log(this.listCourses, "listcourses from services")
+            
+            obs.next(newData);
+            obs.complete();
+        });
     }
 
     view(id: number) {
@@ -66,8 +72,10 @@ export class CoursesService {
     }
 
     update(id: number, data: any) {
+        console.log(id, "ID")
+        console.log(data, "data")
         this.item = this.listCourses.find(e => e.id === id);
         const updatedData = Object.assign(this.item, data)
-        console.log(updatedData);
+        console.log(updatedData, "updatedData");
     };
 }

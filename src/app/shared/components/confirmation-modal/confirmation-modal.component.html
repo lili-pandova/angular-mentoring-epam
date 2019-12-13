@@ -5,13 +5,13 @@
             <img
                 class="close"
                 src="assets/img/close@2x.png"
-                (click)="close()"
+                (click)="onCancel()"
             />
         </div>
         <p>Do you really want to delete this course?</p>
         <div class="btns">
-            <button class="denied" (click)="onCancel($event)">Cancel</button>
-            <button class="confirm" (click)="onDelete($event)">
+            <button class="denied" (click)="onCancel()">Cancel</button>
+            <button class="confirm" (click)="onDelete()">
                 Yes, delete
             </button>
         </div>

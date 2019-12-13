@@ -18,23 +18,29 @@ export class ItemComponent {
     public updatedData: any;
     public itemId: number;
     @Output() showModal  = new EventEmitter(); 
+    @Output() editId  = new EventEmitter(); 
 
 
     constructor(
         private _coursesService: CoursesService) {}
 
     editCourse($event: any) {
+        console.log($event, "Edit")
         this.itemId = this.data.id;
         this._coursesService.update(this.itemId, {});
         this.showModal.emit(this.show);
+        this.editId.emit(this.data.id);
     }
 
     deleteCourse() {
-        this._coursesService.destroy(this.data.id);
+        console.log(this.itemId, "this.itemId3333");
+        this._coursesService.destroy(this.itemId);
     }
 
-    openModal() {
+    openModal($event: any) {
+        console.log(this.data.id, "this.itemId111")
         document.querySelector('.confirmation-modal').classList.add('block');
+        this.itemId = this.data.id;
     }
 
     closeModal() {

@@ -1,6 +1,6 @@
 <div
     [appCourseBorder]="data.creationDate"
-    [ngClass]="{ changeBackground: topRated == true }"
+    [ngClass]="{ changeBackground: data.topRated == true }"
     class="item-component">
     <div *ngIf="data.topRated">
         <span class="star"></span>
