@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Output, Input } from '@angular/core';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-course',
@@ -41,5 +41,12 @@ export class AddCourseComponent {
   durationField($event) {
     this.durationData = $event;
   }
+
+  addCourseForm = new FormGroup({
+    randomId: new FormControl(this.randomId),
+    title: new FormControl(),
+    description: new FormControl(),
+    date: new FormControl()
+  })
 
 }

@@ -1,4 +1,4 @@
-<div class="field form-group" addForm="ngForm">
+<div class="field form-group">
     <label for="duration">Duration</label>
-    <input type="text" name="duration" id="duration" #duration placeholder="minutes" (ngModel)="duration"  (ngModelChange)="onChange($event, duration.value)" [formControl]="control"/>
+    <input type="text" name="duration" id="duration" #duration placeholder="minutes" [formControl]="control"/>
 </div>

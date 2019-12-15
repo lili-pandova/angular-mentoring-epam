@@ -20,6 +20,7 @@
             type="button"
             class="btn btn-default edit dark-sky-blue edit"
             data-toggle="modal" data-target="#new-course"
+            routerLink="/course/edit"
             (click)="editCourse($event)">
             Edit
         </button>
@@ -29,5 +30,8 @@
             (click)="openModal($event)">
             Delete
         </button>
+    </div>
+    <div *ngIf="show">
+        <app-edit-course [itemId]="itemId"></app-edit-course>
     </div>
 </div>

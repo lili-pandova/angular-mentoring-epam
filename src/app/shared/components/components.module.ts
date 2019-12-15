@@ -15,6 +15,7 @@ import { DurationComponent } from './duration/duration.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { OrderByPipe } from '../pipes/order-by.pipe';
+import { CoursesRoutingModule } from '../../courses/courses-routing.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { OrderByPipe } from '../pipes/order-by.pipe';
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CoursesRoutingModule
   ],
   exports: [
     HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,

@@ -4,23 +4,23 @@
         <h5 class="title">{{ titleModal }}</h5>
       </div>
       <div class="body">
-        <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm.value)">
-            <div class="field form-group">
-                <input type="hidden" name="id" [(ngModel)]="formData.randomId" />
-            </div>
+        <form [formGroup]="addCourseForm" (ngSubmit)="onSubmit(addCourseForm.value)">
+            {{addCourseForm.value | json }}
+          <div class="field form-group">
+            <input type="hidden" name="randomId" formControlName="randomId"/>
+          </div>
             <div class="field form-group">
                 <label for="title">Title<span>*required</span></label>
-                <input type="text" name="title" id="title" placeholder="Text input" [(ngModel)]="formData.name"/>
+                <input type="text" name="title" id="title" placeholder="Text input" formControlName="title"/>
             </div>
             <div class="field form-group">
                 <label for="description">Description<span>*required</span></label>
-                <textarea name="description" id="description" placeholder="Add description" [(ngModel)]="formData.description"></textarea>
+                <textarea name="description" id="description" placeholder="Add description" formControlName="description"></textarea>
             </div>
-            <app-duration [control]="durationControl" (durationField)="durationField($event)"></app-duration>
-            {{ durationControl.value | json }}
+            <app-duration [control]="durationControl"></app-duration>
             <div class="field form-group">
                 <label for="date">Date</label>
-                <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" [(ngModel)]="formData.date" />
+                <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" formControlName="date" />
             </div>
           <div class="footer">
             <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>

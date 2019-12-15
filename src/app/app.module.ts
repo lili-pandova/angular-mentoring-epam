@@ -9,6 +9,7 @@ import { AuthorizationService } from './shared/services/auth-service/auth-servic
 import { SharedModule } from './shared/shared.module';
 import { CoursesModule } from './courses/courses.module';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
+import { CoursesRoutingModule } from './courses/courses-routing.module';
 
 
 @NgModule({
@@ -21,7 +22,12 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
+        CoursesRoutingModule, 
         CoursesModule
+    ],
+    exports: [
+        FormsModule,
+        ReactiveFormsModule
     ],
     providers: [CoursesService, AuthorizationService, OrderByPipe],
     bootstrap: [AppComponent],

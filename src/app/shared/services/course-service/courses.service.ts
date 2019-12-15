@@ -58,7 +58,7 @@ export class CoursesService {
 
     store(data: any) {
         return new Observable((obs) => {
-            console.log(data, "DATA from service")
+            console.log(data, "DATA from service");
             const newData = this.listCourses.push(data);
             console.log(this.listCourses, "listcourses from services")
             
@@ -68,7 +68,7 @@ export class CoursesService {
     }
 
     view(id: number) {
-        this.item = this.listCourses.find(e => e.id === id);
+        return this.item = this.listCourses.find(e => e.id === id);
     }
 
     update(id: number, data: any) {

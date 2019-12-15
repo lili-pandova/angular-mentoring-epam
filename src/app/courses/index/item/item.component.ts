@@ -13,23 +13,17 @@ import { ConfirmationModalComponent } from 'src/app/shared/components/confirmati
 export class ItemComponent {
     @Input() public data: Course;
 
-    public show: boolean = true;
+    public show: boolean = false;
     public listCourses: Course[] = [];
     public updatedData: any;
     public itemId: number;
-    @Output() showModal  = new EventEmitter(); 
-    @Output() editId  = new EventEmitter(); 
 
 
     constructor(
         private _coursesService: CoursesService) {}
 
     editCourse($event: any) {
-        console.log($event, "Edit")
         this.itemId = this.data.id;
-        this._coursesService.update(this.itemId, {});
-        this.showModal.emit(this.show);
-        this.editId.emit(this.data.id);
     }
 
     deleteCourse() {
@@ -38,7 +32,6 @@ export class ItemComponent {
     }
 
     openModal($event: any) {
-        console.log(this.data.id, "this.itemId111")
         document.querySelector('.confirmation-modal').classList.add('block');
         this.itemId = this.data.id;
     }

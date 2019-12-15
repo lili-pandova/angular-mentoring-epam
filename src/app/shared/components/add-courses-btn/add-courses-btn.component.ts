@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Routes, RouterModule, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-add-courses-btn',
@@ -6,13 +7,8 @@ import { Component, Output, EventEmitter } from '@angular/core';
     styleUrls: ['./add-courses-btn.component.scss']
 })
 export class AddCoursesBtnComponent {
-    show: boolean = true;
-    @Output() showModal  = new EventEmitter<boolean>(); 
 
     constructor() {}
 
-    showPopUp() {
-        this.showModal.emit(this.show);
-    }
 
 }
