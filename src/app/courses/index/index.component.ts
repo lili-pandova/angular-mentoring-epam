@@ -20,7 +20,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public listCourses: Course[] = [];
     public items: Course[] = [];
     public searchName: string;
-    public show: boolean = false;
     public titleModal: string = '';
     public data: any;
     public editedId;
