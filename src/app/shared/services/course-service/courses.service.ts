@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../../models/course/course';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class CoursesService {
+    private autoIncrement = 4;
     private listCourses: Course[] = [
         {
             id: 1,
@@ -44,7 +46,7 @@ export class CoursesService {
 
     public item;
 
-    constructor() {}
+    constructor() { }
 
     index() {
         return this.listCourses;
@@ -56,16 +58,38 @@ export class CoursesService {
     }
 
     store(data: any) {
-        this.listCourses.push(data);
+        return new Observable((obs) => {
+            data.id = this.autoIncrement;
+            this.autoIncrement++;
+
+            const newData = this.listCourses.push(data);
+            obs.next(newData);
+            obs.complete();
+        });
     }
 
     view(id: number) {
-        this.item = this.listCourses.find(e => e.id === id);
+        return new Observable((obs) => {
+            if (typeof id === 'string') {
+                id = parseInt(id);
+            }
+
+            const item = this.listCourses.find(e => e.id === id);
+            obs.next(item);
+            obs.complete();
+        });
     }
 
     update(id: number, data: any) {
-        this.item = this.listCourses.find(e => e.id === id);
-        const updatedData = Object.assign(this.item, data)
-        console.log(updatedData);
+        return new Observable((obs) => {
+            if (typeof id === 'string') {
+                id = parseInt(id);
+            }
+
+            const item = this.listCourses.find(e => e.id === id);
+            const updatedData = Object.assign(item, data)
+            obs.next(updatedData);
+            obs.complete();
+        });
     };
 }

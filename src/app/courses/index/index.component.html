@@ -1,10 +1,14 @@
 <div class="index-component" *ngIf="items; else noData">
     <app-search (searchName)="findName($event)"></app-search>
+    <app-add-courses-btn></app-add-courses-btn>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
             <app-item #appItem [data]="item"></app-item>
         </div>
     </section>
+    <div>
+        <app-add-course></app-add-course>
+    </div>
 </div>
 
 <ng-template #noData>
@@ -12,3 +16,5 @@
 </ng-template>
 
 <app-confirmation-modal #confirmModal></app-confirmation-modal>
+
+<app-load-more></app-load-more>

@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +6,8 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  public email: string;
+  public password: string;
   editForm;
 
   @Output() public loginData = new EventEmitter();

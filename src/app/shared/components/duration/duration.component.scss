@@ -1,0 +1,53 @@
+@import "~src/scss/variables";
+
+.field {
+    padding-bottom: 12px;
+    
+    label {
+        width: 100%;
+        font-family: $source-sans-pro;
+        font-size: $font-regular;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: 0.22px;
+        color: $slate-grey;
+
+        span {
+
+            &::after {
+                content: '';
+                display: block;
+                clear: both;
+            }
+
+            float: right;
+            font-family: $source-sans-pro;
+            font-size: $font-small;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: 1.5;
+            letter-spacing: 0.19px;
+            text-align: right;
+            color: $steel;
+              
+        }
+    }
+
+      input {
+          width: 150px;
+          height: 36px;
+          border-radius: 3px;
+          border: solid 1px $pale-grey;
+          background-color: $white;
+          &::-webkit-input-placeholder { 
+            color: $silver;
+            font-size: $font-regular;
+            line-height: 1.71;
+            letter-spacing: 0.22px;
+            padding: 6px 12px;
+          }
+        }
+}

@@ -7,7 +7,7 @@ import { ItemComponent } from './item/item.component';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 
 @Component({
-    selector: 'app-index',
+    selector: 'app-courses-index',
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.scss']
 })
@@ -20,6 +20,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public listCourses: Course[] = [];
     public items: Course[] = [];
     public searchName: string;
+    public titleModal: string = '';
+    public data: any;
+    public editedId;
+
 
     constructor(private _coursesService: CoursesService) {}
 

@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+    <div class="field form-group">
+        <label for="title">Title<span>*required</span></label>
+        <input type="text" name="title" id="title" placeholder="Text input" formControlName="title" />
+    </div>
+    <div class="field form-group">
+        <label for="description">Description<span>*required</span></label>
+        <textarea name="description" id="description" placeholder="Add description"
+            formControlName="description"></textarea>
+    </div>
+    <app-duration [control]="form.controls['duration']"></app-duration>
+    <div class="field form-group">
+        <label for="date">Date</label>
+        <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" formControlName="creationDate" />
+    </div>
+    <div class="footer">
+        <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn sick-green">Save</button>
+    </div>
+</form>

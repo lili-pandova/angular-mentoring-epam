@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { Routes, RouterModule, RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-add-courses-btn',
@@ -6,5 +7,8 @@ import { Component } from '@angular/core';
     styleUrls: ['./add-courses-btn.component.scss']
 })
 export class AddCoursesBtnComponent {
+
     constructor() {}
+
+
 }
