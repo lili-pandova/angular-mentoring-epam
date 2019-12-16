@@ -1,40 +1,57 @@
-import { Component, Input, DoCheck } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-
-import { CoursesService } from '../../shared/services/course-service/courses.service';
+import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Course } from 'src/app/shared/models/course/course';
 
 @Component({
   selector: 'app-edit-course',
   templateUrl: './edit-course.component.html',
   styleUrls: ['./edit-course.component.scss']
 })
-export class EditCourseComponent implements DoCheck {
-  public durationControl = new FormControl();
-  public randomId: number = Math.round(Math.random() * 100);
-  @Input() itemId: number;
+export class EditCourseComponent implements OnInit {
+  public coursesForm: FormGroup;
+  public item: Course;
 
-  constructor(private _coursesService: CoursesService) { }
+  constructor(
+    private _coursesService: CoursesService,
+    private fb: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) { }
 
-
-  addCourseForm = new FormGroup({
-    randomId: new FormControl(this.randomId),
-    title: new FormControl(),
-    description: new FormControl(),
-    date: new FormControl()
-  })
-
-  ngDoCheck() {
-    let dataField = this._coursesService.view(this.itemId);
-    console.log(dataField, "test");
-    this.addCourseForm.setValue({
-      randomId: dataField.id,
-      title: dataField.title,
-      description: dataField.description,
-      date: dataField.creationDate
+  ngOnInit() {
+    this.coursesForm = this.fb.group({
+      title: [''],
+      description: [''],
+      creationDate: [''],
+      duration: ['']
     })
+
+    this.activatedRoute.params.subscribe((params: any) => {
+      this.fetchItem(params.id);
+    });
   }
 
-  onSubmit(data: any) {
-    this._coursesService.update(this.itemId, data);
+  fetchItem(id: number) {
+    this._coursesService.view(id).subscribe((data: Course) => {
+      this.item = data;
+      this.coursesForm.setValue({
+        title: data.title,
+        description: data.description,
+        creationDate: data.creationDate,
+        duration: data.duration
+      })
+    });
+  }
+
+  cancel() {
+    this.router.navigateByUrl('/courses');
+  }
+
+  onSubmit() {
+    this._coursesService.update(this.item.id, this.coursesForm.value).subscribe((data) => {
+      this.cancel();
+    })
   }
 }

@@ -8,9 +8,16 @@ import { CoursesRoutingModule } from './courses-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { FormComponent } from './partials/form/form.component';
 
 @NgModule({
-    declarations: [IndexComponent, ItemComponent,AddCourseComponent, EditCourseComponent],
+    declarations: [
+        IndexComponent, 
+        ItemComponent,
+        AddCourseComponent,
+        EditCourseComponent,
+        FormComponent
+    ],
     imports: [
         CommonModule,
         FormsModule,

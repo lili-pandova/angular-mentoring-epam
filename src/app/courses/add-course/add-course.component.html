@@ -1,32 +1,10 @@
-<div class="add-course">
+<div class="page-form">
     <div class="content">
       <div class="header">
-        <h5 class="title">{{ titleModal }}</h5>
+        <h5 class="title">Add course</h5>
       </div>
       <div class="body">
-        <form [formGroup]="addCourseForm" (ngSubmit)="onSubmit(addCourseForm.value)">
-            {{addCourseForm.value | json }}
-          <div class="field form-group">
-            <input type="hidden" name="randomId" formControlName="randomId"/>
-          </div>
-            <div class="field form-group">
-                <label for="title">Title<span>*required</span></label>
-                <input type="text" name="title" id="title" placeholder="Text input" formControlName="title"/>
-            </div>
-            <div class="field form-group">
-                <label for="description">Description<span>*required</span></label>
-                <textarea name="description" id="description" placeholder="Add description" formControlName="description"></textarea>
-            </div>
-            <app-duration [control]="durationControl"></app-duration>
-            <div class="field form-group">
-                <label for="date">Date</label>
-                <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" formControlName="date" />
-            </div>
-          <div class="footer">
-            <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
-            <button type="submit" class="btn sick-green">Save</button>
-          </div>
-        </form>
+        <app-courses-form [form]="coursesForm" (submit)="onSubmit()"></app-courses-form>
       </div>
     </div>
 </div>

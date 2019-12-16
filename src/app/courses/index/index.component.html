@@ -1,14 +1,13 @@
 <div class="index-component" *ngIf="items; else noData">
     <app-search (searchName)="findName($event)"></app-search>
-    <app-add-courses-btn (showModal)="showModal()"></app-add-courses-btn>
+    <app-add-courses-btn></app-add-courses-btn>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
-            <app-item #appItem [data]="item" (showModal)="showEditModal()"></app-item>
+            <app-item #appItem [data]="item"></app-item>
         </div>
     </section>
     <div *ngIf="show">
-        <app-add-course (hideModal)="hideModal()" (transferData)="transferData($event)" [titleModal]="titleModal">
-        </app-add-course>
+        <app-add-course></app-add-course>
     </div>
 </div>
 
@@ -18,5 +17,4 @@
 
 <app-confirmation-modal #confirmModal></app-confirmation-modal>
 
-<!--Load more-->
 <app-load-more></app-load-more>

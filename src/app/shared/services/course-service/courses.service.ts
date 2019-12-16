@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class CoursesService {
+    private autoIncrement = 4;
     private listCourses: Course[] = [
         {
             id: 1,
@@ -45,7 +46,7 @@ export class CoursesService {
 
     public item;
 
-    constructor() {}
+    constructor() { }
 
     index() {
         return this.listCourses;
@@ -58,24 +59,37 @@ export class CoursesService {
 
     store(data: any) {
         return new Observable((obs) => {
-            console.log(data, "DATA from service");
+            data.id = this.autoIncrement;
+            this.autoIncrement++;
+
             const newData = this.listCourses.push(data);
-            console.log(this.listCourses, "listcourses from services")
-            
             obs.next(newData);
             obs.complete();
         });
     }
 
     view(id: number) {
-        return this.item = this.listCourses.find(e => e.id === id);
+        return new Observable((obs) => {
+            if (typeof id === 'string') {
+                id = parseInt(id);
+            }
+
+            const item = this.listCourses.find(e => e.id === id);
+            obs.next(item);
+            obs.complete();
+        });
     }
 
     update(id: number, data: any) {
-        console.log(id, "ID")
-        console.log(data, "data")
-        this.item = this.listCourses.find(e => e.id === id);
-        const updatedData = Object.assign(this.item, data)
-        console.log(updatedData, "updatedData");
+        return new Observable((obs) => {
+            if (typeof id === 'string') {
+                id = parseInt(id);
+            }
+
+            const item = this.listCourses.find(e => e.id === id);
+            const updatedData = Object.assign(item, data)
+            obs.next(updatedData);
+            obs.complete();
+        });
     };
 }

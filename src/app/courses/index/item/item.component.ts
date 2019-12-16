@@ -22,10 +22,6 @@ export class ItemComponent {
     constructor(
         private _coursesService: CoursesService) {}
 
-    editCourse($event: any) {
-        this.itemId = this.data.id;
-    }
-
     deleteCourse() {
         console.log(this.itemId, "this.itemId3333");
         this._coursesService.destroy(this.itemId);

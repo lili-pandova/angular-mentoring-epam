@@ -4,10 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+
 const coursesRoutes: Routes = [
   { path: 'courses', component: IndexComponent },
   { path: 'courses/add', component: AddCourseComponent },
-  { path: 'courses/edit', component: EditCourseComponent },
+  { path: 'courses/edit/:id', component: EditCourseComponent },
 ];
 
 @NgModule({

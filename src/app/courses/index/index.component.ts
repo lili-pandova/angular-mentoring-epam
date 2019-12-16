@@ -45,24 +45,4 @@ export class IndexComponent implements OnInit, AfterViewInit {
             this.items = this._coursesService.index();
         });
     }
-
-    showModal() {
-        this.show = true;
-        this.titleModal = 'New course'
-    }
-
-    showEditModal() {
-        this.show = true;
-        this.titleModal = 'Edit course'
-
-    }
-
-    hideModal() {
-        this.show = false;
-    }
-
-    transferData($event) {
-        this.data = $event;
-        this._coursesService.store($event);
-    }
 }
