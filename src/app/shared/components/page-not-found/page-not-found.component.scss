@@ -1,0 +1,35 @@
+@import "~src/scss/variables";
+
+.not-found {
+    img {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 128px;
+        left: 0;
+        right: 0;
+        bottom: 64px;
+        object-fit: cover;
+    }
+
+    button {
+        position: absolute;
+        bottom: 100px;
+        right: 100px;
+        background: #07B3F9;
+        outline: none;
+        width: 138px;
+        height: 36px;
+        border-radius: 3px;
+        color: $white;
+        font-family: $source-sans-pro;
+        font-size: 14px;
+        font-weight: 600;
+        font-stretch: normal;
+        font-style: normal;
+        letter-spacing: -0.1px;
+        margin-bottom: 12px;
+        border: none;
+    }
+
+}

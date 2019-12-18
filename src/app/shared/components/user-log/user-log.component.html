@@ -1,6 +1,6 @@
 <div class='logs'>
   <div *ngIf="!isAuthenticated; else logoff">
-    <button type="button" class='user-login' data-toggle="modal" data-target="#login">
+    <button type="button" class='user-login' routerLink="/login">
         <span class='log-in'>
           <img class='ic_user' src='assets/img/ic-user@2x.png' />
         </span> User login</button>
