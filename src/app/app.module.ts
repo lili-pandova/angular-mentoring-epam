@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { CoursesModule } from './courses/courses.module';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { CoursesRoutingModule } from './courses/courses-routing.module';
+import { SharedRoutingModule } from './shared/shared-routing.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CoursesRoutingModule } from './courses/courses-routing.module';
         FormsModule,
         ReactiveFormsModule,
         SharedModule,
+        SharedRoutingModule,
         CoursesRoutingModule, 
         CoursesModule
     ],
