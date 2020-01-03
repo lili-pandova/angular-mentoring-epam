@@ -1,12 +1,16 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 import { Course } from '../../models/course/course';
 import { Observable } from 'rxjs';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class CoursesService {
     private autoIncrement = 4;
+    private count: number = 1;
     private listCourses: Course[] = [
         {
             id: 1,
@@ -46,10 +50,19 @@ export class CoursesService {
 
     public item;
 
-    constructor() { }
+    constructor(private httpClient: HttpClient) { }
 
-    index() {
-        return this.listCourses;
+    incrementCount() {
+        return this.count ++;
+    }
+    index(): Observable<Course[]> {
+        //return this.listCourses;
+        return this.httpClient.get<Course[]>(`http://localhost:3000/coursess?_page=${this.count}&_limit=3`);          
+    };
+
+    findCourse(serachWord): Observable<Course[]>  {
+        return this.httpClient.get<Course[]>('http://localhost:3000/coursess', {params: { 'q': serachWord  }}) 
+                              
     }
 
     destroy(id: number) {

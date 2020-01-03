@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewChecked, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Course } from 'src/app/shared/models/course/course';
@@ -6,6 +6,7 @@ import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { ItemComponent } from './item/item.component';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
+import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 
 @Component({
@@ -13,14 +14,15 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit, AfterViewChecked {
+
+export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
     @ViewChild('appItem', {static: false}) 
     public appItem: ItemComponent;
     @ViewChild('confirmModal', {static: false}) 
     public confirmModall: ConfirmationModalComponent;
 
-    public listCourses: Course[] = [];
-    public items: Course[] = [];
+    public listCourses;
+    public items: Course[];
     public searchName: string;
     public titleModal: string = '';
     public data: any;
@@ -39,14 +41,16 @@ export class IndexComponent implements OnInit, AfterViewChecked {
     }
 
     ngOnInit() {
-        this.items = this._coursesService.index();
-        this.listCourses = this._coursesService.index();
-        this.isAuth = this._authService.isAuthenticated;
+        this._coursesService.index().subscribe(res => this.items = res,
+                                               error => console.log(error));
+        this._coursesService.index().subscribe(res => this.listCourses = res,
+                                               error => console.log(error));
     }
   
     findName(value: string) {
-        const findNamePipe = new FindByPipe();
-        this.items = findNamePipe.transform(this.listCourses, value);
+        const findNamePipe = new FindByPipe();  
+        this._coursesService.findCourse(value).subscribe(res => this.items = findNamePipe.transform(res, value),
+                                                        error => console.log(error));
     }
 
     ngAfterViewChecked(){
@@ -55,5 +59,11 @@ export class IndexComponent implements OnInit, AfterViewChecked {
             this.appItem.closeModal();
             this.items = this._coursesService.index();
         });
+    }
+
+    addMore() {
+        this._coursesService.incrementCount();
+        this._coursesService.index().subscribe(res => this.items = res,
+                                                      error => console.log(error));
     }
 }

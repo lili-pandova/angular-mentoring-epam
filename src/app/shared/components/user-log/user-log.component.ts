@@ -18,7 +18,7 @@ export class UserLogComponent implements OnInit, DoCheck {
     }
 
     ngDoCheck() {
-        this.isAuthenticated = this._authService.isAuthenticated;
+        return this.isAuthenticated = this._authService.isAuthenticated;
     }
 
     logOff() {
