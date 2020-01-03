@@ -12,6 +12,8 @@ export class LoginComponent {
 
   @Output() public loginData = new EventEmitter();
 
+  constructor() {}
+
   login(userData: any): any{
     this.loginData.emit(userData);
     let element: HTMLElement = document.getElementsByClassName('close')[0] as HTMLElement;

@@ -1,7 +1,7 @@
 {
     "users": [
-      { "id": 1, "fakeToken": "1234b", "name": "Liliya Pandova", "password": "12345" },
-      { "id": 1, "fakeToken": "6789b", "name": "Rosi Pandova", "password": "qwerty" },
-      { "id": 3, "fakeToken": "1234567", "name": "Maria Ivanova", "password": "aasdfg" }
+      { "id": 1, "fakeToken": "1234b", "name": "Liliya Pandova", "email": "lilia_pandova@abv.bg", "password": "12345" },
+      { "id": 2, "fakeToken": "6789b", "name": "Rosi Pandova", "email": "r_pandova@abv.bg", "password": "qwerty" },
+      { "id": 3, "fakeToken": "1234567", "name": "Maria Ivanova", "email": "m_ivanova@abv.bg", "password": "aasdfg" }
     ]
 }

@@ -1,38 +1,119 @@
 {
-    "users": [
-      { "id": 1, "fakeToken": "1234b", "name": "Liliya Pandova", "password": "12345" },
-      { "id": 1, "fakeToken": "6789b", "name": "Rosi Pandova", "password": "qwerty" },
-      { "id": 3, "fakeToken": "1234567", "name": "Maria Ivanova", "password": "aasdfg" }
-    ]
-,
-    "coursess": [
-        {
-            "id": 1,
-            "title": "Lorem Ipsum",
-            "creationDate": "new Date('February 29, 2016')",
-            "duration": 55,
-            "description":
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "topRated": true
-        },
-        {
-            "id": 2,
-            "title": "Lorem Ipsum-1",
-            "creationDate": "new Date('February 25, 2016')",
-            "duration": 87,
-            "description":
-                " It has survived not only five centuries, but also the leap into electronic typesetting, ",
-            "topRated": true
-        },
-        {
-            "id": 3,
-            "title": "Test course",
-            "creationDate": "new Date('February 7, 2016')",
-            "duration": 195,
-            "description":
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            "topRated": true
-        }
-    ]
-
+  "users": [
+    {
+      "id": 1,
+      "fakeToken": "1234b",
+      "name": "Liliya Pandova",
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "fakeToken": "6789b",
+      "name": "Rosi Pandova",
+      "email": "r_pandova@abv.bg",
+      "password": "qwerty"
+    },
+    {
+      "id": 3,
+      "fakeToken": "1234567",
+      "name": "Maria Ivanova",
+      "email": "m_ivanova@abv.bg",
+      "password": "aasdfg"
+    },
+    {
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345",
+      "id": 4
+    },
+    {
+      "email": "lir_66@abv.bg",
+      "password": "12345",
+      "id": 5
+    },
+    {
+      "email": "l@abv.bg",
+      "password": "7890",
+      "id": 6
+    },
+    {
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345",
+      "id": 7
+    }
+  ],
+  "coursess": [
+    {
+      "id": 1,
+      "title": "Lorem Ipsum",
+      "creationDate": "February 7, 2016",
+      "duration": 55,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    },
+    {
+      "id": 2,
+      "title": "Lorem Ipsum-1",
+      "creationDate": "February 7, 2016",
+      "duration": 87,
+      "description": " It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      "topRated": true
+    },
+    {
+      "id": 3,
+      "title": "Test course",
+      "creationDate": "February 7, 2016",
+      "duration": 195,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    },
+    {
+      "id": 4,
+      "title": "Lorem Ipsum4",
+      "creationDate": "February 7, 2016",
+      "duration": 55,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    },
+    {
+      "id": 5,
+      "title": "Lorem Ipsum-5",
+      "creationDate": "February 7, 2016",
+      "duration": 87,
+      "description": " It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      "topRated": true
+    },
+    {
+      "id": 6,
+      "title": "Test course-6",
+      "creationDate": "February 10, 2016",
+      "duration": 195,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    },
+    {
+      "id": 7,
+      "title": "Lorem Ipsum-7",
+      "creationDate": "February 5, 2016",
+      "duration": 55,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    },
+    {
+      "id": 8,
+      "title": "Lorem Ipsum-8",
+      "creationDate": "February 9, 2016",
+      "duration": 87,
+      "description": " It has survived not only five centuries, but also the leap into electronic typesetting, ",
+      "topRated": true
+    },
+    {
+      "id": 9,
+      "title": "Test course-9",
+      "creationDate": "February 1, 2016",
+      "duration": 195,
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+      "topRated": true
+    }
+  ]
 }

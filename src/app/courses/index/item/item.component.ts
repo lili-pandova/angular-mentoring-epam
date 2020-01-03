@@ -1,8 +1,7 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
-import { Course, CourseTitle } from '../../../shared/models/course/course';
+import { Course } from '../../../shared/models/course/course';
 import { CoursesService } from '../../../shared/services/course-service/courses.service';
-import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
 
 @Component({
     selector: 'app-item',
