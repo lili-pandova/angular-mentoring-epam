@@ -17,7 +17,6 @@ export class ConfirmationModalComponent implements OnInit {
     }
 
     onDelete() {
-        console.log("Delete courses on click")
         this.delete.emit(true);
     }
 }

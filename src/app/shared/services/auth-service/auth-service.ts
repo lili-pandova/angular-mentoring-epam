@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthorizationService {
   public isAuthenticated: boolean = false;
-  user: string = "user";
+  userToken: string = "token";
   public users: any;
   public userData: any;
 
@@ -22,7 +22,6 @@ export class AuthorizationService {
   // }
 
   login(userData: any) {
-    console.log(userData, "userdata")
     return this.httpClient.post('http://localhost:3000/users', userData) //add endPoint
                           .subscribe(res => {
                             this.isAuthenticated = true;
@@ -33,12 +32,12 @@ export class AuthorizationService {
   }
 
   logout(){
-    localStorage.removeItem(this.user);
+    localStorage.removeItem(this.userToken);
     this.isAuthenticated = false;
   }
 
   getUserInfo() {
-    return localStorage.getItem(this.user);
+    return localStorage.getItem(this.userToken);
   }
 
   getUsers() {
@@ -46,7 +45,8 @@ export class AuthorizationService {
   }
 
   getUser(userData) {
-    // return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`) 
-    // .subscribe(res => res);
+    return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`) 
+                          .subscribe(res => res,
+                                     error => console.log(error));
   }
 }

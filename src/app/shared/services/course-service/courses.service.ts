@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class CoursesService {
-    private autoIncrement = 4;
     private count: number = 1;
     private listCourses: Course[] = [
         {
@@ -55,8 +54,7 @@ export class CoursesService {
     incrementCount() {
         return this.count ++;
     }
-    index(): Observable<Course[]> {
-        //return this.listCourses;
+    index() {
         return this.httpClient.get<Course[]>(`http://localhost:3000/coursess?_page=${this.count}&_limit=3`);          
     };
 
@@ -65,20 +63,16 @@ export class CoursesService {
                               
     }
 
-    destroy(id: number) {
-        this.listCourses = this.listCourses.filter(x => x.id !== id);
-        return true;
+    destroy(id: any) {
+       return this.httpClient.delete<Course[]>(`http://localhost:3000/coursess/${id}`)
+                             .subscribe(res => res,
+                                        error => console.error(error));
     }
 
     store(data: any) {
-        return new Observable((obs) => {
-            data.id = this.autoIncrement;
-            this.autoIncrement++;
-
-            const newData = this.listCourses.push(data);
-            obs.next(newData);
-            obs.complete();
-        });
+        return this.httpClient.post('http://localhost:3000/coursess', data)
+                              .subscribe(res => res,
+                                        error => console.error(error));
     }
 
     view(id: number) {

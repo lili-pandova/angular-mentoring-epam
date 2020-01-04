@@ -1,4 +1,5 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthorizationService } from '../../services/auth-service/auth-service';
 
@@ -11,10 +12,13 @@ export class UserLogComponent implements OnInit, DoCheck {
     public isAuthenticated: boolean;
     public userInfo;
 
-    constructor(private _authService: AuthorizationService) {}
+    constructor(
+        private _authService: AuthorizationService,
+        private router: Router
+    ) {}
 
     ngOnInit() {
-        this.userInfo= this._authService.getUserInfo();
+        this.userInfo = this._authService.getUserInfo();
     }
 
     ngDoCheck() {
@@ -23,5 +27,6 @@ export class UserLogComponent implements OnInit, DoCheck {
 
     logOff() {
         this._authService.logout();
+        this.router.navigateByUrl('');
     }
 }

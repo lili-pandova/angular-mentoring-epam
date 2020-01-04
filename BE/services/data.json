@@ -40,6 +40,21 @@
       "email": "lilia_pandova@abv.bg",
       "password": "12345",
       "id": 7
+    },
+    {
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345",
+      "id": 8
+    },
+    {
+      "email": "lilia_pandova@abv.bg",
+      "password": "zzzzzz",
+      "id": 9
+    },
+    {
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345",
+      "id": 10
     }
   ],
   "coursess": [
@@ -52,35 +67,11 @@
       "topRated": true
     },
     {
-      "id": 2,
-      "title": "Lorem Ipsum-1",
-      "creationDate": "February 7, 2016",
-      "duration": 87,
-      "description": " It has survived not only five centuries, but also the leap into electronic typesetting, ",
-      "topRated": true
-    },
-    {
       "id": 3,
       "title": "Test course",
       "creationDate": "February 7, 2016",
       "duration": 195,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "topRated": true
-    },
-    {
-      "id": 4,
-      "title": "Lorem Ipsum4",
-      "creationDate": "February 7, 2016",
-      "duration": 55,
-      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-      "topRated": true
-    },
-    {
-      "id": 5,
-      "title": "Lorem Ipsum-5",
-      "creationDate": "February 7, 2016",
-      "duration": 87,
-      "description": " It has survived not only five centuries, but also the leap into electronic typesetting, ",
       "topRated": true
     },
     {
@@ -114,6 +105,20 @@
       "duration": 195,
       "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
       "topRated": true
+    },
+    {
+      "title": "Front End Developer",
+      "description": "REEEEST",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "7",
+      "id": 10
+    },
+    {
+      "title": "Lorem Ipsum3333",
+      "description": "TEST",
+      "creationDate": "2018-01-08T22:00:00.000Z",
+      "duration": "21",
+      "id": 11
     }
   ]
 }

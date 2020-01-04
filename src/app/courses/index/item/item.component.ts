@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 import { Course } from '../../../shared/models/course/course';
 import { CoursesService } from '../../../shared/services/course-service/courses.service';
@@ -11,19 +11,22 @@ import { CoursesService } from '../../../shared/services/course-service/courses.
 })
 export class ItemComponent {
     @Input() public data: Course;
+    @Output() public deleteId = new EventEmitter();
 
     public show: boolean = false;
     public listCourses: Course[] = [];
     public updatedData: any;
-    public itemId: number;
+    public itemId: any;
+
 
     constructor(
         private _coursesService: CoursesService) {}
 
-        deleteCourse(id: number) {
+    openModal(id: any) {
         document.querySelector('.confirmation-modal').classList.add('block');
+
         this.itemId = id;
-        this._coursesService.destroy(this.itemId);
+        this.deleteId.emit(this.itemId);
     }
 
     closeModal() {

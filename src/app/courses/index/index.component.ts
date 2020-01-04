@@ -1,3 +1,5 @@
+import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild, AfterViewChecked, DoCheck } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -58,6 +60,10 @@ export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
             this.appItem.deleteCourse(this.appItem.itemId);
             this.appItem.closeModal();
             this.items = this._coursesService.index();
+            this.appItemm.closeModal();
+            this._coursesService.destroy(this.itemId);
+            this._coursesService.index().subscribe(res => this.items = res,
+                                                   error => console.log(error));
         });
     }
 
