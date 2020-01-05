@@ -12,6 +12,7 @@ import { CoursesModule } from './courses/courses.module';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { CoursesRoutingModule } from './courses/courses-routing.module';
 import { TokenInterceptorService } from './shared/services/token-interceptor.service';
+import { AuthGuardGuard } from './shared/services/auth-guard.guard';
 
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { from } from 'rxjs';
@@ -45,7 +46,8 @@ import { StaticPagesModule } from './static-pages/static-pages.module';
                     provide: HTTP_INTERCEPTORS,
                     useClass: TokenInterceptorService,
                     multi: true
-                }],
+                },
+                AuthGuardGuard],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

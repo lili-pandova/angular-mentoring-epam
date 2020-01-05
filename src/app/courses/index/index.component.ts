@@ -29,8 +29,8 @@ export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
     public titleModal: string = '';
     public data: any;
     public editedId;
+    public itemId;
     public isAuth: boolean;
-
 
     constructor(
         private _coursesService: CoursesService,
@@ -52,14 +52,15 @@ export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
     findName(value: string) {
         const findNamePipe = new FindByPipe();  
         this._coursesService.findCourse(value).subscribe(res => this.items = findNamePipe.transform(res, value),
-                                                        error => console.log(error));
+                                                         error => console.log(error));
     }
 
-    ngAfterViewChecked(){
+    deleteId(id) {
+        return this.itemId = id;
+    }
+
+    ngAfterViewInit(){
         this.confirmModall.delete.subscribe(() => {
-            this.appItem.deleteCourse(this.appItem.itemId);
-            this.appItem.closeModal();
-            this.items = this._coursesService.index();
             this.appItemm.closeModal();
             this._coursesService.destroy(this.itemId);
             this._coursesService.index().subscribe(res => this.items = res,
