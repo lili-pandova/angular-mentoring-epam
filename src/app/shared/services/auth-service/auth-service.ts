@@ -44,6 +44,10 @@ export class AuthorizationService {
     return this.users = this.httpClient.get('http://localhost:3000/users');
   }
 
+  loggedIn() {
+    return !!localStorage.getItem(this.userToken);
+  }
+  
   getUser(userData) {
     return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`) 
                           .subscribe(res => res,

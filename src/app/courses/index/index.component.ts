@@ -32,11 +32,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private router: Router
-    ) { 
-        if(!this._authService.isAuthenticated){
-            this.router.navigateByUrl('');
-        }
-    }
+    ) { }
 
     ngOnInit() {
         this._coursesService.index().subscribe(res => this.items = res,
