@@ -15,7 +15,7 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
 })
 export class IndexComponent implements OnInit, AfterViewChecked {
     @ViewChild('appItem', {static: false}) 
-    public appItemm: ItemComponent;
+    public appItem: ItemComponent;
     @ViewChild('confirmModal', {static: false}) 
     public confirmModall: ConfirmationModalComponent;
 
@@ -51,8 +51,8 @@ export class IndexComponent implements OnInit, AfterViewChecked {
 
     ngAfterViewChecked(){
         this.confirmModall.delete.subscribe(() => {
-            this.appItemm.deleteCourse(this.appItemm.itemId);
-            this.appItemm.closeModal();
+            this.appItem.deleteCourse(this.appItem.itemId);
+            this.appItem.closeModal();
             this.items = this._coursesService.index();
         });
     }

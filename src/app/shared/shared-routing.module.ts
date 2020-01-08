@@ -5,8 +5,7 @@ import { PageNotFoundComponent } from './../shared/components/page-not-found/pag
 import { LoginComponent } from './components/login/login.component';
 
 const coursesRoutes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

@@ -11,7 +11,8 @@ import { CoursesModule } from './courses/courses.module';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { CoursesRoutingModule } from './courses/courses-routing.module';
 import { SharedRoutingModule } from './shared/shared-routing.module';
-
+import { StaticPagesModule } from './shared/components/static-pages/static-pages.module';
+import { from } from 'rxjs';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
         SharedModule,
         SharedRoutingModule,
         CoursesRoutingModule, 
-        CoursesModule
+        CoursesModule,
+        StaticPagesModule
     ],
     exports: [
         FormsModule,
