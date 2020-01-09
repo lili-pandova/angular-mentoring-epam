@@ -22,10 +22,10 @@ export class AuthorizationService {
   // }
 
   login(userData: any) {
-    return this.httpClient.post('http://localhost:3000/users', userData) //add endPoint
-                          .subscribe(res => {
+    return this.httpClient.post('http://localhost:3000/auth/login', userData)
+                          .subscribe((res: any) => {
                             this.isAuthenticated = true;
-                            localStorage.setItem('token', "fake Token"); //add Token
+                            localStorage.setItem('token', res.token);
                             this.router.navigateByUrl('/courses');
                           })
       
@@ -51,6 +51,6 @@ export class AuthorizationService {
   getUser(userData) {
     return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`) 
                           .subscribe(res => res,
-                                     error => console.log(error));
+                                     error => console.log(error));//da mahna subscribe
   }
 }
