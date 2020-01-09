@@ -22,7 +22,7 @@ export class AuthorizationService {
   // }
 
   login(userData: any) {
-    return this.httpClient.post('http://localhost:3000/users', userData)
+    return this.httpClient.post('http://localhost:3000/auth/login', userData)
                           .subscribe((res: any) => {
                             this.isAuthenticated = true;
                             localStorage.setItem('token', res.token);

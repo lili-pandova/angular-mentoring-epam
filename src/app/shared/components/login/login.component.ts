@@ -17,10 +17,11 @@ export class LoginComponent {
     private _authService: AuthorizationService,
     private router: Router
   ) {}
-
+  
   login(data: any) {
     this._authService.login(data);
     this.router.navigateByUrl('/courses');
+
   }
 
 }

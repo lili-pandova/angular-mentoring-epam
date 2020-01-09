@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+=======
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+>>>>>>> 21cc73bae8a57ef3c535aec9e5ba7644f44feea1
 import { Router } from '@angular/router';
 
 import { Course } from 'src/app/shared/models/course/course';
@@ -6,8 +10,12 @@ import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { ItemComponent } from './item/item.component';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
+<<<<<<< HEAD
 import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
+=======
+import { AuthorizationService } from 'src/app/shared/services/auth-service/auth-service';
+>>>>>>> 21cc73bae8a57ef3c535aec9e5ba7644f44feea1
 
 @Component({
     selector: 'app-courses-index',
@@ -40,6 +48,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
         }
     }
 
+
     ngOnInit() {
         this._coursesService.index().subscribe(res => this.items = res,
                                                error => console.log(error));
@@ -51,6 +60,13 @@ export class IndexComponent implements OnInit, AfterViewChecked {
         const findNamePipe = new FindByPipe();  
         this._coursesService.findCourse(value).subscribe(res => this.items = findNamePipe.transform(res, value),
                                                          error => console.log(error));
+<<<<<<< HEAD
+=======
+    }
+
+    deleteId(id) {
+        return this.itemId = id;
+>>>>>>> 21cc73bae8a57ef3c535aec9e5ba7644f44feea1
     }
 
     deleteId(id) {
@@ -59,7 +75,11 @@ export class IndexComponent implements OnInit, AfterViewChecked {
 
     ngAfterViewChecked(){
         this.confirmModall.delete.subscribe(() => {
+<<<<<<< HEAD
             this.appItem.closeModal();
+=======
+            this.appItemm.closeModal();
+>>>>>>> 21cc73bae8a57ef3c535aec9e5ba7644f44feea1
             this._coursesService.destroy(this.itemId);
             this._coursesService.index().subscribe(res => this.items = res,
                                                    error => console.log(error));

@@ -13,7 +13,6 @@ import { OrderByPipe } from './shared/pipes/order-by.pipe';
 import { CoursesRoutingModule } from './courses/courses-routing.module';
 import { TokenInterceptorService } from './shared/services/token-interceptor.service';
 import { AuthGuardGuard } from './shared/services/auth-guard.guard';
-
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { from } from 'rxjs';
 import { StaticPagesModule } from './static-pages/static-pages.module';
