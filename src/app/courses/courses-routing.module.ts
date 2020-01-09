@@ -8,7 +8,7 @@ import { AuthGuardGuard } from '../shared/services/auth-guard.guard';
 
 const coursesRoutes: Routes = [
   { path: 'courses', component: IndexComponent, canActivate: [AuthGuardGuard] },
-  { path: 'courses/add', component: AddCourseComponent, canActivate: [AuthGuardGuard] },
+  { path: 'courses/new', component: AddCourseComponent, canActivate: [AuthGuardGuard] },
   { path: 'courses/edit/:id', component: EditCourseComponent, canActivate: [AuthGuardGuard] },
 ];
 
