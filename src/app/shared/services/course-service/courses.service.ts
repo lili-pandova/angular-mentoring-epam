@@ -41,7 +41,7 @@ export class CoursesService {
     }
 
     view(id: number) {
-        return this.httpClient.get<Course[]>(`http://localhost:3000/courses/${id}`);
+        return this.httpClient.get(`http://localhost:3000/courses/${id}`);
     }
 
     update(id: number, data: any) {

@@ -31,8 +31,7 @@ import { StaticPagesModule } from './static-pages/static-pages.module';
         SharedRoutingModule,
         CoursesRoutingModule, 
         CoursesModule,
-        HttpClientModule
-        CoursesModule,
+        HttpClientModule,
         StaticPagesModule
     ],
     exports: [

@@ -1,7 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { Router } from '@angular/router';
-import { Component, OnInit, ViewChild, AfterViewChecked, DoCheck } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Course } from 'src/app/shared/models/course/course';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
@@ -17,7 +15,7 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
     styleUrls: ['./index.component.scss']
 })
 
-export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
+export class IndexComponent implements OnInit, AfterViewChecked {
     @ViewChild('appItem', {static: false}) 
     public appItem: ItemComponent;
     @ViewChild('confirmModal', {static: false}) 
@@ -59,9 +57,9 @@ export class IndexComponent implements OnInit, AfterViewChecked, DoCheck {
         return this.itemId = id;
     }
 
-    ngAfterViewInit(){
+    ngAfterViewChecked(){
         this.confirmModall.delete.subscribe(() => {
-            this.appItemm.closeModal();
+            this.appItem.closeModal();
             this._coursesService.destroy(this.itemId);
             this._coursesService.index().subscribe(res => this.items = res,
                                                    error => console.log(error));
