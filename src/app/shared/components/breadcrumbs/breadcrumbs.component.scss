@@ -1,4 +1,5 @@
 @import "~src/scss/variables";
+
 .rectangle {
   width: 100%;
   height: 64px;
@@ -9,8 +10,6 @@
   }
 
   .courses {
-    width: 48px;
-    height: 24px;
     font-family: $source-sans-pro;
     font-size: 14px;
     font-weight: 600;
@@ -20,5 +19,7 @@
     letter-spacing: normal;
     color: $dark;
     text-decoration: none;
+    cursor: pointer;
+    outline: none;
   }
 }

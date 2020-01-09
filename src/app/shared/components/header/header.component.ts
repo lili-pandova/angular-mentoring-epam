@@ -9,10 +9,6 @@ import { AuthorizationService } from '../../services/auth-service/auth-service';
 })
 export class HeaderComponent {
 
-    constructor(private _authService: AuthorizationService) {}
-
-    loginData(data: any) {
-        this._authService.login(data)
-    }
+    constructor() {}
     
 }

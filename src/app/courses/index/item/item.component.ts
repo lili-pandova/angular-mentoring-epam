@@ -18,18 +18,13 @@ export class ItemComponent {
     public updatedData: any;
     public itemId: number;
 
-
     constructor(
         private _coursesService: CoursesService) {}
 
-    deleteCourse() {
-        console.log(this.itemId, "this.itemId3333");
-        this._coursesService.destroy(this.itemId);
-    }
-
-    openModal($event: any) {
+        deleteCourse(id: number) {
         document.querySelector('.confirmation-modal').classList.add('block');
-        this.itemId = this.data.id;
+        this.itemId = id;
+        this._coursesService.destroy(this.itemId);
     }
 
     closeModal() {

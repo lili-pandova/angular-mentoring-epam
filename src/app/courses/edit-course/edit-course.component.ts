@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 import { Course } from 'src/app/shared/models/course/course';
 
 @Component({
@@ -12,9 +14,12 @@ import { Course } from 'src/app/shared/models/course/course';
 export class EditCourseComponent implements OnInit {
   public coursesForm: FormGroup;
   public item: Course;
+  public coursesTitle: any;
+  public isAuth: boolean;
 
   constructor(
     private _coursesService: CoursesService,
+    private _authService: AuthorizationService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router
@@ -31,11 +36,14 @@ export class EditCourseComponent implements OnInit {
     this.activatedRoute.params.subscribe((params: any) => {
       this.fetchItem(params.id);
     });
+
+    this.isAuth = this._authService.isAuthenticated;
   }
 
   fetchItem(id: number) {
     this._coursesService.view(id).subscribe((data: Course) => {
       this.item = data;
+      this.coursesTitle = data.title;
       this.coursesForm.setValue({
         title: data.title,
         description: data.description,

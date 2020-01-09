@@ -7,8 +7,8 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 
 const coursesRoutes: Routes = [
   { path: 'courses', component: IndexComponent },
-  { path: 'courses/add', component: AddCourseComponent },
-  { path: 'courses/edit/:id', component: EditCourseComponent },
+  { path: 'courses/new', component: AddCourseComponent },
+  { path: 'courses/:id', component: EditCourseComponent },
 ];
 
 @NgModule({

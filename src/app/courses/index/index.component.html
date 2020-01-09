@@ -1,4 +1,5 @@
 <div class="index-component" *ngIf="items; else noData">
+    <app-breadcrumbs></app-breadcrumbs>
     <app-search (searchName)="findName($event)"></app-search>
     <app-add-courses-btn></app-add-courses-btn>
     <section *ngFor="let item of items | orderBy" class="item-component">
@@ -6,9 +7,6 @@
             <app-item #appItem [data]="item"></app-item>
         </div>
     </section>
-    <div>
-        <app-add-course></app-add-course>
-    </div>
 </div>
 
 <ng-template #noData>

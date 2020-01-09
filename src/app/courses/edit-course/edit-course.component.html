@@ -1,10 +1,15 @@
-<div class="page-form">
-    <div class="content">
-      <div class="header">
-        <h5 class="title">Edit course</h5>
-      </div>
-      <div class="body">
-        <app-courses-form [form]="coursesForm" (submit)="onSubmit()"></app-courses-form>
-      </div>
+<div *ngIf="isAuth">
+    <div>
+        <app-breadcrumbs [coursesTitle]="coursesTitle"></app-breadcrumbs>
+    </div>
+    <div class="page-form">
+        <div class="content">
+          <div class="header">
+            <h5 class="title">Edit course</h5>
+          </div>
+          <div class="body">
+            <app-courses-form [form]="coursesForm" (submit)="onSubmit()"></app-courses-form>
+          </div>
+        </div>
     </div>
 </div>
