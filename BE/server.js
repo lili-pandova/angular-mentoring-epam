@@ -11,23 +11,14 @@ function isAuthorized(req) {
   if (!req.headers.hasOwnProperty('authorization')) {
     return false;
   }
-
-  let token = req.headers.authorization.split('Bearer ');
-  token = token[1];
-
-  
-  const users = jsonData.users.filter((item) => {
-    return item.token === token;
-  });
-
-  return users.length > 0;
-}
+ }
 
 server.use(middlewares)
 server.use(jsonServer.bodyParser)
 server.use((req, res, next) => {
-  if (isAuthorized(req)) { // add your authorization logic here
-    next() // continue to JSON Server router
+  if (isAuthorized(req)) { 
+    // continue to JSON Server router
+    next() 
   } else {
     res.sendStatus(401)
   }
@@ -49,6 +40,7 @@ server.post('/auth/login', (req, res) => {
   if (users.length > 0) {
     res.status(200).jsonp(users[0]);
   } else {
+    console.log("ELSE")
     res.status(400).jsonp([]);
   }
 })

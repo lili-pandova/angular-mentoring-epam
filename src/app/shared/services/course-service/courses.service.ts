@@ -24,28 +24,24 @@ export class CoursesService {
     };
 
     findCourse(serachWord): Observable<Course[]> {
-        return this.httpClient.get<Course[]>('http://localhost:3000/courses', { params: { 'q': serachWord } })
+        return this.httpClient.get<Course[]>(this.modelEndpoint, { params: { 'q': serachWord } })
 
     }
 
     destroy(id: any) {
-        return this.httpClient.delete<Course[]>(`http://localhost:3000/courses/${id}`)
-            .subscribe(res => res,
-                error => console.error(error));
+        return this.httpClient.delete<Course[]>(this.modelEndpoint + '/' + id);
     }
 
     store(data: any) {
-        return this.httpClient.post('http://localhost:3000/courses', data)
-            .subscribe(res => res,
-                error => console.error(error));
+        return this.httpClient.post(this.modelEndpoint, data);
     }
 
     view(id: number) {
-        return this.httpClient.get(`http://localhost:3000/courses/${id}`);
+        return this.httpClient.get(this.modelEndpoint + '/' + id);
 
     }
 
     update(id: number, data: any) {
-        return this.httpClient.put('http://localhost:3000/courses' + id, data);
+        return this.httpClient.put(this.modelEndpoint + '/' + id, data);
     };
 }

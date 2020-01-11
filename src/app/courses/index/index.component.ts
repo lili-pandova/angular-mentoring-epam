@@ -1,5 +1,5 @@
 
-import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Course } from 'src/app/shared/models/course/course';
@@ -16,7 +16,7 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
     styleUrls: ['./index.component.scss']
 })
 
-export class IndexComponent implements OnInit, AfterViewChecked {
+export class IndexComponent implements OnInit, AfterViewInit {
     @ViewChild('appItem', {static: false}) 
     public appItem: ItemComponent;
     @ViewChild('confirmModal', {static: false}) 
@@ -35,11 +35,7 @@ export class IndexComponent implements OnInit, AfterViewChecked {
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private router:Router
-    ) {
-        if(!this._authService.isAuthenticated){
-            this.router.navigateByUrl('/login');
-        }
-    }
+    ) {}
 
 
     ngOnInit() {
@@ -59,11 +55,12 @@ export class IndexComponent implements OnInit, AfterViewChecked {
         return this.itemId = id;
     }
 
-    ngAfterViewChecked(){
+    ngAfterViewInit(){
         this.confirmModall.delete.subscribe(() => {
             this.appItem.closeModal();
 
-            this._coursesService.destroy(this.itemId);
+            this._coursesService.destroy(this.itemId).subscribe(res => res,
+                                                                 error => console.error(error));
             this._coursesService.index().subscribe(res => this.items = res,
                                                    error => console.log(error));
         });

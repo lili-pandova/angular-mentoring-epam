@@ -24,35 +24,26 @@
   ],
   "courses": [
     {
-      "title": "sfafasfaf",
-      "description": "sfaf",
-      "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": "24",
-      "createdAt": "1/9/2020, 5:31:11 PM",
-      "id": 18
-    },
-    {
-      "title": "test23",
-      "description": "sfafas",
-      "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": "21",
-      "id": 19
-    },
-    {
       "title": "Lorem Ipsum",
-      "description": "wwwww",
+      "description": "testn111",
       "creationDate": "2019-01-06T22:00:00.000Z",
       "duration": "87",
-      "createdAt": "2020-1-9 10:59:39 PM",
       "id": 20
     },
     {
-      "title": "Lorem Ipsum3",
+      "title": "Lorem Ipsum-3",
       "description": "cxxcx",
       "creationDate": "2019-03-06T22:00:00.000Z",
       "duration": "55",
-      "createdAt": "2020-1-9 11:00:03 PM",
       "id": 21
-}
+    },
+    {
+      "title": "TEST !!!!",
+      "description": "zaaza",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "21",
+      "createdAt": "2020-1-11 11:41:09 AM",
+      "id": 24
+    }
   ]
 }

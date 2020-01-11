@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { AppConfig } from 'src/app/app.config';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +12,12 @@ export class AuthorizationService {
   userToken: string = "token";
   public users: any;
   public userData: any;
+  private modelEndpoint = AppConfig.apiUrl + '/users';
+  public wrongUser: boolean =  true;
 
   constructor(
     private httpClient: HttpClient,
     private router: Router) { }
-
-  // login(userData: any){
-  //    localStorage.setItem(this.user, JSON.stringify(userData));
-  //    this.isAuthenticated = true;
-  // }
 
   login(userData: any) {
     return this.httpClient.post('http://localhost:3000/auth/login', userData)
@@ -27,6 +25,10 @@ export class AuthorizationService {
                             this.isAuthenticated = true;
                             localStorage.setItem('token', res.token);
                             this.router.navigateByUrl('/courses');
+                          },
+                          (error) => {
+                            console.log(error, "eror from login");
+                            this.wrongUser = false;
                           })
       
   }
@@ -41,7 +43,7 @@ export class AuthorizationService {
   }
 
   getUsers() {
-    return this.users = this.httpClient.get('http://localhost:3000/users');
+    return this.users = this.httpClient.get(this.modelEndpoint);
   }
 
   loggedIn() {
@@ -49,8 +51,6 @@ export class AuthorizationService {
   }
   
   getUser(userData) {
-    return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`) 
-                          .subscribe(res => res,
-                                     error => console.log(error));//da mahna subscribe
+    return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`)
   }
 }
