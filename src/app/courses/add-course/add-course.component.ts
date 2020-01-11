@@ -41,8 +41,9 @@ export class AddCourseComponent implements OnInit {
     const data = this.coursesForm.value;
     data.creationDate = new Date(data.creationDate);
 
-    this._coursesService.store(data).subscribe((data) => {
-      this.cancel();
-    })
+    this._coursesService.store(data)
+                        .subscribe(res => res,
+                         error => console.error(error));
+    this.cancel();
   }
 }

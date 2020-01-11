@@ -1,0 +1,49 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "token": "1234b",
+      "name": "Liliya Pandova",
+      "email": "lilia_pandova@abv.bg",
+      "password": "12345"
+    },
+    {
+      "id": 2,
+      "token": "6789b",
+      "name": "Rosi Pandova",
+      "email": "r_pandova@abv.bg",
+      "password": "qwerty"
+    },
+    {
+      "id": 3,
+      "token": "1234567",
+      "name": "Maria Ivanova",
+      "email": "m_ivanova@abv.bg",
+      "password": "aasdfg"
+    }
+  ],
+  "courses": [
+    {
+      "title": "Lorem Ipsum",
+      "description": "testn111",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "87",
+      "id": 20
+    },
+    {
+      "title": "Lorem Ipsum-3",
+      "description": "cxxcx",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "55",
+      "id": 21
+    },
+    {
+      "title": "TEST !!!!",
+      "description": "zaaza",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "21",
+      "createdAt": "2020-1-11 11:41:09 AM",
+      "id": 24
+    }
+  ]
+}

@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
+
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Course } from 'src/app/shared/models/course/course';
@@ -6,6 +7,7 @@ import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { ItemComponent } from './item/item.component';
 import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
+import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 
 @Component({
@@ -13,47 +15,60 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
     templateUrl: './index.component.html',
     styleUrls: ['./index.component.scss']
 })
-export class IndexComponent implements OnInit, AfterViewChecked {
+
+export class IndexComponent implements OnInit, AfterViewInit {
     @ViewChild('appItem', {static: false}) 
     public appItem: ItemComponent;
     @ViewChild('confirmModal', {static: false}) 
     public confirmModall: ConfirmationModalComponent;
 
-    public listCourses: Course[] = [];
-    public items: Course[] = [];
+    public listCourses;
+    public items: Course[];
     public searchName: string;
     public titleModal: string = '';
     public data: any;
     public editedId;
+    public itemId;
     public isAuth: boolean;
-
 
     constructor(
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private router:Router
-    ) {
-        if(!this._authService.isAuthenticated){
-            this.router.navigateByUrl('/login');
-        }
-    }
+    ) {}
+
 
     ngOnInit() {
-        this.items = this._coursesService.index();
-        this.listCourses = this._coursesService.index();
-        this.isAuth = this._authService.isAuthenticated;
+        this._coursesService.index().subscribe(res => this.items = res,
+                                               error => console.log(error));
+        this._coursesService.index().subscribe(res => this.listCourses = res,
+                                               error => console.log(error));
     }
   
     findName(value: string) {
-        const findNamePipe = new FindByPipe();
-        this.items = findNamePipe.transform(this.listCourses, value);
+        const findNamePipe = new FindByPipe();  
+        this._coursesService.findCourse(value).subscribe(res => this.items = findNamePipe.transform(res, value),
+                                                         error => console.log(error));
     }
 
-    ngAfterViewChecked(){
+    deleteId(id) {
+        return this.itemId = id;
+    }
+
+    ngAfterViewInit(){
         this.confirmModall.delete.subscribe(() => {
-            this.appItem.deleteCourse(this.appItem.itemId);
             this.appItem.closeModal();
-            this.items = this._coursesService.index();
+
+            this._coursesService.destroy(this.itemId).subscribe(res => res,
+                                                                 error => console.error(error));
+            this._coursesService.index().subscribe(res => this.items = res,
+                                                   error => console.log(error));
         });
+    }
+
+    addMore() {
+        this._coursesService.incrementCount();
+        this._coursesService.index().subscribe(res => this.items = res,
+                                                      error => console.log(error));
     }
 }

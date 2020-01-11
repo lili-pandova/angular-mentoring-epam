@@ -4,7 +4,7 @@
     <app-add-courses-btn></app-add-courses-btn>
     <section *ngFor="let item of items | orderBy" class="item-component">
         <div>
-            <app-item #appItem [data]="item"></app-item>
+            <app-item #appItem (deleteId)="deleteId($event)" [data]="item"></app-item>
         </div>
     </section>
 </div>
@@ -15,4 +15,4 @@
 
 <app-confirmation-modal #confirmModal></app-confirmation-modal>
 
-<app-load-more></app-load-more>
+<app-load-more (load)="addMore()"></app-load-more>

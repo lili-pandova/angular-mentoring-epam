@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
+
+import { CoursesService } from '../../services/course-service/courses.service';
 
 @Component({
     selector: 'app-load-more',
@@ -6,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./load-more.component.scss']
 })
 export class LoadMoreComponent {
-    constructor() {}
+    @Output() public load = new EventEmitter();
+    constructor(private _coursesService: CoursesService) {}
 
     loadMore(event) {
-        console.log('You clicked load more!');
+        this.load.emit(true);
     }
 }

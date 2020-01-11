@@ -11,16 +11,18 @@ import { AuthorizationService } from '../../services/auth-service/auth-service';
 export class LoginComponent {
   public email: string;
   public password: string;
-  editForm;
+  public editForm;
+  public error: boolean;
 
   constructor( 
     private _authService: AuthorizationService,
     private router: Router
   ) {}
-
+  
   login(data: any) {
     this._authService.login(data);
     this.router.navigateByUrl('/courses');
+    this.error = this._authService.wrongUser;
   }
 
 }

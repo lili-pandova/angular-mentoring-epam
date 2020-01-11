@@ -4,11 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IndexComponent } from './index/index.component';
 import { AddCourseComponent } from './add-course/add-course.component';
 import { EditCourseComponent } from './edit-course/edit-course.component';
+import { AuthGuardGuard } from '../shared/services/auth-guard.guard';
 
 const coursesRoutes: Routes = [
-  { path: 'courses', component: IndexComponent },
-  { path: 'courses/new', component: AddCourseComponent },
-  { path: 'courses/:id', component: EditCourseComponent },
+  { path: 'courses', component: IndexComponent, canActivate: [AuthGuardGuard] },
+  { path: 'courses/new', component: AddCourseComponent, canActivate: [AuthGuardGuard] },
+  { path: 'courses/edit/:id', component: EditCourseComponent, canActivate: [AuthGuardGuard] },
 ];
 
 @NgModule({
