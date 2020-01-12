@@ -10,6 +10,8 @@ const jsonData = require('./data.json');
 function isAuthorized(req) {
   if (!req.headers.hasOwnProperty('authorization')) {
     return false;
+  } else {
+    return true;
   }
  }
 

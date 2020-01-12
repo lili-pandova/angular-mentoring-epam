@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 import { Course } from 'src/app/shared/models/course/course';
+import { LoadingService } from '../../shared/services/loading.service';
 
 @Component({
   selector: 'app-edit-course',
@@ -16,13 +17,15 @@ export class EditCourseComponent implements OnInit {
   public item: Course;
   public coursesTitle: any;
   public isAuth: boolean;
+  public loadingBlock: boolean = true;
 
   constructor(
     private _coursesService: CoursesService,
     private _authService: AuthorizationService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _loading: LoadingService
   ) { }
 
   ngOnInit() {
@@ -34,7 +37,8 @@ export class EditCourseComponent implements OnInit {
     })
 
     this.activatedRoute.params.subscribe((params: any) => {
-      this.fetchItem(params.id);
+                                          this.loadingBlock = false;
+                                          this.fetchItem(params.id);
     });
 
     this.isAuth = this._authService.isAuthenticated;

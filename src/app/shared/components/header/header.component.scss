@@ -1,1 +1,10 @@
+@import "~src/scss/variables";
 
+.header {
+    .userName {
+        float: right;
+        line-height: 64px;
+        color: $white;
+    }
+}
+    

@@ -8,7 +8,7 @@
               </button>
             </div>
             <div *ngIf="error" class="pl-3 pt-3">
-              <span class="text-danger">Something went wrong!</span>
+              <span class="text-danger">Wrong email or password!</span>
             </div>
             <div class="modal-body">
               <form #editForm="ngForm" (ngSubmit)="login(editForm.value)">

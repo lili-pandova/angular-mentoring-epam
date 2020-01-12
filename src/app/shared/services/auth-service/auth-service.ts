@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AppConfig } from 'src/app/app.config';
+import { Course } from '../../models/course/course';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +14,8 @@ export class AuthorizationService {
   public users: any;
   public userData: any;
   private modelEndpoint = AppConfig.apiUrl + '/users';
-  public wrongUser: boolean =  true;
-
+  public wrongUser: boolean =  false;
+  
   constructor(
     private httpClient: HttpClient,
     private router: Router) { }
@@ -24,18 +25,21 @@ export class AuthorizationService {
                           .subscribe((res: any) => {
                             this.isAuthenticated = true;
                             localStorage.setItem('token', res.token);
+                            localStorage.setItem('name', res.name);
                             this.router.navigateByUrl('/courses');
                           },
                           (error) => {
                             console.log(error, "eror from login");
-                            this.wrongUser = false;
+                            this.wrongUser = true;
                           })
       
   }
 
   logout(){
     localStorage.removeItem(this.userToken);
+    localStorage.removeItem("name");
     this.isAuthenticated = false;
+    this.router.navigateByUrl('/login');
   }
 
   getUserInfo() {
@@ -50,7 +54,7 @@ export class AuthorizationService {
     return !!localStorage.getItem(this.userToken);
   }
   
-  getUser(userData) {
-    return this.httpClient.get(`http://localhost:3000/users?email_like=${userData.email}&password_like=${userData.password}`)
+  getUser(token) {
+    return this.httpClient.get<Array<any>>(`http://localhost:3000/users?token_like=${token}`);
   }
 }

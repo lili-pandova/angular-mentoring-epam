@@ -31,19 +31,18 @@
       "id": 20
     },
     {
-      "title": "Lorem Ipsum-3",
-      "description": "cxxcx",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "55",
-      "id": 21
-    },
-    {
       "title": "TEST !!!!",
       "description": "zaaza",
       "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "21",
-      "createdAt": "2020-1-11 11:41:09 AM",
+      "duration": "211",
       "id": 24
+    },
+    {
+      "title": "Lorem Ipsum-3",
+      "description": "test",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "21",
+      "id": 25
     }
   ]
 }

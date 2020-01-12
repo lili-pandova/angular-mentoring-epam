@@ -16,13 +16,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 import { OrderByPipe } from '../pipes/order-by.pipe';
 import { CoursesRoutingModule } from '../../courses/courses-routing.module';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
     HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,
     AddCoursesBtnComponent, LoadMoreComponent, FooterComponent, 
     UserComponent, LoginComponent, DurationComponent,
-    ConfirmationModalComponent
+    ConfirmationModalComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
