@@ -1,17 +1,17 @@
-import { Component, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, DoCheck, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthorizationService } from '../../services/auth-service/auth-service';
 import { Course } from '../../models/course/course';
-import { async } from 'q';
+import { AuthorizationService } from '../../services/auth-service/auth-service';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
+export class HeaderComponent implements DoCheck{
+    public user: string;
 
     constructor(
         private _authService: AuthorizationService,
@@ -19,8 +19,7 @@ export class HeaderComponent {
         private router: Router
     ) {}
 
-    
-    loginData(data: any) {
-        this._authService.login(data);
+    ngDoCheck() {
+        this.user = localStorage.getItem('name');
     }
 }

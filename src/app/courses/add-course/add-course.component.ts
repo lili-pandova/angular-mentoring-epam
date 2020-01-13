@@ -1,8 +1,9 @@
-import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 
 @Component({
@@ -42,7 +43,8 @@ export class AddCourseComponent implements OnInit {
     data.creationDate = new Date(data.creationDate);
 
     this._coursesService.store(data)
-                        .subscribe(res => res,
+                        .subscribe(res => {
+                          res},
                          error => console.error(error));
     this.cancel();
   }

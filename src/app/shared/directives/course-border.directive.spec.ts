@@ -1,10 +1,11 @@
-import { CourseBorderDirective } from './course-border.directive';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { By } from 'protractor';
-
 import { ItemComponent } from 'src/app/courses/index/item/item.component';
+
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { DurationPipe } from '../pipes/duration.pipe';
 import { FindByPipe } from '../pipes/find-by.pipe';
+import { CourseBorderDirective } from './course-border.directive';
 
 const data = {
     id: 1,

@@ -1,5 +1,5 @@
-import { OrderByPipe } from './order-by.pipe';
 import { Course } from '../models/course/course';
+import { OrderByPipe } from './order-by.pipe';
 
 const dataBefore: Course[] = [
     {

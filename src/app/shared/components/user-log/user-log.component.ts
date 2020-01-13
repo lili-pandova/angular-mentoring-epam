@@ -22,11 +22,13 @@ export class UserLogComponent implements OnInit, DoCheck {
     }
 
     ngDoCheck() {
-        return this.isAuthenticated = this._authService.isAuthenticated;
+        if(this._authService.loggedIn()) {
+            return this.isAuthenticated = true;
+        }
     }
 
     logOff() {
         this._authService.logout();
-        this.router.navigateByUrl('');
+        this.isAuthenticated = false;
     }
 }

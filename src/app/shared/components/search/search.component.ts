@@ -1,8 +1,10 @@
+import { Observable } from 'rxjs';
+import { debounceTime, filter } from 'rxjs/operators';
+
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { CoursesService } from '../../services/course-service/courses.service';
 import { Course } from '../../models/course/course';
-
+import { CoursesService } from '../../services/course-service/courses.service';
 
 @Component({
     selector: 'app-search',
@@ -15,8 +17,15 @@ export class SearchComponent {
 
     constructor(private _coursesService: CoursesService) {}
 
-    findName(value: string) {
-        this.searchName.emit(value);
-        //this._coursesService.findCourse(value).subscribe(res => console.log(res, "REsponse from search"));
+    findName(value) {
+        const observable = new Observable<any>(subscriber => {
+             subscriber.next(value);
+        })
+        observable.pipe(filter<any>(text => text.length > 3),
+                        debounceTime(3000))
+                        .subscribe(res => {
+                            this.searchName.emit(res);},
+                            error => console.log(error));
     }
+  
 }

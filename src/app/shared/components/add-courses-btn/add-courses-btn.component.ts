@@ -1,5 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
-import { Routes, RouterModule, RouterLink } from '@angular/router';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { RouterLink, RouterModule, Routes } from '@angular/router';
 
 @Component({
     selector: 'app-add-courses-btn',
