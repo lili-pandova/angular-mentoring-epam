@@ -1,15 +1,18 @@
 
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-
+import {
+    ConfirmationModalComponent
+} from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
+import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
 import { Course } from 'src/app/shared/models/course/course';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
-import { ItemComponent } from './item/item.component';
-import { ConfirmationModalComponent } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
-import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
+
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 import { LoadingService } from '../../shared/services/loading.service';
+import { ItemComponent } from './item/item.component';
 
 @Component({
     selector: 'app-courses-index',
@@ -37,17 +40,15 @@ export class IndexComponent implements OnInit, AfterViewInit {
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private _router:Router,
-        private _loading: LoadingService
+        private _loading: LoadingService,
     ) {}
 
 
     ngOnInit() {
         this._coursesService.index().subscribe(res => {
-                                               this.loadingBlock = true;
                                                this.items = res},
                                                error => console.log(error));
         this._coursesService.index().subscribe(res => {
-                                               this.loadingBlock = true;
                                                this.listCourses = res},
                                                error => console.log(error));
     }

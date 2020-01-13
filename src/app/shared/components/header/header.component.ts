@@ -1,10 +1,9 @@
-import { Component, Input, DoCheck } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, DoCheck, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { AuthorizationService } from '../../services/auth-service/auth-service';
 import { Course } from '../../models/course/course';
-
+import { AuthorizationService } from '../../services/auth-service/auth-service';
 
 @Component({
     selector: 'app-header',

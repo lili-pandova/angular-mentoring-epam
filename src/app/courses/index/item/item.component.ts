@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { Course } from '../../../shared/models/course/course';
 import { CoursesService } from '../../../shared/services/course-service/courses.service';

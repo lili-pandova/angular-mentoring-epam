@@ -4,7 +4,15 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class LoadingService {
-  public showLoadingBlock: boolean = true;
-  
-  constructor() { }
+  show() {
+    if (document.getElementById('loader')) {
+      document.getElementById('loader').classList.remove('hidden');
+    }
+  }
+
+  hide() {
+    if (document.getElementById('loader')) {
+      document.getElementById('loader').classList.add('hidden');
+    }
+  }
 }

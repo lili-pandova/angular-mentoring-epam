@@ -1,20 +1,21 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { from } from 'rxjs';
 
-import { AppComponent } from './app.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { AppRoutingModule } from './app-routing.module';
-import { CoursesService } from './shared/services/course-service/courses.service';
-import { AuthorizationService } from './shared/services/auth-service/auth-service';
-import { SharedModule } from './shared/shared.module';
+import { AppComponent } from './app.component';
+import { CoursesRoutingModule } from './courses/courses-routing.module';
 import { CoursesModule } from './courses/courses.module';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
-import { CoursesRoutingModule } from './courses/courses-routing.module';
-import { TokenInterceptorService } from './shared/services/token-interceptor.service';
 import { AuthGuardGuard } from './shared/services/auth-guard.guard';
+import { AuthorizationService } from './shared/services/auth-service/auth-service';
+import { CoursesService } from './shared/services/course-service/courses.service';
+import { TokenInterceptorService } from './shared/services/token-interceptor.service';
 import { SharedRoutingModule } from './shared/shared-routing.module';
-import { from } from 'rxjs';
+import { SharedModule } from './shared/shared.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 
 @NgModule({

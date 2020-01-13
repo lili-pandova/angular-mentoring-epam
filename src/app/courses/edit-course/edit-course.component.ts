@@ -1,10 +1,11 @@
+import { Course } from 'src/app/shared/models/course/course';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { Course } from 'src/app/shared/models/course/course';
 import { LoadingService } from '../../shared/services/loading.service';
 
 @Component({

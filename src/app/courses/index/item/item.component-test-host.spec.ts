@@ -1,12 +1,13 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DebugElement, Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-import { ItemComponent } from './item.component';
-import { Course } from '../../../shared/models/course/course';
-import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
 import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
+
+import { Component, CUSTOM_ELEMENTS_SCHEMA, DebugElement } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { Course } from '../../../shared/models/course/course';
+import { ItemComponent } from './item.component';
 
 @Component({
     template: `

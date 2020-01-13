@@ -1,9 +1,10 @@
+import { Observable } from 'rxjs';
+import { debounceTime, filter } from 'rxjs/operators';
+
 import { Component, EventEmitter, Output } from '@angular/core';
 
-import { CoursesService } from '../../services/course-service/courses.service';
 import { Course } from '../../models/course/course';
-import { Observable } from 'rxjs';
-import { filter, debounceTime } from 'rxjs/operators';
+import { CoursesService } from '../../services/course-service/courses.service';
 
 @Component({
     selector: 'app-search',

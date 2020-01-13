@@ -1,13 +1,6 @@
 import {
-  Component,
-  OnChanges,
-  OnInit,
-  DoCheck,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy
+    AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck,
+    OnChanges, OnDestroy, OnInit
 } from '@angular/core';
 
 @Component({
@@ -27,34 +20,34 @@ export class AppComponent
     OnDestroy {
   title = 'angular-mentoring';
   ngOnChanges() {
-    console.log('OnChange hook');
+    //console.log('OnChange hook');
   }
 
   ngOnInit() {
-    console.log('OnInit hook');
+    //console.log('OnInit hook');
   }
 
   ngDoCheck() {
-    console.log('DoCheck hook');
+    //console.log('DoCheck hook');
   }
 
   ngAfterContentInit() {
-    console.log('AfterContentInit hook');
+   // console.log('AfterContentInit hook');
   }
 
   ngAfterContentChecked() {
-    console.log('AfterContentChecked hook');
+    //console.log('AfterContentChecked hook');
   }
 
   ngAfterViewInit() {
-    console.log('AfterViewInit hook');
+    //console.log('AfterViewInit hook');
   }
 
   ngAfterViewChecked() {
-    console.log('AfterViewChecked hook');
+    //console.log('AfterViewChecked hook');
   }
 
   ngOnDestroy() {
-    console.log('OnDestroy hook');
+    //console.log('OnDestroy hook');
   }
 }

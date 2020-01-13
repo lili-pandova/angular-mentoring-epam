@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-
 import { User } from 'src/app/shared/models/user/user';
+
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-user',

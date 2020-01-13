@@ -1,21 +1,23 @@
-import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AppComponent } from './app.component';
-import { AddCoursesBtnComponent } from './shared/components/add-courses-btn/add-courses-btn.component';
-import { ItemComponent } from './courses/index/item/item.component';
-import { HeaderComponent } from './shared/components/header/header.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
-import { LogoComponent } from './shared/components/logo/logo.component';
 import { IndexComponent } from './courses/index/index.component';
-import { UserLogComponent } from './shared/components/user-log/user-log.component';
+import { ItemComponent } from './courses/index/item/item.component';
+import {
+    AddCoursesBtnComponent
+} from './shared/components/add-courses-btn/add-courses-btn.component';
 import { BreadcrumbsComponent } from './shared/components/breadcrumbs/breadcrumbs.component';
-import { SearchComponent } from './shared/components/search/search.component';
+import { FooterComponent } from './shared/components/footer/footer.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 import { LoadMoreComponent } from './shared/components/load-more/load-more.component';
+import { LogoComponent } from './shared/components/logo/logo.component';
+import { SearchComponent } from './shared/components/search/search.component';
+import { UserLogComponent } from './shared/components/user-log/user-log.component';
 import { UserComponent } from './shared/components/user/user.component';
+import { DurationPipe } from './shared/pipes/duration.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
-import { DurationPipe } from './shared/pipes/duration.pipe';
 
 describe('AppComponent', () => {
     let component: AppComponent;

@@ -1,10 +1,11 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { ItemComponent } from './item.component';
-import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
 import { CourseBorderDirective } from 'src/app/shared/directives/course-border.directive';
 import { DurationPipe } from 'src/app/shared/pipes/duration.pipe';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
+import { OrderByPipe } from 'src/app/shared/pipes/order-by.pipe';
+
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { ItemComponent } from './item.component';
 
 const data = {
     id: 1,
