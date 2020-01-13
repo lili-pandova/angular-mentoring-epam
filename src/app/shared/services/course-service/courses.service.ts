@@ -44,19 +44,42 @@ export class CoursesService {
     }
 
     destroy(id: any) {
-        return this.httpClient.delete<Course[]>(this.modelEndpoint + '/' + id);
+        this.loadingService.show();
+
+        return this.httpClient.delete<Course[]>(this.modelEndpoint + '/' + id)
+        .pipe(map((obj: any) => {
+            this.loadingService.hide();
+            return obj;
+        }));
     }
 
     store(data: any) {
-        return this.httpClient.post(this.modelEndpoint, data);
+        this.loadingService.show();
+
+        return this.httpClient.post(this.modelEndpoint, data)
+        .pipe(map((obj: any) => {
+            this.loadingService.hide();
+            return obj;
+        }));
     }
 
     view(id: number) {
-        return this.httpClient.get(this.modelEndpoint + '/' + id);
+        this.loadingService.show();
 
+        return this.httpClient.get(this.modelEndpoint + '/' + id)
+        .pipe(map((obj: any) => {
+            this.loadingService.hide();
+            return obj;
+        }));
     }
 
     update(id: number, data: any) {
-        return this.httpClient.put(this.modelEndpoint + '/' + id, data);
+        this.loadingService.show();
+
+        return this.httpClient.put(this.modelEndpoint + '/' + id, data)
+        .pipe(map((obj: any) => {
+            this.loadingService.hide();
+            return obj;
+        }));
     };
 }

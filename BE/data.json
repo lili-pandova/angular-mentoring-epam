@@ -24,7 +24,7 @@
   ],
   "courses": [
     {
-      "title": "Lorem Ipsum",
+      "title": "Lorem Ipsum-11",
       "description": "testn111",
       "creationDate": "2019-01-06T22:00:00.000Z",
       "duration": "87",
@@ -41,7 +41,8 @@
       "title": "Lorem Ipsum-3",
       "description": "test",
       "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "21",
+      "duration": "31",
+      "createdAt": "2020-1-13 8:25:03 PM",
       "id": 25
     }
   ]

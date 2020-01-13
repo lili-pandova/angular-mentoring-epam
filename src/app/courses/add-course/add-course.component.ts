@@ -5,7 +5,6 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { LoadingService } from '../../shared/services/loading.service';
 
 @Component({
   selector: 'app-add-course',
@@ -16,14 +15,12 @@ export class AddCourseComponent implements OnInit {
   public itemId: number;
   public coursesForm: FormGroup;
   public isAuth: boolean;
-  public loadingBlock: boolean = true;
 
   constructor(
     private _coursesService: CoursesService,
     private _authService: AuthorizationService,
     private fb: FormBuilder,
-    private router: Router,
-    private _loading: LoadingService
+    private router: Router
     ) { }
 
   ngOnInit(){
@@ -35,7 +32,6 @@ export class AddCourseComponent implements OnInit {
     })
 
     this.isAuth = this._authService.isAuthenticated;
-    this._loading.showLoadingBlock;
   }
 
   cancel() {
@@ -48,7 +44,6 @@ export class AddCourseComponent implements OnInit {
 
     this._coursesService.store(data)
                         .subscribe(res => {
-                          this.loadingBlock = false;
                           res},
                          error => console.error(error));
     this.cancel();

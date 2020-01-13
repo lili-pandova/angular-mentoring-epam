@@ -11,7 +11,6 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { LoadingService } from '../../shared/services/loading.service';
 import { ItemComponent } from './item/item.component';
 
 @Component({
@@ -34,13 +33,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public editedId;
     public itemId;
     public isAuth: boolean;
-    public loadingBlock: boolean = true;
 
     constructor(
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
-        private _router:Router,
-        private _loading: LoadingService,
+        private _router: Router
     ) {}
 
 
@@ -56,7 +53,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
     findName(value: string) {
         const findNamePipe = new FindByPipe();  
         this._coursesService.findCourse(value).subscribe(res => { 
-                                                this.loadingBlock = true;
                                                 this.items = findNamePipe.transform(res, value)},
                                                 error => console.log(error));
     }
@@ -69,13 +65,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
         this.confirmModall.delete.subscribe(() => {
             this.appItem.closeModal();
 
-            this._coursesService.destroy(this.itemId).subscribe(res => {
-                                                                res
-                                                                this.loadingBlock = true;
-                                                                },
+            this._coursesService.destroy(this.itemId).subscribe(res => res,
                                                                 error => console.error(error));
             this._coursesService.index().subscribe(res => {
-                                                    this.loadingBlock = true;
                                                     this.items = res},
                                                     error => console.log(error));
         });
@@ -84,7 +76,6 @@ export class IndexComponent implements OnInit, AfterViewInit {
     addMore() {
         this._coursesService.incrementCount();
         this._coursesService.index().subscribe(res => {
-                                                this.loadingBlock = true;
                                                 this.items = res},
                                                 error => console.log(error));
     }

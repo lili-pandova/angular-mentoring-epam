@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { LoadingService } from '../../shared/services/loading.service';
 
 @Component({
   selector: 'app-edit-course',
@@ -18,15 +17,13 @@ export class EditCourseComponent implements OnInit {
   public item: Course;
   public coursesTitle: any;
   public isAuth: boolean;
-  public loadingBlock: boolean = true;
 
   constructor(
     private _coursesService: CoursesService,
     private _authService: AuthorizationService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router,
-    private _loading: LoadingService
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -38,7 +35,6 @@ export class EditCourseComponent implements OnInit {
     })
 
     this.activatedRoute.params.subscribe((params: any) => {
-                                          this.loadingBlock = false;
                                           this.fetchItem(params.id);
     });
 
