@@ -130,6 +130,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-mentoring"
+    }
+  },
+  "defaultProject": "angular-mentoring",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
