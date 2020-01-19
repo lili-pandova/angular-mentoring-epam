@@ -7,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment'; 
-//import { reducers } from '@ngrx/store/reducers';
+import { reducers, metaReducers } from './store/reducers';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { TokenInterceptorService } from './shared/services/token-interceptor.ser
 import { SharedRoutingModule } from './shared/shared-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
+import { MyStoreModule } from './store/store.module';
 
 @NgModule({
     declarations: [
@@ -37,11 +38,27 @@ import { StaticPagesModule } from './static-pages/static-pages.module';
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
-       // StoreModule.forRoot(reducers),
+        StoreModule.forRoot(reducers),
         StoreDevtoolsModule.instrument({
-            maxAge: 25, // Retains last 25 states
-            logOnly: environment.production, // Restrict extension to log-only mode
+            maxAge: 25,
+            logOnly: environment.production, 
         }),
+        MyStoreModule,
+    //    StoreModule.forRoot(reducers, {
+    //   metaReducers, 
+    //   runtimeChecks: {
+    //     strictStateImmutability: true,
+    //     strictActionImmutability: true,
+    //   }
+    // }),
+       !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forRoot(reducers, {
+      metaReducers, 
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
     ],
     exports: [
         FormsModule,
