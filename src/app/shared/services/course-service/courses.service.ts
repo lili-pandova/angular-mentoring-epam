@@ -25,10 +25,20 @@ export class CoursesService {
     index() {
         this.loadingService.show();
 
+        // this.store.select('courses').subscribe(() => {
+        //     if(res.legnth === 0) {
+        //
+        //     } else {
+        //
+        //     }
+        // })
+
+
         return this.httpClient
             .get<Course[]>(this.modelEndpoint + `?_page=${this.count}&_limit=3&_sort=createdAt&_order=desc`)
             .pipe(map((obj: any) => {
                 this.loadingService.hide();
+
                 return obj;
             }));
     };

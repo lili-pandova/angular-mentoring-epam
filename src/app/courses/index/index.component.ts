@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 import { ItemComponent } from './item/item.component';
+import { Store } from '@ngrx/store';
 
 @Component({
     selector: 'app-courses-index',
@@ -20,9 +21,9 @@ import { ItemComponent } from './item/item.component';
 })
 
 export class IndexComponent implements OnInit, AfterViewInit {
-    @ViewChild('appItem', {static: false}) 
+    @ViewChild('appItem', {static: false})
     public appItem: ItemComponent;
-    @ViewChild('confirmModal', {static: false}) 
+    @ViewChild('confirmModal', {static: false})
     public confirmModall: ConfirmationModalComponent;
 
     public listCourses;
@@ -37,11 +38,16 @@ export class IndexComponent implements OnInit, AfterViewInit {
     constructor(
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
-        private _router: Router
+        private _router: Router,
+        private store: Store
     ) {}
 
 
     ngOnInit() {
+
+        this.store.select<any>('store').subscribe((res: any) => {
+            console.log(res);
+        });
         this._coursesService.index().subscribe(res => {
                                                this.items = res},
                                                error => console.log(error));
@@ -49,10 +55,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
                                                this.listCourses = res},
                                                error => console.log(error));
     }
-  
+
     findName(value: string) {
-        const findNamePipe = new FindByPipe();  
-        this._coursesService.findCourse(value).subscribe(res => { 
+        const findNamePipe = new FindByPipe();
+        this._coursesService.findCourse(value).subscribe(res => {
                                                 this.items = findNamePipe.transform(res, value)},
                                                 error => console.log(error));
     }

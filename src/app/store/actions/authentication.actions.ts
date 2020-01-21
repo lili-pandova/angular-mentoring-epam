@@ -1,22 +1,31 @@
-import { Action } from '@ngrx/store';
-
+import { createAction, Action } from '@ngrx/store';
+import { Authentication } from '../../shared/enum/authentication.enum';
 import { Users } from '../../shared/models/users/users';
-import { Authentication as AuthActionTypes } from '../../shared/enum/authentication.enum';
+import { User } from '../../shared/models/user/user';
 
-export class LoadAuths implements Action {
-  readonly type = AuthActionTypes.LoadAuths;
-}
+// export const LoadAuthsSuccess = createAction('[Auth] Load Auths Success');
 
-export class LoadAuthsFail implements Action {
-  readonly type = AuthActionTypes.LoadAuthsFail;
 
-  constructor(public payload: any) {}
-}
-
+// import { Action } from '@ngrx/store';
+//
+// import { Users } from '../../shared/models/users/users';
+// import { Authentication as AuthActionTypes } from '../../shared/enum/authentication.enum';
+//
+// export class LoadAuths implements Action {
+//   readonly type = AuthActionTypes.LoadAuths;
+// }
+//
+// export class LoadAuthsFail implements Action {
+//   readonly type = AuthActionTypes.LoadAuthsFail;
+//
+//   constructor(public payload: any) {}
+// }
+//
 export class LoadAuthsSuccess implements Action {
-  readonly type = AuthActionTypes.LoadAuthsSuccess;
+  public readonly type = '[Auth] Load Auths Success';
 
-  constructor(public payload: Users[]) {}
+  constructor(public payload: User) {}
 }
-
-export type AuthActions = LoadAuths | LoadAuthsFail | LoadAuthsSuccess | AuthActionTypes;  //?Why
+//
+// export type AuthActions = LoadAuths | LoadAuthsFail | LoadAuthsSuccess | AuthActionTypes;  //?Why
+export type AuthActions = LoadAuthsSuccess;

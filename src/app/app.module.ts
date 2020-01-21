@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment'; 
+import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store/reducers';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -34,46 +34,47 @@ import { MyStoreModule } from './store/store.module';
         ReactiveFormsModule,
         SharedModule,
         SharedRoutingModule,
-        CoursesRoutingModule, 
+        CoursesRoutingModule,
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
         StoreModule.forRoot(reducers),
-        StoreDevtoolsModule.instrument({
-            maxAge: 25,
-            logOnly: environment.production, 
-        }),
+        // StoreDevtoolsModule.instrument({
+        //     maxAge: 25,
+        //     logOnly: environment.production,
+        // }),
         MyStoreModule,
-    //    StoreModule.forRoot(reducers, {
-    //   metaReducers, 
-    //   runtimeChecks: {
-    //     strictStateImmutability: true,
-    //     strictActionImmutability: true,
-    //   }
-    // }),
-       !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreModule.forRoot(reducers, {
-      metaReducers, 
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true,
-      }
-    }),
+        //    StoreModule.forRoot(reducers, {
+        //   metaReducers,
+        //   runtimeChecks: {
+        //     strictStateImmutability: true,
+        //     strictActionImmutability: true,
+        //   }
+        // }),
+        // !environment.production ? StoreDevtoolsModule.instrument() : [],
+        // StoreModule.forRoot(reducers, {
+        //     metaReducers,
+        //     runtimeChecks: {
+        //         strictStateImmutability: true,
+        //         strictActionImmutability: true,
+        //     }
+        // }),
     ],
     exports: [
         FormsModule,
         ReactiveFormsModule
     ],
     providers: [CoursesService,
-                AuthorizationService,
-                OrderByPipe,
-                {
-                    provide: HTTP_INTERCEPTORS,
-                    useClass: TokenInterceptorService,
-                    multi: true
-                },
-                AuthGuardGuard],
+        AuthorizationService,
+        OrderByPipe,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: TokenInterceptorService,
+            multi: true
+        },
+        AuthGuardGuard],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class AppModule { }
+export class AppModule {
+}

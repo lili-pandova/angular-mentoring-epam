@@ -32,17 +32,17 @@ export class AuthorizationService {
       .pipe(map((obj: any) => {
         this.loadingService.hide();
         return obj;
-      }))
-      .subscribe((res: any) => {
-        this.isAuthenticated = true;
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('name', res.name);
-        this.router.navigateByUrl('/courses');
-      },
-        (error) => {
-          console.log(error, "eror from login");
-          this.wrongUser = true;
-        })
+      }));
+      // .subscribe((res: any) => {
+      //   this.isAuthenticated = true;
+      //   localStorage.setItem('token', res.token);
+      //   localStorage.setItem('name', res.name);
+      //   this.router.navigateByUrl('/courses');
+      // },
+      //   (error) => {
+      //     console.log(error, "eror from login");
+      //     this.wrongUser = true;
+      //   })
 
   }
 

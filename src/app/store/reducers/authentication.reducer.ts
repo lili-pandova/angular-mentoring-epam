@@ -1,75 +1,97 @@
-import {
-    ActionReducer,
-    ActionReducerMap,
-    createFeatureSelector,
-    createSelector,
-    MetaReducer
-  } from '@ngrx/store';
-  import { environment } from '../../../environments/environment';
+import { createReducer, on } from '@ngrx/store';
+import { UsersState } from '../../shared/models/users/usersState';
+import * as authenticationActions from '../actions/authentication.actions';
+import { AuthActions, LoadAuthsSuccess } from '../actions/authentication.actions';
 
-  import { Users } from 'src/app/shared/models/users/users';
-  import * as authenticationActions from '../actions/authentication.actions';
-  import { UsersState } from '../../shared/models/users/usersState';
+// export const initialState: UsersState = {
+//     users: [
+//         {
+//             id: 1,
+//             token: '1234b',
+//             name: 'Liliya Pandova',
+//             email: 'lilia_pandova@abv.bg',
+//             password: '12345'
+//         },
+//     ],
+//     loaded: false,
+//     loading: false
+// };
 
-  export const authenticationFeatureKey = 'authentication';
-  
-  export const initialState: UsersState = {
+// import {
+//     ActionReducer,
+//     ActionReducerMap,
+//     createFeatureSelector,
+//     createSelector,
+//     MetaReducer
+// } from '@ngrx/store';
+// import { environment } from '../../../environments/environment';
+//
+// import { Users } from 'src/app/shared/models/users/users';
+// import * as authenticationActions from '../actions/authentication.actions';
+// import { UsersState } from '../../shared/models/users/usersState';
+//
+// export const authenticationFeatureKey = 'authentication';
+//
+export const initialState: UsersState = {
     users: [
         {
-          "id": 1,
-          "token": "1234b",
-          "name": "Liliya Pandova",
-          "email": "lilia_pandova@abv.bg",
-          "password": "12345"
+            "id": 1,
+            "token": "1234b",
+            "name": "Liliya Pandova",
+            "email": "lilia_pandova@abv.bg",
+            "password": "12345"
         },
-        {
-          "id": 2,
-          "token": "6789b",
-          "name": "Rosi Pandova",
-          "email": "r_pandova@abv.bg",
-          "password": "qwerty"
-        },
-        {
-          "id": 3,
-          "token": "1234567",
-          "name": "Maria Ivanova",
-          "email": "m_ivanova@abv.bg",
-          "password": "aasdfg"
-        }
-      ],
+    ],
+    selectedUser: null,
     loaded: false,
     loading: false
-  }
+};
+//
+export const authReducers = (state = initialState,
+                             action: AuthActions): UsersState => {
+    console.log(action.type);
+    switch ( action.type ) {
+        // case authenticationActions.LoadAuths: {
+        //     console.log(...state);
+        //     return {
+        //         ...state,
+        //         loading: true,
+        //         loaded: false
+        //     };
+        // }
+        //
+        // case authenticationActions.LoadAuthsFail: {
+        //     return {
+        //         ...state,
+        //         loading: false,
+        //         loaded: false
+        //     }
+        // }
 
-  export function reducer(
-      state = initialState,
-      action: any //authenticationActions.AuthActions ???
-  ): UsersState {
-
-    switch(action.type) { //?
-        case authenticationActions.LoadAuths: {
+        case '[Auth] Load Auths Success': {
             return {
                 ...state,
-                loading: true,
-                loaded: false
-            }
-        }
-
-        case authenticationActions.LoadAuthsFail: {
-            return {
-                ...state,
-                loading: false,
-                loaded: false
-            }
-        }
-
-        case authenticationActions.LoadAuthsSuccess: {
-            return {
-                ...state,
+                users: [],
+                selectedUser: action.payload,
                 loading: false,
                 loaded: true
-            }
+            };
         }
+
+        default:
+            return state;
     }
-    return state;
-  }
+};
+
+// export const initialState = 0;
+//
+// const authReducerr = createReducer(
+//     initialState,
+//     on(LoadAuthsSuccess, state => {
+//         return state;
+//     })
+// );
+//
+// export function authReducer(state, action) {
+//     return authReducerr(state, action);
+// }
