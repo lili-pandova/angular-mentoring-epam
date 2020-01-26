@@ -2,7 +2,7 @@ import { Course } from 'src/app/shared/models/course/course';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -32,7 +32,7 @@ export class EditCourseComponent implements OnInit {
 
   ngOnInit() {
     this.coursesForm = this.fb.group({
-      title: [''],
+      title: new FormControl('', Validators.required),
       description: [''],
       creationDate: [''],
       duration: ['']

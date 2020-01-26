@@ -1,63 +1,80 @@
-import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import {CoursesService} from 'src/app/shared/services/course-service/courses.service';
 
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
 
-import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { LoadingService } from '../../shared/services/loading.service';
+import {AuthorizationService} from '../../shared/services/auth-service/auth-service';
+import {LoadingService} from '../../shared/services/loading.service';
 import * as fromStore from '../../store/reducers';
 import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.action';
 
 @Component({
-  selector: 'app-add-course',
-  templateUrl: './add-course.component.html',
-  styleUrls: ['./add-course.component.scss']
+    selector: 'app-add-course',
+    templateUrl: './add-course.component.html',
+    styleUrls: ['./add-course.component.scss']
 })
 export class AddCourseComponent implements OnInit {
-  public itemId: number;
-  public coursesForm: FormGroup;
-  public isAuth: boolean;
+    public itemId: number;
+    public coursesForm: FormGroup;
+    public isAuth: boolean;
 
-  constructor(
-    private _coursesService: CoursesService,
-    private _authService: AuthorizationService,
-    private fb: FormBuilder,
-    private router: Router,
-    private loadingService: LoadingService,
-    private store: Store<fromStore.State>,
-    ) { }
+    constructor(
+        private _coursesService: CoursesService,
+        private _authService: AuthorizationService,
+        private fb: FormBuilder,
+        private router: Router,
+        private loadingService: LoadingService,
+        private store: Store<fromStore.State>,
+    ) {
+    }
 
-  ngOnInit(){
-    this.coursesForm = this.fb.group({
-      title: [''],
-      description: [''],
-      creationDate: [''],
-      duration: ['']
-    });
+    dateValidation(control: FormControl): { [key: string]: boolean } {
+        const pattern = /^\d{2}([./-])\d{2}\1\d{4}$/;
 
-    this.isAuth = this._authService.isAuthenticated;
-    this.loadingService.hide();
+        if (!control.value.match(pattern)) {
+            return { 'dateInvalid': true };
+        }
+        return null;
+    }
 
-  }
+    ngOnInit() {
+        this.coursesForm = this.fb.group({
+            title: ['', [
+                Validators.required,
+                Validators.maxLength(50),
+            ]],
+            description: ['',
+                [
+                    Validators.required,
+                    Validators.maxLength(500),
+                ]],
+            creationDate: ['21.06.2019', [Validators.required, this.dateValidation]],
+            duration: ['', Validators.required]
+        });
 
-  cancel() {
-    this.router.navigateByUrl('/courses');
-  }
+        this.isAuth = this._authService.isAuthenticated;
+        this.loadingService.hide();
 
-  onSubmit() {
-    const data = this.coursesForm.value;
-    data.creationDate = new Date(data.creationDate);
+    }
 
-    this._coursesService.store(data)
-                        .subscribe(res => {
-                          this.store.dispatch(new AddCourseSuccess(res))
-                        },
-                         error => {
-                            console.error(error)
-                             this.store.dispatch(new AddCourseFail(error))
-                        });
-    this.cancel();
-  }
+    cancel() {
+        this.router.navigateByUrl('/courses');
+    }
+
+    onSubmit() {
+        const data = this.coursesForm.value;
+        data.creationDate = new Date(data.creationDate);
+
+        this._coursesService.store(data)
+            .subscribe(res => {
+                    this.store.dispatch(new AddCourseSuccess(res))
+                },
+                error => {
+                    console.error(error)
+                    this.store.dispatch(new AddCourseFail(error))
+                });
+        this.cancel();
+    }
 }

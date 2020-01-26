@@ -9,12 +9,9 @@
             formControlName="description"></textarea>
     </div>
     <app-duration [control]="form.controls['duration']"></app-duration>
-    <div class="field form-group">
-        <label for="date">Date</label>
-        <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" formControlName="creationDate" />
-    </div>
+    <app-date formControlName="creationDate"></app-date>
     <div class="footer">
         <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
-        <button type="submit" class="btn sick-green">Save</button>
+        <button type="submit" class="btn sick-green" [disabled]="!form.valid">Save</button>
     </div>
 </form>

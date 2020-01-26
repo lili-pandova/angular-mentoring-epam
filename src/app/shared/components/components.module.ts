@@ -16,6 +16,7 @@ import { LogoComponent } from './logo/logo.component';
 import { SearchComponent } from './search/search.component';
 import { UserLogComponent } from './user-log/user-log.component';
 import { UserComponent } from './user/user.component';
+import { DateComponent } from './date/date.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     DurationComponent,
     ConfirmationModalComponent,
-    LoadingComponent
+    LoadingComponent,
+    DateComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     DurationComponent,
     ConfirmationModalComponent,
-    LoadingComponent
+    LoadingComponent,
+    DateComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
