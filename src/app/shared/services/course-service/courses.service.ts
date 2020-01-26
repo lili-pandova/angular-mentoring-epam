@@ -1,12 +1,15 @@
-import { Observable } from 'rxjs';
-import { AppConfig } from 'src/app/app.config';
+import {Observable} from 'rxjs';
+import {AppConfig} from 'src/app/app.config';
 
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Store} from '@ngrx/store';
 
-import { Course } from '../../models/course/course';
-import { map } from 'rxjs/operators';
-import { LoadingService } from '../loading.service';
+import {Course} from '../../models/course/course';
+import {map} from 'rxjs/operators';
+import {LoadingService} from '../loading.service';
+import * as fromStore from '../../../store/reducers';
+import {DeleteCourse, GetAllCourse, UpdateCourse} from '../../../store/actions/courses.action';
 
 @Injectable({
     providedIn: 'root'
@@ -17,22 +20,17 @@ export class CoursesService {
     private modelEndpoint = AppConfig.apiUrl + '/courses';
 
     constructor(private httpClient: HttpClient,
-        private loadingService: LoadingService) { }
+                private loadingService: LoadingService,
+                private _store: Store<fromStore.State>) {
+    }
 
     incrementCount() {
         return this.count++;
     }
+
     index() {
         this.loadingService.show();
-
-        // this.store.select('courses').subscribe(() => {
-        //     if(res.legnth === 0) {
-        //
-        //     } else {
-        //
-        //     }
-        // })
-
+        this._store.dispatch(new GetAllCourse());
 
         return this.httpClient
             .get<Course[]>(this.modelEndpoint + `?_page=${this.count}&_limit=3&_sort=createdAt&_order=desc`)
@@ -46,7 +44,7 @@ export class CoursesService {
     findCourse(serachWord): Observable<Course[]> {
         this.loadingService.show();
 
-        return this.httpClient.get<Course[]>(this.modelEndpoint, { params: { 'q': serachWord } })
+        return this.httpClient.get<Course[]>(this.modelEndpoint, {params: {'q': serachWord}})
             .pipe(map((obj: any) => {
                 this.loadingService.hide();
                 return obj;
@@ -55,41 +53,43 @@ export class CoursesService {
 
     destroy(id: any) {
         this.loadingService.show();
+        this._store.dispatch(new DeleteCourse());
 
         return this.httpClient.delete<Course[]>(this.modelEndpoint + '/' + id)
-        .pipe(map((obj: any) => {
-            this.loadingService.hide();
-            return obj;
-        }));
+            .pipe(map((obj: any) => {
+                this.loadingService.hide();
+                return obj;
+            }));
     }
 
     store(data: any) {
         this.loadingService.show();
 
         return this.httpClient.post(this.modelEndpoint, data)
-        .pipe(map((obj: any) => {
-            this.loadingService.hide();
-            return obj;
-        }));
+            .pipe(map((obj: any) => {
+                this.loadingService.hide();
+                return obj;
+            }));
     }
 
     view(id: number) {
         this.loadingService.show();
 
         return this.httpClient.get(this.modelEndpoint + '/' + id)
-        .pipe(map((obj: any) => {
-            this.loadingService.hide();
-            return obj;
-        }));
+            .pipe(map((obj: any) => {
+                this.loadingService.hide();
+                return obj;
+            }));
     }
 
     update(id: number, data: any) {
         this.loadingService.show();
+        this._store.dispatch(new UpdateCourse());
 
         return this.httpClient.put(this.modelEndpoint + '/' + id, data)
-        .pipe(map((obj: any) => {
-            this.loadingService.hide();
-            return obj;
-        }));
+            .pipe(map((obj: any) => {
+                this.loadingService.hide();
+                return obj;
+            }));
     };
 }

@@ -24,26 +24,67 @@
   ],
   "courses": [
     {
-      "title": "Lorem Ipsum-11",
-      "description": "testn111",
+      "title": "Lorem Ipsum-3",
+      "description": "test-33",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "31",
+      "id": 25
+    },
+    {
+      "title": "Lorem Ipsum3333",
+      "description": "test",
       "creationDate": "2019-01-06T22:00:00.000Z",
       "duration": "87",
-      "id": 20
+      "createdAt": "2020-1-26 11:35:13 AM",
+      "id": 26
     },
     {
       "title": "TEST !!!!",
-      "description": "zaaza",
+      "description": "bababab",
       "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "211",
-      "id": 24
+      "duration": "7",
+      "createdAt": "2020-1-26 11:38:28 AM",
+      "id": 27
     },
     {
-      "title": "Lorem Ipsum-3",
-      "description": "test",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "31",
-      "createdAt": "2020-1-13 8:25:03 PM",
-      "id": 25
+      "title": "Lorem Ipsum3333",
+      "description": "vbvbvb",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "55",
+      "createdAt": "2020-1-26 11:57:28 AM",
+      "id": 28
+    },
+    {
+      "title": "Lorem Ipsum",
+      "description": "zzzz",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "xx",
+      "createdAt": "2020-1-26 12:28:07 PM",
+      "id": 29
+    },
+    {
+      "title": "Lorem Ipsum",
+      "description": "zzzz",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "12111",
+      "createdAt": "2020-1-26 12:29:54 PM",
+      "id": 30
+    },
+    {
+      "title": "Lorem Ipsum3f",
+      "description": "vcvcvc",
+      "creationDate": "1953-12-31T22:00:00.000Z",
+      "duration": "21",
+      "createdAt": "2020-1-26 1:57:58 PM",
+      "id": 32
+    },
+    {
+      "title": "Lorem IpsumIII",
+      "description": "testwww",
+      "creationDate": null,
+      "duration": "81",
+      "createdAt": "2020-1-26 2:36:02 PM",
+      "id": 34
     }
   ]
 }

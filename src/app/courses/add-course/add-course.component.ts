@@ -3,8 +3,12 @@ import { CoursesService } from 'src/app/shared/services/course-service/courses.s
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
+import { LoadingService } from '../../shared/services/loading.service';
+import * as fromStore from '../../store/reducers';
+import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.action';
 
 @Component({
   selector: 'app-add-course',
@@ -20,7 +24,9 @@ export class AddCourseComponent implements OnInit {
     private _coursesService: CoursesService,
     private _authService: AuthorizationService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService,
+    private store: Store<fromStore.State>,
     ) { }
 
   ngOnInit(){
@@ -29,9 +35,11 @@ export class AddCourseComponent implements OnInit {
       description: [''],
       creationDate: [''],
       duration: ['']
-    })
+    });
 
     this.isAuth = this._authService.isAuthenticated;
+    this.loadingService.hide();
+
   }
 
   cancel() {
@@ -44,8 +52,12 @@ export class AddCourseComponent implements OnInit {
 
     this._coursesService.store(data)
                         .subscribe(res => {
-                          res},
-                         error => console.error(error));
+                          this.store.dispatch(new AddCourseSuccess(res))
+                        },
+                         error => {
+                            console.error(error)
+                             this.store.dispatch(new AddCourseFail(error))
+                        });
     this.cancel();
   }
 }

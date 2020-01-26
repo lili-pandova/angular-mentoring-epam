@@ -3,7 +3,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoursesRoutingModule } from '../../courses/courses-routing.module';
-import { OrderByPipe } from '../pipes/order-by.pipe';
 import { AddCoursesBtnComponent } from './add-courses-btn/add-courses-btn.component';
 import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
@@ -20,9 +19,17 @@ import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
-    HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,
-    AddCoursesBtnComponent, LoadMoreComponent, FooterComponent,
-    UserComponent, LoginComponent, DurationComponent,
+    HeaderComponent,
+    LogoComponent,
+    BreadcrumbsComponent,
+    SearchComponent,
+    UserLogComponent,
+    AddCoursesBtnComponent,
+    LoadMoreComponent,
+    FooterComponent,
+    UserComponent,
+    LoginComponent,
+    DurationComponent,
     ConfirmationModalComponent,
     LoadingComponent
   ],
@@ -33,10 +40,19 @@ import { UserComponent } from './user/user.component';
     CoursesRoutingModule
   ],
   exports: [
-    HeaderComponent, LogoComponent, BreadcrumbsComponent, SearchComponent, UserLogComponent,
-    AddCoursesBtnComponent, LoadMoreComponent, FooterComponent,
-    UserComponent, LoginComponent, DurationComponent,
-    ConfirmationModalComponent, LoadingComponent
+    HeaderComponent,
+    LogoComponent,
+    BreadcrumbsComponent,
+    SearchComponent,
+    UserLogComponent,
+    AddCoursesBtnComponent,
+    LoadMoreComponent,
+    FooterComponent,
+    UserComponent,
+    LoginComponent,
+    DurationComponent,
+    ConfirmationModalComponent,
+    LoadingComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

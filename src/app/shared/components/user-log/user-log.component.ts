@@ -1,7 +1,10 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {Store} from '@ngrx/store';
 
 import { AuthorizationService } from '../../services/auth-service/auth-service';
+import * as fromStore from '../../../store/reducers';
+import {UserAuthenticationFail} from '../../../store/actions/user.actions';
 
 @Component({
     selector: 'app-user-log',
@@ -14,7 +17,8 @@ export class UserLogComponent implements OnInit, DoCheck {
 
     constructor(
         private _authService: AuthorizationService,
-        private router: Router
+        private router: Router,
+        private store: Store<fromStore.State>
     ) {}
 
     ngOnInit() {
@@ -30,5 +34,6 @@ export class UserLogComponent implements OnInit, DoCheck {
     logOff() {
         this._authService.logout();
         this.isAuthenticated = false;
+        this.store.dispatch(new UserAuthenticationFail('logOut'));
     }
 }

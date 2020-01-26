@@ -8,7 +8,6 @@ import {
 } from '@ngrx/store';
 import { environment } from '../../../environments/environment';
 
-import { Users } from 'src/app/shared/models/users/users';
 import * as coursesActions from '../actions/courses.action';
 import { CoursesState } from '../../shared/models/course/coursesState';
 
@@ -37,8 +36,29 @@ export const initialState: CoursesState = {
 
 export function reducer(state = initialState, action: any): CoursesState {
     switch ( action.type ) {
+        case coursesActions.GetAllCourse: {
+            return {
+                ...state,
+                loading: true,
+                loaded: false
+            }
+        }
+        case coursesActions.GetAllCoursesFail: {
+            return {
+                ...state,
+                loading: false,
+                loaded: false
+            }
+        }
+        case coursesActions.GetAllCourseSuccess: {
+            return {
+                ...state,
+                courses: action.payload,
+                loading: false,
+                loaded: true
+            }
+        }
         case coursesActions.LoadCourse: {
-            console.log(state);
             return {
                 ...state,
                 loading: true,
@@ -57,7 +77,57 @@ export function reducer(state = initialState, action: any): CoursesState {
         case coursesActions.AddCourseSuccess: {
             return {
                 ...state,
-                // addCourse: [...state.courses, ???],
+                courses: [...state.courses, action.payload],
+                loading: false,
+                loaded: true
+            }
+        }
+
+        case coursesActions.UpdateCourse: {
+            return {
+                ...state,
+                loading: true,
+                loaded: false
+            }
+        }
+
+        case coursesActions.UpdateCourseFail: {
+            return {
+                ...state,
+                loading: false,
+                loaded: false
+            }
+        }
+
+        case coursesActions.UpdateCourseSuccess: {
+            return {
+                ...state,
+                courses: [...state.courses.filter(item => item.id !== action.payload.id), action.payload],
+                loading: false,
+                loaded: true
+            }
+        }
+
+        case coursesActions.DeleteCourse: {
+            return {
+                ...state,
+                loading: true,
+                loaded: false
+            }
+        }
+
+        case coursesActions.DeleteCourseFail: {
+            return {
+                ...state,
+                loading: false,
+                loaded: false
+            }
+        }
+
+        case coursesActions.UpdateCourseSuccess: {
+            return {
+                ...state,
+                courses: [...state.courses.filter(item => item.id !== action.payload)],
                 loading: false,
                 loaded: true
             }
@@ -65,7 +135,3 @@ export function reducer(state = initialState, action: any): CoursesState {
     }
     return state;
 }
-
-export const getLoadCourse = (state: CoursesState) => state.courses;
-export const getLoadingCourse = (state: CoursesState) => state.loading;
-export const getLoadedCourse = (state: CoursesState) => state.loaded;

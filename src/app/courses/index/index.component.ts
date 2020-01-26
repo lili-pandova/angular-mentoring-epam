@@ -1,8 +1,6 @@
-
 import {
     ConfirmationModalComponent
 } from 'src/app/shared/components/confirmation-modal/confirmation-modal.component';
-import { LoadMoreComponent } from 'src/app/shared/components/load-more/load-more.component';
 import { Course } from 'src/app/shared/models/course/course';
 import { FindByPipe } from 'src/app/shared/pipes/find-by.pipe';
 import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
@@ -13,6 +11,15 @@ import { Router } from '@angular/router';
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
 import { ItemComponent } from './item/item.component';
 import { Store } from '@ngrx/store';
+import * as fromStore from '../../store/reducers';
+import {LoadingService} from '../../shared/services/loading.service';
+import {
+    DeleteCourseFail,
+    DeleteCourseSuccess,
+    GetAllCourse,
+    GetAllCoursesFail,
+    GetAllCourseSuccess
+} from '../../store/actions/courses.action';
 
 @Component({
     selector: 'app-courses-index',
@@ -28,32 +35,28 @@ export class IndexComponent implements OnInit, AfterViewInit {
 
     public listCourses;
     public items: Course[];
-    public searchName: string;
-    public titleModal: string = '';
     public data: any;
-    public editedId;
     public itemId;
-    public isAuth: boolean;
 
     constructor(
         private _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private _router: Router,
-        private store: Store
+        private _store: Store<fromStore.State>,
+        private _loadingService: LoadingService
     ) {}
 
 
     ngOnInit() {
-
-        this.store.select<any>('store').subscribe((res: any) => {
-            console.log(res);
-        });
         this._coursesService.index().subscribe(res => {
-                                               this.items = res},
-                                               error => console.log(error));
-        this._coursesService.index().subscribe(res => {
-                                               this.listCourses = res},
-                                               error => console.log(error));
+                                                this.items = res;
+                                                this.listCourses = res;
+                                                this._store.dispatch(new GetAllCourseSuccess(res));
+                                            },
+                                          error => {
+                                                console.log(error);
+                                                this._store.dispatch(new GetAllCoursesFail(error));
+                                            });
     }
 
     findName(value: string) {
@@ -71,18 +74,19 @@ export class IndexComponent implements OnInit, AfterViewInit {
         this.confirmModall.delete.subscribe(() => {
             this.appItem.closeModal();
 
-            this._coursesService.destroy(this.itemId).subscribe(res => res,
-                                                                error => console.error(error));
-            this._coursesService.index().subscribe(res => {
-                                                    this.items = res},
-                                                    error => console.log(error));
+            this._coursesService.destroy(this.itemId).subscribe(res => {
+                                                                this._store.dispatch(new DeleteCourseSuccess(this.itemId));
+                                                                },
+                                                                error => this._store.dispatch(new DeleteCourseFail(error)));
+
+            this._store.dispatch(new GetAllCourse())
         });
     }
 
     addMore() {
         this._coursesService.incrementCount();
-        this._coursesService.index().subscribe(res => {
-                                                this.items = res},
-                                                error => console.log(error));
+            this._coursesService.index().subscribe(res => {
+                                                    this.items = res},
+                                                    error => console.log(error));
     }
 }

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import * as fromStore from './reducers';
+import { reducers } from '../store';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature(fromStore.storeFeatureKey, fromStore.reducers, { metaReducers: fromStore.metaReducers })
+    StoreModule.forFeature('store', reducers)
   ]
 })
 export class MyStoreModule { }

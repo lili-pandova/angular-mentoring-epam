@@ -1,5 +1,3 @@
-import { from } from 'rxjs';
-
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -39,26 +37,11 @@ import { MyStoreModule } from './store/store.module';
         HttpClientModule,
         StaticPagesModule,
         StoreModule.forRoot(reducers),
-        // StoreDevtoolsModule.instrument({
-        //     maxAge: 25,
-        //     logOnly: environment.production,
-        // }),
-        MyStoreModule,
-        //    StoreModule.forRoot(reducers, {
-        //   metaReducers,
-        //   runtimeChecks: {
-        //     strictStateImmutability: true,
-        //     strictActionImmutability: true,
-        //   }
-        // }),
-        // !environment.production ? StoreDevtoolsModule.instrument() : [],
-        // StoreModule.forRoot(reducers, {
-        //     metaReducers,
-        //     runtimeChecks: {
-        //         strictStateImmutability: true,
-        //         strictActionImmutability: true,
-        //     }
-        // }),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production,
+        }),
+        MyStoreModule
     ],
     exports: [
         FormsModule,
