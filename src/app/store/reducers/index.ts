@@ -8,7 +8,7 @@ import * as authUsers from './user.reducer';
 import * as course from './courses.reducer';
 import { UsersState } from '../../shared/models/users/usersState';
 import { CoursesState } from '../../shared/models/course/coursesState';
-import { AppConfig } from '../../app.component';
+import { AppConfig } from '../../app.config';
 
 export const storeFeatureKey = AppConfig.storeFeatureKey;
 
