@@ -73,13 +73,15 @@ export class IndexComponent implements OnInit, AfterViewInit {
     ngAfterViewInit(){
         this.confirmModall.delete.subscribe(() => {
             this.appItem.closeModal();
-
             this._coursesService.destroy(this.itemId).subscribe(res => {
                                                                 this._store.dispatch(new DeleteCourseSuccess(this.itemId));
                                                                 },
                                                                 error => this._store.dispatch(new DeleteCourseFail(error)));
 
             this._store.dispatch(new GetAllCourse())
+            this._coursesService.index().subscribe(res => {
+                                                    this.items = res},
+                                                    error => console.log(error));
         });
     }
 
