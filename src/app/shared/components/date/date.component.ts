@@ -17,9 +17,9 @@ export class DateComponent implements ControlValueAccessor{
     public value: string;
     public date: string;
 
-    onChange(): void {}
+    onChange: () => void;
 
-    onTouched(): void {}
+    onTouched: () => void;
 
     writeValue(value: string) : void {
         this.value = value ? value : '';
