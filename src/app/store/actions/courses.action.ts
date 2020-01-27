@@ -17,8 +17,6 @@ export enum Courses {
     DeleteCourseSuccess = '[Course] Delete Course Success'
 }
 
-
-
 export class GetAllCourse implements Action {
     readonly type = Courses.GetAllCourses;
 }

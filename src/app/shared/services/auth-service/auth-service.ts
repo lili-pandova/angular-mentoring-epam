@@ -1,24 +1,24 @@
-import {Observable} from 'rxjs';
-import {AppConfig} from 'src/app/app.config';
+import { Observable } from 'rxjs';
+import { AppConfig } from 'src/app/app.config';
 
-import {HttpClient} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Router} from '@angular/router';
-import {Store} from '@ngrx/store';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store} from '@ngrx/store';
 
-import {Course} from '../../models/course/course';
-import {LoadingService} from '../loading.service';
-import {map} from 'rxjs/operators';
+import { Course } from '../../models/course/course';
+import { LoadingService } from '../loading.service';
+import { map } from 'rxjs/operators';
 import * as fromStore from '../../../store/reducers';
 
-import {UserAuthenticationSuccess, UserAuthenticationFail, LoadUserAuthentication} from '../../../store/actions/user.actions';
+import { UserAuthenticationSuccess, UserAuthenticationFail, LoadUserAuthentication } from '../../../store/actions/user.actions';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthorizationService {
     public isAuthenticated: boolean = false;
-    userToken: string = 'token';
+    userToken: string = AppConfig.userToken;
     public users: any;
     public userData: any;
     private modelEndpoint = AppConfig.apiUrl + '/users';

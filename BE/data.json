@@ -24,75 +24,49 @@
   ],
   "courses": [
     {
+      "title": "Lorem Ipsum-11",
+      "description": "testn111",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "87",
+      "id": 20
+    },
+    {
+      "title": "TEST !!!!",
+      "description": "zaaza",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "211",
+      "id": 24
+    },
+    {
       "title": "Lorem Ipsum-3",
-      "description": "test-33",
+      "description": "test",
       "creationDate": "2019-03-06T22:00:00.000Z",
       "duration": "31",
       "id": 25
     },
     {
-      "title": "Lorem Ipsum3333",
-      "description": "test",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "87",
-      "createdAt": "2020-1-26 11:35:13 AM",
+      "title": "kjkjkj",
+      "description": "ggfggf",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": "21",
+      "createdAt": "1/27/2020, 9:55:44 AM",
       "id": 26
     },
     {
-      "title": "TEST !!!!",
-      "description": "bababab",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "7",
-      "createdAt": "2020-1-26 11:38:28 AM",
+      "title": "ass",
+      "description": "gfgdfgdf",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": "55",
+      "createdAt": "1/27/2020, 9:56:00 AM",
       "id": 27
     },
     {
-      "title": "Lorem Ipsum3333",
-      "description": "vbvbvb",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "55",
-      "createdAt": "2020-1-26 11:57:28 AM",
+      "title": "",
+      "description": "",
+      "creationDate": null,
+      "duration": "",
+      "createdAt": "1/27/2020, 9:57:35 AM",
       "id": 28
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "zzzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "xx",
-      "createdAt": "2020-1-26 12:28:07 PM",
-      "id": 29
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "zzzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "12111",
-      "createdAt": "2020-1-26 12:29:54 PM",
-      "id": 30
-    },
-    {
-      "title": "Lorem Ipsum3f",
-      "description": "vcvcvc",
-      "creationDate": "1953-12-31T22:00:00.000Z",
-      "duration": "21",
-      "createdAt": "2020-1-26 1:57:58 PM",
-      "id": 32
-    },
-    {
-      "title": "Lorem IpsumIII",
-      "description": "testwww",
-      "creationDate": null,
-      "duration": "81",
-      "createdAt": "2020-1-26 2:36:02 PM",
-      "id": 34
-    },
-    {
-      "title": "Test21",
-      "description": "test",
-      "creationDate": null,
-      "duration": "71",
-      "createdAt": "2020-1-26 5:16:22 PM",
-      "id": 35
     }
   ]
 }

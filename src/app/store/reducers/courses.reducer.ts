@@ -45,9 +45,7 @@ export function reducer(state = initialState, action: any): CoursesState {
         }
         case coursesActions.GetAllCoursesFail: {
             return {
-                ...state,
-                loading: false,
-                loaded: false
+                ...state
             }
         }
         case coursesActions.GetAllCourseSuccess: {
@@ -68,9 +66,7 @@ export function reducer(state = initialState, action: any): CoursesState {
 
         case coursesActions.AddCourseFail: {
             return {
-                ...state,
-                loading: false,
-                loaded: false
+                ...state
             }
         }
 
@@ -93,9 +89,7 @@ export function reducer(state = initialState, action: any): CoursesState {
 
         case coursesActions.UpdateCourseFail: {
             return {
-                ...state,
-                loading: false,
-                loaded: false
+                ...state
             }
         }
 
@@ -118,9 +112,7 @@ export function reducer(state = initialState, action: any): CoursesState {
 
         case coursesActions.DeleteCourseFail: {
             return {
-                ...state,
-                loading: false,
-                loaded: false
+                ...state
             }
         }
 
