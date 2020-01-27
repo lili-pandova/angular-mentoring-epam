@@ -71,8 +71,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-mentoring:build",
-            "proxyConfig": "proxy.conf.json"
+            "browserTarget": "angular-mentoring:build"
           },
           "configurations": {
             "production": {
@@ -130,6 +129,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-mentoring"
+    }
+  },
+  "defaultProject": "angular-mentoring",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

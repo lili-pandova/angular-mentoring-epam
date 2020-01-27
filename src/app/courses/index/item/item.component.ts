@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
-import { Course } from '../../../shared/models/course/course';
-import { CoursesService } from '../../../shared/services/course-service/courses.service';
+import {Course} from '../../../shared/models/course/course';
+import {CoursesService} from '../../../shared/services/course-service/courses.service';
 
 @Component({
     selector: 'app-item',
@@ -20,7 +20,8 @@ export class ItemComponent {
 
 
     constructor(
-        private _coursesService: CoursesService) {}
+        private _coursesService: CoursesService) {
+    }
 
     openModal(id: any) {
         document.querySelector('.confirmation-modal').classList.add('block');

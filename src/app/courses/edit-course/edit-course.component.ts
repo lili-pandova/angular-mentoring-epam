@@ -4,8 +4,11 @@ import { CoursesService } from 'src/app/shared/services/course-service/courses.s
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
 import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
+import * as fromStore from '../../store/reducers';
+import {UpdateCourseFail, UpdateCourseSuccess} from '../../store/actions/courses.action';
 
 @Component({
   selector: 'app-edit-course',
@@ -23,7 +26,8 @@ export class EditCourseComponent implements OnInit {
     private _authService: AuthorizationService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private _store: Store<fromStore.State>
   ) { }
 
   ngOnInit() {
@@ -32,7 +36,7 @@ export class EditCourseComponent implements OnInit {
       description: [''],
       creationDate: [''],
       duration: ['']
-    })
+    });
 
     this.activatedRoute.params.subscribe((params: any) => {
                                           this.fetchItem(params.id);
@@ -60,7 +64,9 @@ export class EditCourseComponent implements OnInit {
 
   onSubmit() {
     this._coursesService.update(this.item.id, this.coursesForm.value).subscribe((data) => {
-      this.cancel();
-    })
+        this._store.dispatch(new UpdateCourseSuccess(data))
+        this.cancel();
+    },
+(error) => this._store.dispatch(new UpdateCourseFail(error)))
   }
 }
