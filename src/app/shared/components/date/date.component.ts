@@ -26,10 +26,10 @@ export class DateComponent implements ControlValueAccessor{
     }
 
     registerOnChange(fn: any) : void {
-        //this.onChange() = fn; NOT working
+        this.onChange = fn;
     }
 
     registerOnTouched(fn: any) : void {
-        //this.onTouched() = fn; NOT working
+        this.onTouched = fn;
     }
 }

@@ -50,7 +50,7 @@ export class AddCourseComponent implements OnInit {
                     Validators.required,
                     Validators.maxLength(500),
                 ]],
-            creationDate: ['21.06.2019', [Validators.required, this.dateValidation]],
+            creationDate: ['', [Validators.required, this.dateValidation]],
             duration: ['', Validators.required]
         });
 
