@@ -1,14 +1,15 @@
-import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
+import {CoursesService} from 'src/app/shared/services/course-service/courses.service';
 
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
 
-import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
-import { LoadingService} from '../../shared/services/loading.service';
+import {AuthorizationService} from '../../shared/services/auth-service/auth-service';
+import {AuthorsService} from '../../shared/services/authors.service';
+import {LoadingService} from '../../shared/services/loading.service';
 import * as fromStore from '../../store/reducers';
-import { AddCourseFail, AddCourseSuccess } from '../../store/actions/courses.action';
+import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.action';
 
 @Component({
     selector: 'app-add-course',
@@ -26,6 +27,7 @@ export class AddCourseComponent implements OnInit {
         private router: Router,
         private loadingService: LoadingService,
         private store: Store<fromStore.State>,
+        private  _authorsService: AuthorsService
     ) {
     }
 
@@ -33,7 +35,7 @@ export class AddCourseComponent implements OnInit {
         const pattern = /^\d{2}([./-])\d{2}\1\d{4}$/;
 
         if (!control.value.match(pattern)) {
-            return { 'dateInvalid': true };
+            return {'dateInvalid': true};
         }
         return null;
     }
@@ -41,16 +43,16 @@ export class AddCourseComponent implements OnInit {
     ngOnInit() {
         this.coursesForm = this.fb.group({
             title: ['', [
-                    Validators.required,
-                    Validators.maxLength(50),
+                Validators.required,
+                Validators.maxLength(50),
             ]],
             description: ['', [
-                    Validators.required,
-                    Validators.maxLength(500),
-                ]],
+                Validators.required,
+                Validators.maxLength(500),
+            ]],
             creationDate: ['', [
-                    Validators.required,
-                    this.dateValidation]],
+                Validators.required,
+                this.dateValidation]],
             duration: ['', Validators.required],
             authors: ['', Validators.required]
         });
@@ -67,7 +69,7 @@ export class AddCourseComponent implements OnInit {
     onSubmit() {
         const data = this.coursesForm.value;
         data.creationDate = new Date(data.creationDate);
-
+        this._authorsService.findAuthors(data.authors).subscribe(res => console.log(res, 'TRESSE'))
         this._coursesService.store(data)
             .subscribe(res => {
                     this.store.dispatch(new AddCourseSuccess(res))

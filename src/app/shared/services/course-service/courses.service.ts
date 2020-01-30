@@ -1,15 +1,15 @@
-import {Observable} from 'rxjs';
-import {AppConfig} from 'src/app/app.config';
+import { Observable } from 'rxjs';
+import { AppConfig } from 'src/app/app.config';
 
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Store} from '@ngrx/store';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
 
-import {Course} from '../../models/course/course';
-import {map} from 'rxjs/operators';
-import {LoadingService} from '../loading.service';
+import { Course } from '../../models/course/course';
+import { map } from 'rxjs/operators';
+import { LoadingService } from '../loading.service';
 import * as fromStore from '../../../store/reducers';
-import {DeleteCourse, GetAllCourse, UpdateCourse} from '../../../store/actions/courses.action';
+import { DeleteCourse, GetAllCourse, UpdateCourse } from '../../../store/actions/courses.action';
 
 @Injectable({
     providedIn: 'root'
