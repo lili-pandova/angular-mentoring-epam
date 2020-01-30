@@ -1,15 +1,21 @@
 <form [formGroup]="form">
-    <div class="field form-group">
-        <label for="title">Title<span>*required</span></label>
-        <input type="text" name="title" id="title" placeholder="Text input" formControlName="title" />
+    <div class="field form-group" [class.has-error]="!form.valid">
+        <label for="title" class="control-label">Title<span>*required</span></label>
+        <span class="errorMessage help-block" role="alert" *ngIf="form.get('title').dirty &&
+form.get('title').hasError('required')">Invalid title!</span>
+        <input type="text" name="title" class="form-control" id="title" placeholder="Text input" formControlName="title" required/>
     </div>
     <div class="field form-group">
-        <label for="description">Description<span>*required</span></label>
+        <label for="description">Description<span>*required</span></label><span class="errorMessage" *ngIf="!form.valid">Invalid description!</span>
         <textarea name="description" id="description" placeholder="Add description"
-            formControlName="description"></textarea>
+            formControlName="description" class="form-control" required></textarea>
     </div>
-    <app-duration [control]="form.controls['duration']"></app-duration>
+    <span class="errorMessage" *ngIf="!form.valid">Invalid date!</span>
     <app-date formControlName="creationDate"></app-date>
+    <span class="errorMessage" *ngIf="!form.valid">Invalid format duration!</span>
+    <app-duration [control]="form.controls['duration']"></app-duration>
+    <span class="errorMessage" *ngIf="!form.valid">Invalid author!</span>
+    <app-authors formControlName="authors"></app-authors>
     <div class="footer">
         <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
         <button type="submit" class="btn sick-green" [disabled]="!form.valid">Save</button>

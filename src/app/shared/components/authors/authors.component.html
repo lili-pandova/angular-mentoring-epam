@@ -1,0 +1,14 @@
+<div class="field form-group">
+    <label for="authors">Authors<span>*required</span></label>
+    <input type="text" name="authors"
+           class="form-control"
+           id="authors"
+           placeholder="Authors"
+           [value]="value"
+           (blur)="onTouched()"
+           (input)="onChange($event.target.value)"
+           formControlName="authors"
+           required />
+    TEST!!!!!
+</div>
+

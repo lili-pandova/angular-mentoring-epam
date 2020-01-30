@@ -1,14 +1,14 @@
-import {CoursesService} from 'src/app/shared/services/course-service/courses.service';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {Store} from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
 
-import {AuthorizationService} from '../../shared/services/auth-service/auth-service';
-import {LoadingService} from '../../shared/services/loading.service';
+import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
+import { LoadingService} from '../../shared/services/loading.service';
 import * as fromStore from '../../store/reducers';
-import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.action';
+import { AddCourseFail, AddCourseSuccess } from '../../store/actions/courses.action';
 
 @Component({
     selector: 'app-add-course',
@@ -16,7 +16,6 @@ import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.actio
     styleUrls: ['./add-course.component.scss']
 })
 export class AddCourseComponent implements OnInit {
-    public itemId: number;
     public coursesForm: FormGroup;
     public isAuth: boolean;
 
@@ -42,16 +41,18 @@ export class AddCourseComponent implements OnInit {
     ngOnInit() {
         this.coursesForm = this.fb.group({
             title: ['', [
-                Validators.required,
-                Validators.maxLength(50),
+                    Validators.required,
+                    Validators.maxLength(50),
             ]],
-            description: ['',
-                [
+            description: ['', [
                     Validators.required,
                     Validators.maxLength(500),
                 ]],
-            creationDate: ['', [Validators.required, this.dateValidation]],
-            duration: ['', Validators.required]
+            creationDate: ['', [
+                    Validators.required,
+                    this.dateValidation]],
+            duration: ['', Validators.required],
+            authors: ['', Validators.required]
         });
 
         this.isAuth = this._authService.isAuthenticated;
@@ -72,7 +73,7 @@ export class AddCourseComponent implements OnInit {
                     this.store.dispatch(new AddCourseSuccess(res))
                 },
                 error => {
-                    console.error(error)
+                    console.error(error);
                     this.store.dispatch(new AddCourseFail(error))
                 });
         this.cancel();

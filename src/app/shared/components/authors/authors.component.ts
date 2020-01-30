@@ -1,18 +1,17 @@
-import {Component, forwardRef, Input} from '@angular/core';
+import { Component, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'app-duration',
-  templateUrl: './duration.component.html',
-  styleUrls: ['./duration.component.scss'],
+  selector: 'app-authors',
+  templateUrl: './authors.component.html',
+  styleUrls: ['./authors.component.scss'],
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => DurationComponent),
+    useExisting: forwardRef(() => AuthorsComponent),
     multi: true
   }]
 })
-export class DurationComponent implements ControlValueAccessor {
-  @Input('control') public control: FormControl;
+export class AuthorsComponent implements ControlValueAccessor {
 
     public value: string;
 
@@ -31,7 +30,4 @@ export class DurationComponent implements ControlValueAccessor {
     registerOnTouched(fn: any) : void {
         this.onTouched = fn;
     }
-
-  constructor() {}
-
 }

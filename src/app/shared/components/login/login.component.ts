@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthorizationService } from '../../services/auth-service/auth-service';
 import * as fromStore from '../../../store/reducers';
-import {UserAuthenticationSuccess, UserAuthenticationFail, LoadUserAuthentication} from '../../../store/actions/user.actions';
+import { UserAuthenticationSuccess, UserAuthenticationFail } from '../../../store/actions/user.actions';
 import { LoadingService } from '../../services/loading.service';
 
 @Component({
@@ -17,6 +18,8 @@ export class LoginComponent implements OnInit {
     public password: string;
     public error: boolean = false;
     public user: string;
+    public loginForm: FormGroup;
+    private fb: FormBuilder;
 
     constructor(private _authService: AuthorizationService,
                 private router: Router,
@@ -24,7 +27,8 @@ export class LoginComponent implements OnInit {
                 private loadingService: LoadingService,) {
     }
 
-    login(data: any) {
+    onSubmit() {
+        const data = this.loginForm.value;
         return this._authService.login(data)
             .subscribe((res: any) => {
                     this.store.dispatch(new UserAuthenticationSuccess(res));
@@ -43,6 +47,21 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
         this.loadingService.hide();
+
+        this.loginForm = new FormGroup({
+            email: new FormControl('', Validators.required),
+            password: new FormControl('', Validators.required)
+        });
     }
+
+    close() {
+        let token = localStorage.getItem('token');
+        if (token) {
+            this.router.navigateByUrl('/courses');
+        } else {
+            this.router.navigateByUrl('/login');
+        }
+    }
+
 }
 

@@ -116,6 +116,53 @@
       "duration": "1111",
       "createdAt": "2020-1-27 9:59:42 PM",
       "id": 38
+    },
+    {
+      "title": "Lorem Ipsum",
+      "description": "xxxxx",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "12111",
+      "createdAt": "2020-1-28 7:18:10 PM",
+      "id": 39
+    },
+    {
+      "title": "xxx",
+      "description": "wqwqwqq",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": "121",
+      "createdAt": "2020-1-28 7:20:57 PM",
+      "id": 40
+    },
+    {
+      "title": "Lorem Ipsum",
+      "description": "sss",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "aaa",
+      "createdAt": "2020-1-28 8:18:12 PM",
+      "id": 41
+    },
+    {
+      "title": "",
+      "description": "mmmm",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "xx",
+      "createdAt": "2020-1-28 10:11:03 PM",
+      "id": 42
+    },
+    {
+      "title": "",
+      "description": "bbbbb",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "12111",
+      "createdAt": "2020-1-28 10:12:43 PM",
+      "id": 43
     }
-  ]
+  ],
+    "authors": [
+        { "name": "Alex Litvinchuk" },
+        { "name": "Alex Ivanov" },
+        { "name": "Alex Todorov" },
+        { "name": "Maria Todorova" },
+        { "name": "Maria Ivanova" }
+    ]
 }

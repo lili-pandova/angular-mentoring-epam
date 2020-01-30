@@ -2,8 +2,8 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="login">Login</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <h5 class="modal-title">Login</h5>
+              <button type="button" class="close" (click)="close()">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
@@ -11,17 +11,17 @@
               <span class="text-danger">Wrong email or password!</span>
             </div>
             <div class="modal-body">
-              <form #editForm="ngForm" (ngSubmit)="login(editForm.value)">
-                  <div class="field">
+              <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                  <div class="field form-group">
                       <label for="email">Email<span>*required</span></label>
-                      <input type="text" name="email" id="email" placeholder="Enter email" (ngModel)="email" required />
+                      <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" formControlName="email" required />
                   </div>
-          
-                  <div class="field">
+
+                  <div class="field form-group">
                       <label for="password">Password<span>*required</span></label>
-                      <input name="password" id="password" placeholder="Enter password" (ngModel)="password" required />
+                      <input name="password" id="password" placeholder="Enter password" class="form-control" formControlName="password" required />
                   </div>
-          
+
                   <div class="field">
                       <a href="#">Forgot password</a>
                   </div>

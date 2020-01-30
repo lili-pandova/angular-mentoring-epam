@@ -11,7 +11,7 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
         multi: true
     }]
 })
-export class DateComponent implements ControlValueAccessor{
+export class DateComponent implements ControlValueAccessor {
     @Input('control') public control: FormControl;
 
     public value: string;

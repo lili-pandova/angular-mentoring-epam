@@ -17,6 +17,7 @@ import { SearchComponent } from './search/search.component';
 import { UserLogComponent } from './user-log/user-log.component';
 import { UserComponent } from './user/user.component';
 import { DateComponent } from './date/date.component';
+import { AuthorsComponent } from './authors/authors.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { DateComponent } from './date/date.component';
     DurationComponent,
     ConfirmationModalComponent,
     LoadingComponent,
-    DateComponent
+    DateComponent,
+    AuthorsComponent
   ],
   imports: [
     CommonModule,

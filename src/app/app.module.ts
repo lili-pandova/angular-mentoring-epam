@@ -20,6 +20,8 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { MyStoreModule } from './store/store.module';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -36,12 +38,15 @@ import { MyStoreModule } from './store/store.module';
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
+        TypeaheadModule.forRoot(),
         StoreModule.forRoot(reducers),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
         }),
-        MyStoreModule
+        MyStoreModule,
+        TypeaheadModule.forRoot(),
+        BrowserAnimationsModule
     ],
     exports: [
         FormsModule,
