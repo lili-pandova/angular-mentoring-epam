@@ -1,4 +1,4 @@
-import { Component, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -13,21 +13,25 @@ import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/f
 })
 export class AuthorsComponent implements ControlValueAccessor {
 
-    public value: string;
+  @Input('control') public control: FormControl;
 
-    onChange: () => void;
+  public value: string;
 
-    onTouched: () => void;
+  onChange: () => void;
 
-    writeValue(value: string) : void {
-        this.value = value ? value : '';
-    }
+  onTouched: () => void;
 
-    registerOnChange(fn: any) : void {
-        this.onChange = fn;
-    }
+  writeValue(value: string) : void {
+      this.value = value ? value : '';
+  }
 
-    registerOnTouched(fn: any) : void {
-        this.onTouched = fn;
-    }
+  registerOnChange(fn: any) : void {
+      this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any) : void {
+      this.onTouched = fn;
+  }
+
+  constructor() {}
 }

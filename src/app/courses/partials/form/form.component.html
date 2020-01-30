@@ -13,7 +13,7 @@ form.get('title').hasError('required')">Invalid title!</span>
     <span class="errorMessage" *ngIf="!form.valid">Invalid date!</span>
     <app-date formControlName="creationDate"></app-date>
     <span class="errorMessage" *ngIf="!form.valid">Invalid format duration!</span>
-    <app-duration [control]="form.controls['duration']"></app-duration>
+    <app-duration formControlName="duration"></app-duration>
     <span class="errorMessage" *ngIf="!form.valid">Invalid author!</span>
     <app-authors formControlName="authors"></app-authors>
     <div class="footer">

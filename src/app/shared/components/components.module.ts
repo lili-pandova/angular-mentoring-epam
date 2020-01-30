@@ -57,7 +57,8 @@ import { AuthorsComponent } from './authors/authors.component';
     DurationComponent,
     ConfirmationModalComponent,
     LoadingComponent,
-    DateComponent
+    DateComponent,
+    AuthorsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
