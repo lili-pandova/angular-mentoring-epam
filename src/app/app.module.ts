@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store/reducers';
+import { MatInputModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,8 @@ import { StaticPagesModule } from './static-pages/static-pages.module';
 import { MyStoreModule } from './store/store.module';
 import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { TagCloudModule } from 'angular-tag-cloud-module';
 
 @NgModule({
     declarations: [
@@ -38,6 +41,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
+        MatInputModule,
+        TagCloudModule,
         TypeaheadModule.forRoot(),
         StoreModule.forRoot(reducers),
         StoreDevtoolsModule.instrument({
@@ -60,7 +65,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
             useClass: TokenInterceptorService,
             multi: true
         },
-        AuthGuardGuard],
+        AuthGuardGuard,
+       
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -1,5 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatCardModule,
+  MatIconModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatProgressSpinnerModule,
+  MatAutocompleteModule,
+  MatChipsModule
+} from '@angular/material/';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoursesRoutingModule } from '../../courses/courses-routing.module';
@@ -41,7 +56,8 @@ import { AuthorsComponent } from './authors/authors.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    MatChipsModule
   ],
   exports: [
     HeaderComponent,
@@ -58,7 +74,20 @@ import { AuthorsComponent } from './authors/authors.component';
     ConfirmationModalComponent,
     LoadingComponent,
     DateComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatCardModule,
+    MatIconModule,
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatChipsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

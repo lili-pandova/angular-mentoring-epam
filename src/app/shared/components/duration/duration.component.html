@@ -1,7 +1,8 @@
-<div class="field form-group">
-    <label for="duration">Duration</label>
-    <input type="number" name="duration"
-           class="form-control"
+<mat-form-field>
+    <mat-label for="duration">Duration</mat-label>
+    <input type="number" 
+           name="duration"
+           matInput
            id="duration"
            #duration
            placeholder="minutes"
@@ -9,4 +10,4 @@
            (blur)="onTouched()"
            (input)="onChange($event.target.value)"
            required/>
-</div>
+</mat-form-field>

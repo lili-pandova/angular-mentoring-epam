@@ -150,14 +150,6 @@
       "id": 42
     },
     {
-      "title": "",
-      "description": "bbbbb",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "12111",
-      "createdAt": "2020-1-28 10:12:43 PM",
-      "id": 43
-    },
-    {
       "title": "Test",
       "description": "asdf",
       "creationDate": "2019-12-22T22:00:00.000Z",
@@ -227,6 +219,31 @@
       "authors": "alex",
       "createdAt": "2020-1-30 8:23:11 PM",
       "id": 51
+    },
+    {
+      "title": "Lorem Ipsum3#",
+      "description": "test",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "7",
+      "id": 52
+    },
+    {
+      "title": "Lorem Ipsum***",
+      "description": "cvcv",
+      "creationDate": "2019-03-06T22:00:00.000Z",
+      "duration": "55",
+      "authors": "al",
+      "createdAt": "2020-2-1 11:35:08 AM",
+      "id": 53
+    },
+    {
+      "title": "Lorem Ipsum3",
+      "description": "sssss",
+      "creationDate": "2019-01-06T22:00:00.000Z",
+      "duration": 7,
+      "authors": "alex",
+      "createdAt": "2020-2-2 4:55:11 PM",
+      "id": 54
     }
   ],
   "authors": [

@@ -1,13 +1,14 @@
-<div class="field form-group">
-    <label for="authors">Authors<span>*required</span></label>
+<mat-form-field>
+    <mat-label for="authors">Authors</mat-label>
     <input type="text" 
+           matInput
            name="authors"
-           class="form-control"
            id="authors"
            placeholder="Authors"
            [value]="value"
            (blur)="onTouched()"
            (input)="onChange($event.target.value)"
+           (change)="test($event.target.value)"
            required />
-    TEST!!!!!
-</div>
+   Suggestions: {{ suggestions| json }}
+</mat-form-field>

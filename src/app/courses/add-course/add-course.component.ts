@@ -1,15 +1,24 @@
-import {CoursesService} from 'src/app/shared/services/course-service/courses.service';
+import { CoursesService } from 'src/app/shared/services/course-service/courses.service';
 
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {Router} from '@angular/router';
-import {Store} from '@ngrx/store';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators, FormGroupDirective, NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { ErrorStateMatcher } from '@angular/material/core';
 
-import {AuthorizationService} from '../../shared/services/auth-service/auth-service';
-import {AuthorsService} from '../../shared/services/authors.service';
-import {LoadingService} from '../../shared/services/loading.service';
+import { AuthorizationService } from '../../shared/services/auth-service/auth-service';
+import { AuthorsService } from '../../shared/services/authors.service';
+import { LoadingService } from '../../shared/services/loading.service';
 import * as fromStore from '../../store/reducers';
-import {AddCourseFail, AddCourseSuccess} from '../../store/actions/courses.action';
+import { AddCourseFail, AddCourseSuccess } from '../../store/actions/courses.action';
+
+
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+    isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+      const isSubmitted = form && form.submitted;
+      return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+    }
+  }
 
 @Component({
     selector: 'app-add-course',
@@ -60,6 +69,7 @@ export class AddCourseComponent implements OnInit {
         this.isAuth = this._authService.isAuthenticated;
         this.loadingService.hide();
 
+        const matcher = new MyErrorStateMatcher();
     }
 
     cancel() {
@@ -69,7 +79,9 @@ export class AddCourseComponent implements OnInit {
     onSubmit() {
         const data = this.coursesForm.value;
         data.creationDate = new Date(data.creationDate);
-        this._authorsService.findAuthors(data.authors).subscribe(res => console.log(res, 'TRESSE'))
+
+        this.coursesForm.markAllAsTouched();
+    
         this._coursesService.store(data)
             .subscribe(res => {
                     this.store.dispatch(new AddCourseSuccess(res))

@@ -1,12 +1,7 @@
-<div class="field form-group">
-    <label for="date">Date<span>*required</span></label>
-    <input type="text" 
-           name="date"
-           class="form-control"
-           id="date"
-           placeholder="mm-dd-yyyy"
-           [value]="value"
-           (blur)="onTouched()"
-           (input)="onChange($event.target.value)"
-           required />
+<div [formGroup]="form">
+    <mat-form-field>
+        <mat-label for="date">Date</mat-label>
+        <input type="text" matInput name="date" id="date" placeholder="mm-dd-yyyy" [value]="value" (blur)="onTouched()"
+        (input)="onChange($event.target.value)" required />
+    </mat-form-field>
 </div>
