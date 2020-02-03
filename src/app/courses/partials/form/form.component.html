@@ -1,10 +1,12 @@
-<form [formGroup]="form">
+<form [formGroup]="form" *ngIf="form">
 
     <mat-form-field>
         <mat-label for="title">Title</mat-label>
-        <input type="text" name="title" matInput id="title" placeholder="Text input" formControlName="title" required
-        [errorStateMatcher]="matcher" />
-        <!-- <mat-error *ngIf="title.errors?.required">Title is <strong>required</strong></mat-error> -->
+        <input type="text" name="title" matInput id="title" placeholder="Text input" formControlName="title" required />
+
+        <mat-error>
+            <app-form-errors [control]="form.controls['title']"></app-form-errors>
+        </mat-error>
     </mat-form-field>
 
     <mat-form-field>
@@ -13,11 +15,7 @@
             formControlName="description" required></textarea>
     </mat-form-field>
 
-    <mat-form-field>
-        <mat-label for="date">Date</mat-label>
-        <input type="text" matInput name="date" id="date" placeholder="mm-dd-yyyy" formControlName="creationDate"
-            required />
-    </mat-form-field>
+    <app-date [control]="form.controls['creationDate']"></app-date>
 
     <mat-form-field>
         <mat-label for="duration">Duration</mat-label>
@@ -26,39 +24,25 @@
     </mat-form-field>
 
     <mat-form-field class="authors-suggestions">
-
         <mat-chip-list #chipList aria-label="Authors selection">
-            <mat-chip
-                *ngFor="let suggestion of suggestions"
-                [selectable]="selectable"
-                [removable]="removable"
-                (removed)="remove(suggestion.name)">
-                {{ suggestion.name }}
+            <mat-chip *ngFor="let author of authors" [selectable]="selectable" [removable]="removable"
+                (removed)="remove(author)">
+                {{ author.name }}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-          </mat-chip>
-          <input
-                placeholder="Authors"
-                #authors
-                formControlName="authors"
-                [matAutocomplete]="auto"
-                [matChipInputFor]="chipList"
-                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                [matChipInputAddOnBlur]="addOnBlur"
-                (matChipInputTokenEnd)="add($event)">
+            </mat-chip>
+            <input matInput placeholder="Authors" [formControl]="form.controls['authors']"
+                [matAutocomplete]="auto" (keyup)="showSuggestions()">
         </mat-chip-list>
+
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
-            <mat-option *ngFor="let suggestion of suggestions | async" [value]="suggestion.name">
-              {{ suggestion.name }}
+            <mat-option *ngFor="let author of authorSuggestions" [value]="author">
+                {{ author.name }}
             </mat-option>
-          </mat-autocomplete>
-        <!-- <mat-label for="authors">Authors</mat-label>
-        <input type="text" matInput name="authors" id="authors" #authors placeholder="Authors" formControlName="authors"
-            (keyup)="showSuggestions(authors.value)" [matAutocomplete]="auto" required />
-        <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion.name">
-                {{ suggestion.name }}
-            </mat-option>
-            </mat-autocomplete> -->
+        </mat-autocomplete>
+
+        <mat-error>
+            <app-form-errors [control]="form.controls['authors']"></app-form-errors>
+        </mat-error>
     </mat-form-field>
 
     <div class="footer">

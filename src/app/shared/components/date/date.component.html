@@ -1,7 +1,9 @@
-<div [formGroup]="form">
-    <mat-form-field>
-        <mat-label for="date">Date</mat-label>
-        <input type="text" matInput name="date" id="date" placeholder="mm-dd-yyyy" [value]="value" (blur)="onTouched()"
-        (input)="onChange($event.target.value)" required />
-    </mat-form-field>
-</div>
+<mat-form-field>
+    <mat-label for="date">Date</mat-label>
+    <input type="text" matInput name="date" id="date" placeholder="mm-dd-yyyy" (blur)="onTouched()" required
+        [formControl]="control" />
+
+    <mat-error>
+        <app-form-errors [control]="control"></app-form-errors>
+    </mat-error>
+</mat-form-field>

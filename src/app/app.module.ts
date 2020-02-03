@@ -25,6 +25,7 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { TagCloudModule } from 'angular-tag-cloud-module';
+import { MaterialsModule } from './materials.module';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,6 @@ import { TagCloudModule } from 'angular-tag-cloud-module';
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
-        MatInputModule,
         TagCloudModule,
         TypeaheadModule.forRoot(),
         StoreModule.forRoot(reducers),

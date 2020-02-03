@@ -63,7 +63,7 @@ export class AddCourseComponent implements OnInit {
                 Validators.required,
                 this.dateValidation]],
             duration: ['', Validators.required],
-            authors: ['', Validators.required]
+            authors: [null]
         });
 
         this.isAuth = this._authService.isAuthenticated;

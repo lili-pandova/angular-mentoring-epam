@@ -19,16 +19,17 @@ import { FormGroup } from '@angular/forms';
 
 })
 export class DateComponent implements ControlValueAccessor {
-    @Input('form') public form: FormGroup;
     @Input('control') public control: FormControl;
 
-    public value: string;
-    public date: string;
+    public value: string = null;
 
-    constructor() {}
+    constructor() { }
+
     onChange: () => void;
 
-    onTouched: () => void;
+    onTouched(): void {
+        this.control.markAsTouched();
+    }
 
     writeValue(value: string): void {
         this.value = value ? value : '';

@@ -33,6 +33,8 @@ import { UserLogComponent } from './user-log/user-log.component';
 import { UserComponent } from './user/user.component';
 import { DateComponent } from './date/date.component';
 import { AuthorsComponent } from './authors/authors.component';
+import { FormErrorsComponent } from './form-errors/form-errors.component';
+import { MaterialsModule } from 'src/app/materials.module';
 
 @NgModule({
   declarations: [
@@ -50,14 +52,15 @@ import { AuthorsComponent } from './authors/authors.component';
     ConfirmationModalComponent,
     LoadingComponent,
     DateComponent,
-    AuthorsComponent
+    AuthorsComponent,
+    FormErrorsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     CoursesRoutingModule,
-    MatChipsModule
+    MaterialsModule
   ],
   exports: [
     HeaderComponent,
@@ -75,19 +78,7 @@ import { AuthorsComponent } from './authors/authors.component';
     LoadingComponent,
     DateComponent,
     AuthorsComponent,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatIconModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatAutocompleteModule,
-    MatChipsModule
+    FormErrorsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

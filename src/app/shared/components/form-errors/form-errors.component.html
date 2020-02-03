@@ -1,0 +1,13 @@
+<ng-container *ngIf="control.errors?.required; else invalidFormat">
+    This field is <strong>required</strong>.
+</ng-container>
+<ng-template #invalidFormat>
+    <ng-container *ngIf="control.errors?.dateInvalid; else maxlength">
+        Field is <strong>invalid format</strong>.
+    </ng-container>
+</ng-template>
+<ng-template #maxlength>
+    <ng-container *ngIf="control.errors?.maxlength">
+        The field must have max length of <strong>{{ control.errors.maxlength.requiredLength }}</strong>.
+    </ng-container>
+</ng-template>

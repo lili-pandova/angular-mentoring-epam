@@ -1,4 +1,4 @@
-import {COMMA, ENTER} from '@angular/cdk/keycodes';
+import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -23,67 +23,42 @@ export class FormComponent implements OnInit {
   separatorKeysCodes: number[] = [ENTER, COMMA];
   public arrSuggestions: Array<any>
 
-  public suggestions: any;
+  public authorSuggestions: any;
+  public authors: any = [];
 
-  @ViewChild('authors', {static: false}) authors: ElementRef<HTMLInputElement>;
-  @ViewChild('auto', {static: false}) matAutocomplete: MatAutocomplete;
+  // @ViewChild('authors', {static: false}) authors: ElementRef<HTMLInputElement>;
+  @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   constructor(
     private router: Router,
     private _authorService: AuthorsService
-    ) { }
+  ) { }
 
-  cancel(){
+  cancel() {
     this.router.navigateByUrl('/courses');
   }
 
   ngOnInit() {
-    this.form.markAllAsTouched();
+    // this.form.markAllAsTouched();
   }
 
-  showSuggestions(suggestions: any) {
-    this._authorService.findAuthors(suggestions).subscribe(res => this.suggestions = res,
-                                                          error => console.log(error))
+  showSuggestions() {
+    this._authorService.findAuthors(this.form.controls['authors'].value).subscribe(res => this.authorSuggestions = res,
+      error => console.log(error))
   }
 
-  add(event: MatChipInputEvent): void {
-  
-    if (!this.matAutocomplete.isOpen) {
-      const input = event.input;
-      const value = event.value;
-
-      if ((value || '').trim()) {
-        this.arrSuggestions.push(value.trim());
-        console.log(this.arrSuggestions, "PUSH suggestions")
-      }
-
-      // Reset the input value
-      if (input) {
-        input.value = '';
-      }
-
-      this.form.setValue(null);
-    }
-  }
-
-  remove(fruit: string): void {
-    const index = this.suggestions.indexOf(fruit);
-
-    if (index >= 0) {
-      this.arrSuggestions.splice(index, 1);
-    }
+  remove(author: { name: string }): void {
+    this.authors = this.authors.filter(item => item.name !== author.name);
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.suggestions.push(event.option.viewValue);
-    this.authors.nativeElement.value = '';
-    this.form.setValue(null);
+    this.authors.push(event.option.value);
   }
 
   private _filter(value: string): string[] {
     const filterValue = value.toLowerCase();
 
-    return this.suggestions.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
+    return this.authorSuggestions.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

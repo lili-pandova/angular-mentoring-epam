@@ -1,21 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatCardModule,
-    MatIconModule,
-    MatDialogModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatAutocompleteModule,
-    MatChipsModule
-  } from '@angular/material/';
 
 import { SharedModule } from '../shared/shared.module';
 import { AddCourseComponent } from './add-course/add-course.component';
@@ -24,6 +9,7 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { IndexComponent } from './index/index.component';
 import { ItemComponent } from './index/item/item.component';
 import { FormComponent } from './partials/form/form.component';
+import { MaterialsModule } from '../materials.module';
 
 @NgModule({
     declarations: [
@@ -33,28 +19,14 @@ import { FormComponent } from './partials/form/form.component';
         EditCourseComponent,
         FormComponent
     ],
-    exports: [
-        MatToolbarModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatButtonModule,
-        MatSidenavModule,
-        MatCardModule,
-        MatIconModule,
-        MatDialogModule,
-        MatDatepickerModule,
-        MatNativeDateModule,
-        MatProgressSpinnerModule,
-        MatAutocompleteModule,
-        MatChipsModule
-    ],
     imports: [
         CommonModule,
         FormsModule,
         ReactiveFormsModule,
         CoursesRoutingModule,
-        MatChipsModule,
-        SharedModule],
+        SharedModule,
+        MaterialsModule
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CoursesModule {}
