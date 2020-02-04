@@ -24,132 +24,6 @@
   ],
   "courses": [
     {
-      "title": "Lorem Ipsum",
-      "description": "test-33",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "31",
-      "id": 25
-    },
-    {
-      "title": "Lorem Ipsum3333",
-      "description": "test",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "87",
-      "createdAt": "2020-1-26 11:35:13 AM",
-      "id": 26
-    },
-    {
-      "title": "TEST !!!!",
-      "description": "bababab",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "7",
-      "createdAt": "2020-1-26 11:38:28 AM",
-      "id": 27
-    },
-    {
-      "title": "Lorem Ipsum3333",
-      "description": "vbvbvb",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "55",
-      "createdAt": "2020-1-26 11:57:28 AM",
-      "id": 28
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "zzzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "xx",
-      "createdAt": "2020-1-26 12:28:07 PM",
-      "id": 29
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "zzzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "12111",
-      "createdAt": "2020-1-26 12:29:54 PM",
-      "id": 30
-    },
-    {
-      "title": "Lorem Ipsum3f",
-      "description": "vcvcvc",
-      "creationDate": "1953-12-31T22:00:00.000Z",
-      "duration": "21",
-      "createdAt": "2020-1-26 1:57:58 PM",
-      "id": 32
-    },
-    {
-      "title": "Lorem IpsumIII",
-      "description": "testwww",
-      "creationDate": null,
-      "duration": "81",
-      "createdAt": "2020-1-26 2:36:02 PM",
-      "id": 34
-    },
-    {
-      "title": "Test21",
-      "description": "test",
-      "creationDate": null,
-      "duration": "71",
-      "createdAt": "2020-1-26 5:16:22 PM",
-      "id": 35
-    },
-    {
-      "title": "Lorem Ipsum3333",
-      "description": "ddddd",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "11",
-      "createdAt": "2020-1-26 8:21:01 PM",
-      "id": 36
-    },
-    {
-      "title": "Lorem Ipsum *",
-      "description": "test",
-      "creationDate": "01/07/2019",
-      "duration": "33",
-      "id": 37
-    },
-    {
-      "title": "Lorem Ipsum3*",
-      "description": "zzzzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "1111",
-      "createdAt": "2020-1-27 9:59:42 PM",
-      "id": 38
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "xxxxx",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "12111",
-      "createdAt": "2020-1-28 7:18:10 PM",
-      "id": 39
-    },
-    {
-      "title": "xxx",
-      "description": "wqwqwqq",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "121",
-      "createdAt": "2020-1-28 7:20:57 PM",
-      "id": 40
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "sss",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "aaa",
-      "createdAt": "2020-1-28 8:18:12 PM",
-      "id": 41
-    },
-    {
-      "title": "",
-      "description": "mmmm",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "xx",
-      "createdAt": "2020-1-28 10:11:03 PM",
-      "id": 42
-    },
-    {
       "title": "Test",
       "description": "asdf",
       "creationDate": "2019-12-22T22:00:00.000Z",
@@ -158,92 +32,66 @@
       "id": 44
     },
     {
-      "title": "Test55",
-      "description": "zzzz",
+      "title": "Test 21",
+      "description": "resrsrss",
+      "creationDate": "2019-12-06T22:00:00.000Z",
+      "duration": 21,
+      "authors": {
+        "name": "Maria Ivanova"
+      },
+      "createdAt": "2/4/2020, 9:05:07 AM",
+      "id": 56
+    },
+    {
+      "title": "Test",
+      "description": "asaaa",
       "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": "21",
-      "authors": "Lily",
-      "createdAt": "1/30/2020, 1:53:22 PM",
-      "id": 45
+      "duration": 55,
+      "authors": {
+        "name": "Alex Ivanov"
+      },
+      "createdAt": "2/4/2020, 9:10:39 AM",
+      "id": 57
     },
     {
-      "title": "Lorem Ipsum",
-      "description": "aaa",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "21",
-      "authors": "aaaaaa",
-      "createdAt": "2020-1-30 7:38:56 PM",
-      "id": 46
-    },
-    {
-      "title": "TEST 111!!!!",
-      "description": "xxxx",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "12111",
-      "authors": "alex",
-      "createdAt": "2020-1-30 7:41:18 PM",
-      "id": 47
-    },
-    {
-      "title": "Lorem Ipsum3",
-      "description": "aaaa",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "55",
-      "authors": "alex",
-      "createdAt": "2020-1-30 7:42:12 PM",
-      "id": 48
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "zzz",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "55",
-      "authors": "alex",
-      "createdAt": "2020-1-30 8:01:22 PM",
-      "id": 49
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "nnnn",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "7",
-      "authors": "alex",
-      "createdAt": "2020-1-30 8:21:14 PM",
-      "id": 50
-    },
-    {
-      "title": "Lorem Ipsum",
-      "description": "vvvv",
-      "creationDate": "2019-01-06T22:00:00.000Z",
-      "duration": "12111",
-      "authors": "alex",
-      "createdAt": "2020-1-30 8:23:11 PM",
-      "id": 51
-    },
-    {
-      "title": "Lorem Ipsum3#",
+      "title": "Test-1",
       "description": "test",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "7",
-      "id": 52
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": 55,
+      "authors": {
+        "name": "Alex Todorov"
+      },
+      "createdAt": "2/4/2020, 9:28:52 AM",
+      "id": 58
     },
     {
-      "title": "Lorem Ipsum***",
-      "description": "cvcv",
-      "creationDate": "2019-03-06T22:00:00.000Z",
-      "duration": "55",
-      "authors": "al",
-      "createdAt": "2020-2-1 11:35:08 AM",
-      "id": 53
+      "title": "lorem ipsum",
+      "description": "test",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": 21,
+      "authors": {
+        "name": "Maria Todorova"
+      },
+      "createdAt": "2/4/2020, 12:16:48 PM",
+      "id": 60
     },
     {
-      "title": "Lorem Ipsum3",
-      "description": "sssss",
-      "creationDate": "2019-01-06T22:00:00.000Z",
+      "title": "Ipsum",
+      "description": "test",
+      "creationDate": "2019-12-03T22:00:00.000Z",
       "duration": 7,
-      "authors": "alex",
-      "createdAt": "2020-2-2 4:55:11 PM",
-      "id": 54
+      "authors": {
+        "name": "Maria Ivanova"
+      },
+      "id": 61
+    },
+    {
+      "title": "Lor",
+      "description": "asdf",
+      "creationDate": "2019-12-02T22:00:00.000Z",
+      "duration": 8,
+      "authors": "",
+      "id": 62
     }
   ],
   "authors": [

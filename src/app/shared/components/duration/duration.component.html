@@ -1,13 +1,9 @@
 <mat-form-field>
     <mat-label for="duration">Duration</mat-label>
-    <input type="number" 
-           name="duration"
-           matInput
-           id="duration"
-           #duration
-           placeholder="minutes"
-           [value]="value"
-           (blur)="onTouched()"
-           (input)="onChange($event.target.value)"
-           required/>
+    <input type="number" name="duration" matInput id="duration" #duration placeholder="minutes" (blur)="onTouched()"
+        [formControl]="control" required />
+
+    <mat-error>
+        <app-form-errors [control]="control"></app-form-errors>
+    </mat-error>
 </mat-form-field>

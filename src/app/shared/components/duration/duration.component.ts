@@ -16,9 +16,15 @@ export class DurationComponent implements ControlValueAccessor {
 
     public value: string;
 
+    
+  constructor() {}
+
     onChange: () => void;
 
-    onTouched: () => void;
+    onTouched(): void {
+      this.control.markAsTouched();
+  }
+  
 
     writeValue(value: string) : void {
         this.value = value ? value : '';
@@ -31,7 +37,5 @@ export class DurationComponent implements ControlValueAccessor {
     registerOnTouched(fn: any) : void {
         this.onTouched = fn;
     }
-
-  constructor() {}
 
 }

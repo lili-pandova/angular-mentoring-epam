@@ -1,9 +1,8 @@
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
-import { Component, Input, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, Input, ElementRef, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material/autocomplete';
-import { MatChipInputEvent } from '@angular/material/chips';
 
 
 import { AuthorsService } from '../../../shared/services/authors.service';
@@ -13,7 +12,7 @@ import { AuthorsService } from '../../../shared/services/authors.service';
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent  {
   @Input('form') public form: FormGroup;
 
   visible = true;
@@ -26,7 +25,6 @@ export class FormComponent implements OnInit {
   public authorSuggestions: any;
   public authors: any = [];
 
-  // @ViewChild('authors', {static: false}) authors: ElementRef<HTMLInputElement>;
   @ViewChild('auto', { static: false }) matAutocomplete: MatAutocomplete;
 
   constructor(
@@ -36,10 +34,6 @@ export class FormComponent implements OnInit {
 
   cancel() {
     this.router.navigateByUrl('/courses');
-  }
-
-  ngOnInit() {
-    // this.form.markAllAsTouched();
   }
 
   showSuggestions() {
@@ -53,12 +47,6 @@ export class FormComponent implements OnInit {
 
   selected(event: MatAutocompleteSelectedEvent): void {
     this.authors.push(event.option.value);
-  }
-
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-
-    return this.authorSuggestions.filter(fruit => fruit.toLowerCase().indexOf(filterValue) === 0);
   }
 
 }

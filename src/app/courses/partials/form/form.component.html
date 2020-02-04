@@ -13,15 +13,15 @@
         <mat-label for="description">Description</mat-label>
         <textarea matInput name="description" id="description" placeholder="Add description"
             formControlName="description" required></textarea>
+
+            <mat-error>
+                <app-form-errors [control]="form.controls['description']"></app-form-errors>
+            </mat-error>
     </mat-form-field>
 
     <app-date [control]="form.controls['creationDate']"></app-date>
 
-    <mat-form-field>
-        <mat-label for="duration">Duration</mat-label>
-        <input type="number" name="duration" matInput id="duration" #duration placeholder="minutes"
-            formControlName="duration" required />
-    </mat-form-field>
+    <app-duration [control]="form.controls['duration']"></app-duration>
 
     <mat-form-field class="authors-suggestions">
         <mat-chip-list #chipList aria-label="Authors selection">
@@ -30,10 +30,15 @@
                 {{ author.name }}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input matInput placeholder="Authors" [formControl]="form.controls['authors']"
-                [matAutocomplete]="auto" (keyup)="showSuggestions()">
+            <input placeholder="Authors" 
+            matInput 
+            name="authors" 
+            [formControl]="form.controls['authors']" 
+            [matChipInputFor]="chipList"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            formControlName="authors"
+            [matAutocomplete]="auto" (keyup)="showSuggestions()">
         </mat-chip-list>
-
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let author of authorSuggestions" [value]="author">
                 {{ author.name }}

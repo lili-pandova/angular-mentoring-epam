@@ -69,7 +69,6 @@ export class AddCourseComponent implements OnInit {
         this.isAuth = this._authService.isAuthenticated;
         this.loadingService.hide();
 
-        const matcher = new MyErrorStateMatcher();
     }
 
     cancel() {
