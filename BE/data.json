@@ -36,9 +36,9 @@
       "description": "resrsrss",
       "creationDate": "2019-12-06T22:00:00.000Z",
       "duration": 21,
-      "authors": {
+      "authors": [{
         "name": "Maria Ivanova"
-      },
+      }],
       "createdAt": "2/4/2020, 9:05:07 AM",
       "id": 56
     },
@@ -47,9 +47,9 @@
       "description": "asaaa",
       "creationDate": "2019-12-22T22:00:00.000Z",
       "duration": 55,
-      "authors": {
+      "authors": [{
         "name": "Alex Ivanov"
-      },
+      }],
       "createdAt": "2/4/2020, 9:10:39 AM",
       "id": 57
     },
@@ -58,9 +58,9 @@
       "description": "test",
       "creationDate": "2019-12-22T22:00:00.000Z",
       "duration": 55,
-      "authors": {
-        "name": "Alex Todorov"
-      },
+      "authors": [{
+        "name": "Alex Ivanov"
+      }],
       "createdAt": "2/4/2020, 9:28:52 AM",
       "id": 58
     },
@@ -69,9 +69,9 @@
       "description": "test",
       "creationDate": "2019-12-22T22:00:00.000Z",
       "duration": 21,
-      "authors": {
-        "name": "Maria Todorova"
-      },
+      "authors": [{
+        "name": "Alex Ivanov"
+      }],
       "createdAt": "2/4/2020, 12:16:48 PM",
       "id": 60
     },
@@ -80,9 +80,9 @@
       "description": "test",
       "creationDate": "2019-12-03T22:00:00.000Z",
       "duration": 7,
-      "authors": {
-        "name": "Maria Ivanova"
-      },
+      "authors": [{
+        "name": "Alex Ivanov"
+      }],
       "id": 61
     },
     {
@@ -90,8 +90,20 @@
       "description": "asdf",
       "creationDate": "2019-12-02T22:00:00.000Z",
       "duration": 8,
-      "authors": "",
+      "authors": [{
+        "name": "Alex Ivanov"
+      }],
       "id": 62
+    },
+    {
+      "title": "Test***",
+      "description": "test",
+      "creationDate": "12/23/2019",
+      "duration": 8,
+      "authors": [{
+        "name": "Alex Ivanov"
+      }],
+      "id": 63
     }
   ],
   "authors": [

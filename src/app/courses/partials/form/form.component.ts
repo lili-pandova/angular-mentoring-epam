@@ -6,6 +6,7 @@ import { MatAutocompleteSelectedEvent, MatAutocomplete } from '@angular/material
 
 
 import { AuthorsService } from '../../../shared/services/authors.service';
+import { MatInput } from '@angular/material';
 
 @Component({
   selector: 'app-courses-form',
@@ -14,6 +15,8 @@ import { AuthorsService } from '../../../shared/services/authors.service';
 })
 export class FormComponent  {
   @Input('form') public form: FormGroup;
+  @Input() public selectedAuthors: any;
+  @ViewChild('authorsInput', {static: false}) public authorsInput: MatInput;
 
   visible = true;
   selectable = true;
@@ -36,17 +39,25 @@ export class FormComponent  {
     this.router.navigateByUrl('/courses');
   }
 
-  showSuggestions() {
-    this._authorService.findAuthors(this.form.controls['authors'].value).subscribe(res => this.authorSuggestions = res,
+  showSuggestions(value) {
+    console.log(value.srcElement.value);
+
+    this._authorService.findAuthors(value.srcElement.value).subscribe(res => this.authorSuggestions = res,
       error => console.log(error))
   }
 
   remove(author: { name: string }): void {
-    this.authors = this.authors.filter(item => item.name !== author.name);
+    const finalAuthors = this.form.controls['authors'].value.filter(item => item.name !== author.name);
+    this.form.controls['authors'].setValue(finalAuthors);
   }
 
   selected(event: MatAutocompleteSelectedEvent): void {
-    this.authors.push(event.option.value);
+    const finalAuthors = this.form.controls['authors'].value;
+    finalAuthors.push(event.option.value);
+    this.form.controls['authors'].setValue(finalAuthors);
+
+    const authorsAuto: any = document.getElementById('authors-autocomplete');
+    authorsAuto.value = '';
   }
 
 }

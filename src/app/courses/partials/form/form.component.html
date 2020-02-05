@@ -14,9 +14,9 @@
         <textarea matInput name="description" id="description" placeholder="Add description"
             formControlName="description" required></textarea>
 
-            <mat-error>
-                <app-form-errors [control]="form.controls['description']"></app-form-errors>
-            </mat-error>
+        <mat-error>
+            <app-form-errors [control]="form.controls['description']"></app-form-errors>
+        </mat-error>
     </mat-form-field>
 
     <app-date [control]="form.controls['creationDate']"></app-date>
@@ -25,19 +25,15 @@
 
     <mat-form-field class="authors-suggestions">
         <mat-chip-list #chipList aria-label="Authors selection">
-            <mat-chip *ngFor="let author of authors" [selectable]="selectable" [removable]="removable"
-                (removed)="remove(author)">
+            <mat-chip *ngFor="let author of form.controls['authors'].value" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(author)">
                 {{ author.name }}
                 <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input placeholder="Authors" 
-            matInput 
-            name="authors" 
-            [formControl]="form.controls['authors']" 
-            [matChipInputFor]="chipList"
-            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-            formControlName="authors"
-            [matAutocomplete]="auto" (keyup)="showSuggestions()">
+
+            <input #authorsInput id="authors-autocomplete" placeholder="Authors" matInput name="authors" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matAutocomplete]="auto"
+                (keyup)="showSuggestions($event)">
         </mat-chip-list>
         <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
             <mat-option *ngFor="let author of authorSuggestions" [value]="author">

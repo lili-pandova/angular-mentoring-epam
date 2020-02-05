@@ -16,14 +16,12 @@ import { UpdateCourseFail, UpdateCourseSuccess } from '../../store/actions/cours
   styleUrls: ['./edit-course.component.scss']
 })
 export class EditCourseComponent implements OnInit {
-  public coursesForm: FormGroup;
+  public form: FormGroup;
   public item: Course;
   public coursesTitle: any;
-  public isAuth: boolean;
 
   constructor(
     private _coursesService: CoursesService,
-    private _authService: AuthorizationService,
     private fb: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
@@ -31,47 +29,37 @@ export class EditCourseComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.coursesForm = this.fb.group({
+    this.form = this.fb.group({
       title: new FormControl('', Validators.required),
       description: [''],
       creationDate: [''],
       duration: [''],
-      authors: [{}]
+      authors: [[]]
     });
 
-    this.activatedRoute.params.subscribe((params: any) => {
-      this.fetchItem(params.id);
-    });
-
-    this.isAuth = this._authService.isAuthenticated;
+    const params = this.activatedRoute.snapshot.params;
+    this.fetchItem(params.id);
   }
 
   fetchItem(id: number) {
     this._coursesService.view(id).subscribe((data: Course) => {
-      console.log(data.authors.name, "data from edit")
       this.item = data;
-      console.log()
       this.coursesTitle = data.title;
-      this.coursesForm.setValue({
+
+      this.form.setValue({
         title: data.title,
         description: data.description,
         creationDate: data.creationDate,
         duration: data.duration,
-        authors: data.authors.name
+        authors: data.authors
       })
-      console.log(this.coursesForm, "test")
     });
   }
 
-  cancel() {
-    this.router.navigateByUrl('/courses');
-  }
-
   onSubmit() {
-    this._coursesService.update(this.item.id, this.coursesForm.value).subscribe((data) => {
-      console.log(data, "updated data")
+    this._coursesService.update(this.item.id, this.form.value).subscribe((data) => {
       this._store.dispatch(new UpdateCourseSuccess(data))
-      this.cancel();
+      this.router.navigateByUrl('/courses');
     },
       (error) => this._store.dispatch(new UpdateCourseFail(error)))
   }
