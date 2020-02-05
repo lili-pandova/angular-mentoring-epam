@@ -17,18 +17,13 @@ export class AuthorsComponent implements ControlValueAccessor {
 
   @Input('control') public control: FormControl;
 
-    constructor(private _authorsService: AuthorsService) {}
+  constructor(private _authorsService: AuthorsService) {}
 
   public value: string;
   public suggestions: object;
   public chosenAuthor: string;
 
    onChange: () => void;
-   test() {
-     console.log(event, "EVENT")
-    //  this._authorsService.findAuthors(event.target.value).subscribe(res => this.suggestions = res,
-    //                                                                error => console.log(error))
-   };
 
     onTouched: () => void;
 

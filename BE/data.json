@@ -24,13 +24,54 @@
   ],
   "courses": [
     {
+      "title": "Test 21",
+      "description": "resrsrss",
+      "creationDate": "2019-12-06T22:00:00.000Z",
+      "duration": 21,
+      "authors": [
+        {
+          "name": "Maria Ivanova"
+        }
+      ],
+      "createdAt": "2/4/2020, 9:05:07 AM",
+      "id": 56
+    },
+    {
+      "title": "Test",
+      "description": "asaaa",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": 55,
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
+      "createdAt": "2/4/2020, 9:10:39 AM",
+      "id": 57
+    },
+    {
+      "title": "Test-1",
+      "description": "test",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": 55,
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
+      "createdAt": "2/4/2020, 9:28:52 AM",
+      "id": 58
+    },
+    {
       "title": "lorem ipsum",
       "description": "test",
       "creationDate": "2019-12-22T22:00:00.000Z",
       "duration": 21,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
       "createdAt": "2/4/2020, 12:16:48 PM",
       "id": 60
     },
@@ -39,9 +80,11 @@
       "description": "test",
       "creationDate": "2019-12-03T22:00:00.000Z",
       "duration": 7,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
       "id": 61
     },
     {
@@ -49,9 +92,11 @@
       "description": "asdf",
       "creationDate": "2019-12-02T22:00:00.000Z",
       "duration": 8,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
       "id": 62
     },
     {
@@ -59,10 +104,28 @@
       "description": "test",
       "creationDate": "12/23/2019",
       "duration": 8,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        }
+      ],
       "id": 63
+    },
+    {
+      "title": "lorem ipsum*",
+      "description": "test",
+      "creationDate": "2019-12-22T22:00:00.000Z",
+      "duration": 88,
+      "authors": [
+        {
+          "name": "Alex Ivanov"
+        },
+        {
+          "name": "Maria Todorova"
+        }
+      ],
+      "createdAt": "2/5/2020, 5:36:00 PM",
+      "id": 64
     }
   ],
   "authors": [

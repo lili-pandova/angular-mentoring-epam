@@ -40,9 +40,7 @@ export class FormComponent  {
   }
 
   showSuggestions(value) {
-    console.log(value.srcElement.value);
-
-    this._authorService.findAuthors(value.srcElement.value).subscribe(res => this.authorSuggestions = res,
+    this._authorService.search(value.srcElement.value).subscribe(res => this.authorSuggestions = res,
       error => console.log(error))
   }
 

@@ -12,7 +12,6 @@ import { LoadingService } from '../../shared/services/loading.service';
 import * as fromStore from '../../store/reducers';
 import { AddCourseFail, AddCourseSuccess } from '../../store/actions/courses.action';
 
-
 export class MyErrorStateMatcher implements ErrorStateMatcher {
     isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
       const isSubmitted = form && form.submitted;
@@ -34,7 +33,7 @@ export class AddCourseComponent implements OnInit {
         private _authService: AuthorizationService,
         private fb: FormBuilder,
         private router: Router,
-        private loadingService: LoadingService,
+        private _loadingService: LoadingService,
         private store: Store<fromStore.State>,
         private  _authorsService: AuthorsService
     ) {
@@ -46,29 +45,21 @@ export class AddCourseComponent implements OnInit {
         if (!control.value.match(pattern)) {
             return {'dateInvalid': true};
         }
+
         return null;
     }
 
     ngOnInit() {
         this.coursesForm = this.fb.group({
-            title: ['', [
-                Validators.required,
-                Validators.maxLength(50),
-            ]],
-            description: ['', [
-                Validators.required,
-                Validators.maxLength(500),
-            ]],
-            creationDate: ['', [
-                Validators.required,
-                this.dateValidation]],
+            title: ['', [Validators.required,Validators.maxLength(50),]],
+            description: ['', [Validators.required,Validators.maxLength(500),]],
+            creationDate: ['', [Validators.required,this.dateValidation]],
             duration: ['', Validators.required],
             authors: [[]]
         });
 
         this.isAuth = this._authService.isAuthenticated;
-        this.loadingService.hide();
-
+        this._loadingService.hide();
     }
 
     cancel() {
