@@ -8,8 +8,9 @@ import * as authUsers from './user.reducer';
 import * as course from './courses.reducer';
 import { UsersState } from '../../shared/models/users/usersState';
 import { CoursesState } from '../../shared/models/course/coursesState';
+import { AppConfig } from '../../app.config';
 
-export const storeFeatureKey = 'store';
+export const storeFeatureKey = AppConfig.storeFeatureKey;
 
 export interface State {
     authUser: UsersState;

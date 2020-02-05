@@ -13,7 +13,7 @@ export class TokenInterceptorService implements HttpInterceptor{
       setHeaders: {
         Authorization: 'Bearer ' + localStorage.getItem('token')
       }
-    })
+    });
     return next.handle(addToken);
   }
 }

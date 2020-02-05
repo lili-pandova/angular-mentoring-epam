@@ -7,9 +7,9 @@ import { EditCourseComponent } from './edit-course/edit-course.component';
 import { IndexComponent } from './index/index.component';
 
 const coursesRoutes: Routes = [
-  { path: 'courses', component: IndexComponent, canActivate: [AuthGuardGuard] },
+  { path: '', component: IndexComponent, canActivate: [AuthGuardGuard] },
   { path: 'courses/new', component: AddCourseComponent, canActivate: [AuthGuardGuard] },
-  { path: 'courses/edit/:id', component: EditCourseComponent, canActivate: [AuthGuardGuard] },
+  { path: 'edit/:id', component: EditCourseComponent, canActivate: [AuthGuardGuard] },
 ];
 
 @NgModule({

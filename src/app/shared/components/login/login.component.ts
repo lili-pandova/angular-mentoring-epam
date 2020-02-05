@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
                     this.store.dispatch(new UserAuthenticationSuccess(res));
                     localStorage.setItem('token', res.token);
                     localStorage.setItem('name', res.name);
-                    this.router.navigateByUrl('/courses');
+                    this.router.navigateByUrl('');
                 },
                 (error) => {
                     console.log(error, 'eror from login');

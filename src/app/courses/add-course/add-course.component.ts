@@ -72,7 +72,7 @@ export class AddCourseComponent implements OnInit {
     }
 
     cancel() {
-        this.router.navigateByUrl('/courses');
+        this.router.navigateByUrl('/');
     }
 
     onSubmit() {

@@ -24,47 +24,6 @@
   ],
   "courses": [
     {
-      "title": "Test",
-      "description": "asdf",
-      "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": "55",
-      "createdAt": "1/30/2020, 1:05:03 PM",
-      "id": 44
-    },
-    {
-      "title": "Test 21",
-      "description": "resrsrss",
-      "creationDate": "2019-12-06T22:00:00.000Z",
-      "duration": 21,
-      "authors": [{
-        "name": "Maria Ivanova"
-      }],
-      "createdAt": "2/4/2020, 9:05:07 AM",
-      "id": 56
-    },
-    {
-      "title": "Test",
-      "description": "asaaa",
-      "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": 55,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
-      "createdAt": "2/4/2020, 9:10:39 AM",
-      "id": 57
-    },
-    {
-      "title": "Test-1",
-      "description": "test",
-      "creationDate": "2019-12-22T22:00:00.000Z",
-      "duration": 55,
-      "authors": [{
-        "name": "Alex Ivanov"
-      }],
-      "createdAt": "2/4/2020, 9:28:52 AM",
-      "id": 58
-    },
-    {
       "title": "lorem ipsum",
       "description": "test",
       "creationDate": "2019-12-22T22:00:00.000Z",

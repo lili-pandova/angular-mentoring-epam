@@ -36,7 +36,7 @@ export class FormComponent  {
   ) { }
 
   cancel() {
-    this.router.navigateByUrl('/courses');
+    this.router.navigateByUrl('/');
   }
 
   showSuggestions(value) {

@@ -29,11 +29,12 @@ export class CoursesService {
     }
 
     index() {
+        let logCoursesLimit = this.count * 3;
         this.loadingService.show();
         this._store.dispatch(new GetAllCourse());
 
         return this.httpClient
-            .get<Course[]>(this.modelEndpoint + `?_page=${this.count}&_limit=3&_sort=createdAt&_order=desc`)
+            .get<Course[]>(this.modelEndpoint + `?_page=$1&_limit=${logCoursesLimit}&_sort=createdAt&_order=desc`)
             .pipe(map((obj: any) => {
                 this.loadingService.hide();
 
@@ -41,10 +42,10 @@ export class CoursesService {
             }));
     };
 
-    findCourse(serachWord): Observable<Course[]> {
+    findCourse(searchWord): Observable<Course[]> {
         this.loadingService.show();
 
-        return this.httpClient.get<Course[]>(this.modelEndpoint, {params: {'q': serachWord}})
+        return this.httpClient.get<Course[]>(this.modelEndpoint, {params: {'q': searchWord}})
             .pipe(map((obj: any) => {
                 this.loadingService.hide();
                 return obj;
