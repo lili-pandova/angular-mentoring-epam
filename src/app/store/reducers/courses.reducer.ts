@@ -20,14 +20,16 @@ export const initialState: CoursesState = {
             description: 'testn111',
             creationDate: '2019-01-06T22:00:00.000Z',
             duration: '87',
-            id: 20
+            id: 20,
+            authors: { "name": "Alex Todorov"}
         },
         {
             title: 'Lorem21 412 412 412 41 Ipsum-11',
             description: 'testn112 421 4 124 21 412 41',
             creationDate: '2019-01-06T22:00:00.000Z',
             duration: '2412',
-            id: 21
+            id: 21,
+            authors: { "name": "Alex Todorov"}
         },
     ],
     loaded: false,

@@ -1,20 +1,53 @@
-<form [formGroup]="form">
-    <div class="field form-group">
-        <label for="title">Title<span>*required</span></label>
-        <input type="text" name="title" id="title" placeholder="Text input" formControlName="title" />
-    </div>
-    <div class="field form-group">
-        <label for="description">Description<span>*required</span></label>
-        <textarea name="description" id="description" placeholder="Add description"
-            formControlName="description"></textarea>
-    </div>
+<form [formGroup]="form" *ngIf="form">
+
+    <mat-form-field>
+        <mat-label for="title">Title</mat-label>
+        <input type="text" name="title" matInput id="title" placeholder="Text input" formControlName="title" required />
+
+        <mat-error>
+            <app-form-errors [control]="form.controls['title']"></app-form-errors>
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label for="description">Description</mat-label>
+        <textarea matInput name="description" id="description" placeholder="Add description"
+            formControlName="description" required></textarea>
+
+        <mat-error>
+            <app-form-errors [control]="form.controls['description']"></app-form-errors>
+        </mat-error>
+    </mat-form-field>
+
+    <app-date [control]="form.controls['creationDate']"></app-date>
+
     <app-duration [control]="form.controls['duration']"></app-duration>
-    <div class="field form-group">
-        <label for="date">Date</label>
-        <input type="text" name="date" id="date" placeholder="mm-dd-yyyy" formControlName="creationDate" />
-    </div>
+
+    <mat-form-field class="authors-suggestions">
+        <mat-chip-list #chipList aria-label="Authors selection">
+            <mat-chip *ngFor="let author of form.controls['authors'].value" [selectable]="selectable"
+                [removable]="removable" (removed)="remove(author)">
+                {{ author.name }}
+                <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+            </mat-chip>
+
+            <input #authorsInput id="authors-autocomplete" placeholder="Authors" matInput name="authors" [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matAutocomplete]="auto"
+                (keyup)="showSuggestions($event)">
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let author of authorSuggestions" [value]="author">
+                {{ author.name }}
+            </mat-option>
+        </mat-autocomplete>
+
+        <mat-error>
+            <app-form-errors [control]="form.controls['authors']"></app-form-errors>
+        </mat-error>
+    </mat-form-field>
+
     <div class="footer">
-        <button type="button" class="btn pale-grey" (click)="cancel()">Cancel</button>
-        <button type="submit" class="btn sick-green">Save</button>
+        <button type="button" mat-button class="btn pale-grey" (click)="cancel()">Cancel</button>
+        <button type="submit" mat-button class="btn sick-green" [disabled]="!form.valid">Save</button>
     </div>
 </form>

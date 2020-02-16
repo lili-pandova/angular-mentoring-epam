@@ -1,8 +1,8 @@
 <div class="search">
-    <div>
+    <form [formGroup]="searchForm">
         <span class="img-search">
             <img src="assets/img/ic-search@2x.png" class="ic_search" />
         </span>
-        <input #searchInput type="search" placeholder="Text to search" (keyup)="findName(searchInput.value)" />
-    </div>
+        <input #searchInput type="search" placeholder="Text to search" formControlName="search" (keyup)="findName(searchInput.value)" required />
+    </form>
 </div>

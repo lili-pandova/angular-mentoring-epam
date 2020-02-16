@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { reducers, metaReducers } from './store/reducers';
+import { MatInputModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,11 @@ import { SharedRoutingModule } from './shared/shared-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { StaticPagesModule } from './static-pages/static-pages.module';
 import { MyStoreModule } from './store/store.module';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { TagCloudModule } from 'angular-tag-cloud-module';
+import { MaterialsModule } from './materials.module';
 
 @NgModule({
     declarations: [
@@ -36,12 +42,16 @@ import { MyStoreModule } from './store/store.module';
         CoursesModule,
         HttpClientModule,
         StaticPagesModule,
+        TagCloudModule,
+        TypeaheadModule.forRoot(),
         StoreModule.forRoot(reducers),
         StoreDevtoolsModule.instrument({
             maxAge: 25,
             logOnly: environment.production,
         }),
-        MyStoreModule
+        MyStoreModule,
+        TypeaheadModule.forRoot(),
+        BrowserAnimationsModule
     ],
     exports: [
         FormsModule,
@@ -55,7 +65,9 @@ import { MyStoreModule } from './store/store.module';
             useClass: TokenInterceptorService,
             multi: true
         },
-        AuthGuardGuard],
+        AuthGuardGuard,
+       
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

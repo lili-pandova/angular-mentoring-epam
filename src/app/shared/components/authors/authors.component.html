@@ -1,0 +1,14 @@
+<mat-form-field>
+    <mat-label for="authors">Authors</mat-label>
+    <input type="text" 
+           matInput
+           name="authors"
+           id="authors"
+           placeholder="Authors"
+           [value]="value"
+           (blur)="onTouched()"
+           (input)="onChange($event.target.value)"
+           (change)="test($event.target.value)"
+           required />
+   Suggestions: {{ suggestions| json }}
+</mat-form-field>

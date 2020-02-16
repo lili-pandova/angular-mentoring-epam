@@ -1,5 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
+import {
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatSidenavModule,
+  MatCardModule,
+  MatIconModule,
+  MatDialogModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
+  MatProgressSpinnerModule,
+  MatAutocompleteModule,
+  MatChipsModule
+} from '@angular/material/';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CoursesRoutingModule } from '../../courses/courses-routing.module';
@@ -16,6 +31,10 @@ import { LogoComponent } from './logo/logo.component';
 import { SearchComponent } from './search/search.component';
 import { UserLogComponent } from './user-log/user-log.component';
 import { UserComponent } from './user/user.component';
+import { DateComponent } from './date/date.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { FormErrorsComponent } from './form-errors/form-errors.component';
+import { MaterialsModule } from 'src/app/materials.module';
 
 @NgModule({
   declarations: [
@@ -31,13 +50,17 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     DurationComponent,
     ConfirmationModalComponent,
-    LoadingComponent
+    LoadingComponent,
+    DateComponent,
+    AuthorsComponent,
+    FormErrorsComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CoursesRoutingModule
+    CoursesRoutingModule,
+    MaterialsModule
   ],
   exports: [
     HeaderComponent,
@@ -52,7 +75,10 @@ import { UserComponent } from './user/user.component';
     LoginComponent,
     DurationComponent,
     ConfirmationModalComponent,
-    LoadingComponent
+    LoadingComponent,
+    DateComponent,
+    AuthorsComponent,
+    FormErrorsComponent
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

@@ -8,6 +8,7 @@ import { FindByPipe } from './pipes/find-by.pipe';
 import { OrderByPipe } from './pipes/order-by.pipe';
 import { SharedRoutingModule } from './shared-routing.module';
 import { LoadingService } from './services/loading.service';
+import { MaterialsModule } from '../materials.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoadingService } from './services/loading.service';
   imports: [
     CommonModule,
     ComponentsModule,
-    SharedRoutingModule
+    SharedRoutingModule,
+    MaterialsModule
   ],
   providers: [
     OrderByPipe,

@@ -1,0 +1,9 @@
+<mat-form-field>
+    <mat-label for="date">Date</mat-label>
+    <input type="text" matInput name="date" id="date" placeholder="mm-dd-yyyy" (blur)="onTouched()" required
+        [formControl]="control" />
+
+    <mat-error>
+        <app-form-errors [control]="control"></app-form-errors>
+    </mat-error>
+</mat-form-field>

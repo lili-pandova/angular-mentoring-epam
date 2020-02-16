@@ -5,6 +5,7 @@ export interface Course {
     duration: string;
     description: string;
     createdAt?: string;
+    authors: any;
 }
 
 export type CourseDate = Pick<Course, 'creationDate'>;
