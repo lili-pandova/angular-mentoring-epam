@@ -1,11 +1,12 @@
 export interface Course {
     id: number;
     title: string;
-    creationDate: string;
-    duration: string;
+    creationDate: Date | string,
+    duration: string | number;
     description: string;
     createdAt?: string;
-    authors: any;
+    topRated? : boolean,
+    authors?: any;
 }
 
 export type CourseDate = Pick<Course, 'creationDate'>;

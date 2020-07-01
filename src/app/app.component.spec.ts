@@ -1,5 +1,11 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { Store, StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './courses/index/index.component';
@@ -18,6 +24,12 @@ import { UserComponent } from './shared/components/user/user.component';
 import { DurationPipe } from './shared/pipes/duration.pipe';
 import { FindByPipe } from './shared/pipes/find-by.pipe';
 import { OrderByPipe } from './shared/pipes/order-by.pipe';
+
+
+const routes = [ // TODO: chanhe it
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'home', component: ItemComponent },
+]
 
 describe('AppComponent', () => {
     let component: AppComponent;
@@ -41,6 +53,12 @@ describe('AppComponent', () => {
                 FindByPipe,
                 OrderByPipe,
                 DurationPipe
+            ],
+            imports: [
+                RouterTestingModule.withRoutes(routes), 
+                HttpClientTestingModule,
+                HttpClientModule,
+                StoreModule.forRoot({})
             ],
             providers: [FindByPipe],
             schemas: [NO_ERRORS_SCHEMA]

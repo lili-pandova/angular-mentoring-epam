@@ -11,7 +11,7 @@ export class LoadingService {
 
     show() {
         this.store.select<any>('authUser').subscribe(res => {
-            if (res.loading && document.getElementById('loader')) {
+            if (res && res.loading && document.getElementById('loader')) {
                 document.getElementById('loader').classList.remove('hidden');
             }
         });

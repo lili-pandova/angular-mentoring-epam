@@ -118,7 +118,7 @@ export function reducer(state = initialState, action: any): CoursesState {
             }
         }
 
-        case coursesActions.UpdateCourseSuccess: {
+        case coursesActions.DeleteCourseSuccess: {
             return {
                 ...state,
                 courses: [...state.courses.filter(item => item.id !== action.payload)],

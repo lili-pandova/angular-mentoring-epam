@@ -27,6 +27,10 @@ import { MaterialsModule } from '../materials.module';
         SharedModule,
         MaterialsModule
     ],
+    exports: [
+        FormsModule,
+        ReactiveFormsModule,
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CoursesModule {}

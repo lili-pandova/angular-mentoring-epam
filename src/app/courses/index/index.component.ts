@@ -12,7 +12,7 @@ import { AuthorizationService } from '../../shared/services/auth-service/auth-se
 import { ItemComponent } from './item/item.component';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../../store/reducers';
-import {LoadingService} from '../../shared/services/loading.service';
+import { LoadingService } from '../../shared/services/loading.service';
 import {
     DeleteCourseFail,
     DeleteCourseSuccess,
@@ -39,7 +39,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     public itemId;
 
     constructor(
-        private _coursesService: CoursesService,
+        public _coursesService: CoursesService,
         private _authService: AuthorizationService,
         private _router: Router,
         private _store: Store<fromStore.State>,
@@ -70,7 +70,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
         return this.itemId = id;
     }
 
-    ngAfterViewInit(){
+    ngAfterViewInit() {
         this.confirmModall.delete.subscribe(() => {
             this.appItem.closeModal();
             this._coursesService.destroy(this.itemId).subscribe(res => {

@@ -23,8 +23,10 @@ export class ItemComponent {
         private _coursesService: CoursesService) {
     }
 
-    openModal(id: any) {
-        document.querySelector('.confirmation-modal').classList.add('block');
+    openModal(id: any): void {
+        if(document.querySelector('.confirmation-modal')) {
+            document.querySelector('.confirmation-modal').classList.add('block');
+        }
 
         this.itemId = id;
         this.deleteId.emit(this.itemId);

@@ -13,7 +13,8 @@ import {
   MatNativeDateModule,
   MatProgressSpinnerModule,
   MatAutocompleteModule,
-  MatChipsModule
+  MatChipsModule,
+ // MatLabel
 } from '@angular/material/';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -60,7 +61,9 @@ import { MaterialsModule } from 'src/app/materials.module';
     FormsModule,
     ReactiveFormsModule,
     CoursesRoutingModule,
-    MaterialsModule
+    MaterialsModule,
+   // MatLabel,
+    MatInputModule
   ],
   exports: [
     HeaderComponent,
@@ -78,7 +81,9 @@ import { MaterialsModule } from 'src/app/materials.module';
     LoadingComponent,
     DateComponent,
     AuthorsComponent,
-    FormErrorsComponent
+    FormErrorsComponent,
+    MaterialsModule
+  //  MatLabel
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
